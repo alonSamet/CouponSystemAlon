@@ -1,0 +1,70 @@
+#body {
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding-bottom: 1rem;
+	min-height: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 130px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-size: 100%;
+	background: rgb(239, 243, 246);
+	font-family: Verdana, Times New Roman, Arial, Sans-Serif;
+}
+
+.backgroundimg {
+  background-image: url("img.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#row {
+	margin-left: 38%;
+	margin-left: 38%;
+}
+
+#login {
+	border-radius: 25px;
+	text-align: center;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	background: linear-gradient(rgba(24, 132, 233, 0.2), white);
+}
+
+#centerh {
+	text-align: center;
+}
+
+#centerv {
+	vertical-align: middle
+}
+
+#left {
+	text-align: left;
+}
+
+#footer {
+	border-radius: 15px;
+	position: sticky;
+	text-align: center;
+	margin-top: 250px;
+	right: 40%;
+	top: 40%;
+	bottom: 1px;
+	left: 40%;
+	padding: 0.5rem;
+}
+
+#panel {
+	border-radius: 15px;
+}
+
+#contact {
+	font-size: 18px
+}

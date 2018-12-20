@@ -1,0 +1,5 @@
+url for driver:
+jdbc:derby://localhost:1527/db
+
+connect to ij:
+connect 'jdbc:derby://localhost:1527/db';

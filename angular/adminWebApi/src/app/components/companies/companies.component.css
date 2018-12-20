@@ -1,0 +1,68 @@
+th, td {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#centerh {
+    text-align: center;
+}
+
+#centerv {
+    vertical-align: middle;
+}
+
+#left {
+    text-align:left;
+}
+
+#shadow {
+    text-shadow: -4px 4px 3px #999;
+}
+
+#container {
+    padding-bottom:120px; 
+    padding-left: 100px; 
+    width: 90%
+}
+
+#create {
+    padding-bottom:115px; 
+    text-align: center; 
+    background: linear-gradient(rgba(24, 132, 233, 0.2), white);
+}
+
+#get {
+    padding-bottom:180px; 
+    text-align: center; 
+    background: linear-gradient(rgba(26, 223, 131, 0.356), white);
+}
+
+#update {
+    padding-bottom:195px; 
+    text-align:center; 
+    background: linear-gradient(rgba(255,152,0,0.2), white);
+}
+
+#getinput {
+    text-align:center; 
+    width: 220px; 
+    margin-left: 20%
+}
+
+#smtable {
+    padding-block-end: 50px
+}
+
+#footer {
+    position: unset;
+    right: 40%;
+    top: 40%;
+    bottom: 1px;
+    left: 40%;
+    padding: 0.5rem;
+    text-align: center
+}
+
+#contact {
+    font-size: 18px
+}

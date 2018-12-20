@@ -1,0 +1,37 @@
+/* th, td {
+    text-align: center; 
+    vertical-align:middle;
+} */
+
+#shadow {
+    text-shadow: 1px 1px;
+}
+
+#centerh {
+    text-align: center;
+}
+
+#getby {
+    text-align:center;
+    width: 300px; 
+    margin-left:41%; 
+}
+
+#button {
+    padding-bottom: 70px;
+}
+
+#img {
+    padding-top: 30px; 
+    padding-left: 30px; 
+    padding-right: 30px;
+}
+#footer {
+    position: unset;
+    text-align: center;
+    right: 40%;
+    top: 40%;
+    bottom: 1px;
+    left: 40%;
+    padding: 0.5rem;
+}

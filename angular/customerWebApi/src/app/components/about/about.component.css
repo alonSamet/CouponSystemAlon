@@ -1,0 +1,27 @@
+#container {
+    padding-bottom: 120px; 
+    width: 90%
+}
+
+#leftimg {
+    width: 500px;
+    height: 500px; 
+    border: 3px solid black;
+}
+
+#rightimg {
+    width: 900px; 
+    height: 500px; 
+    border: 3px solid black;
+}
+
+#footer {
+    position: sticky;
+    text-align: center;
+    margin-top: 750px;
+    right: 40%;
+    top: 40%;
+    bottom: 1px;
+    left: 40%;
+    padding: 0.5rem;
+}

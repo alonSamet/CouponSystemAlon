@@ -1,0 +1,6 @@
+******* User Instructions ******* 
+
+- This system is working with apache derby database.
+- The class "CreateTables" in the package "create.db" creates the system's tables in db.
+- The package "sinsleton.test" contains the system capabilities Demonstrations. 
+- In order to get the system's java.doc (containing information about the system), open the "index.html" file in a web browser.

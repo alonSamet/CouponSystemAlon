@@ -1,0 +1,35 @@
+#welcome {
+    padding-bottom: 70px;
+}
+
+#shadow {
+    text-shadow: -4px 4px 3px #999;
+}
+
+#row {
+    position: relative;
+    padding-left: 33%; 
+}
+
+#img {
+    position: absolute;
+    margin-top: 300px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 1000px; 
+    height: 750px;
+}
+
+#footer {
+    position: sticky;
+    text-align: center;
+    margin-top: 750px;
+    right: 40%;
+    top: 40%;
+    bottom: 1px;
+    left: 40%;
+    padding: 0.5rem;
+}

@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+
+            <li>
+                <a routerLink="/"> Home
+                    <span class="fa fa-home"></span> &nbsp; </a>
+            </li>
+            <li>
+                <a routerLink="/companies"> Companies
+                    <span class="fas fa-chart-line"></span>&nbsp; </a>
+            </li>
+            <li>
+                <a routerLink="/customers"> Customers
+                    <span class='fas fa-users'></span>
+                </a>
+                <!-- <span class="glyphicon glyphicon-user"></span>&nbsp; </a> -->
+            </li>
+            <li>
+                <a routerLink="/about"> About
+                    <span class="fa fa-info-circle"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul id="logout" class="nav navbar-nav navbar-right">
+            <li>
+                <button (click)="logout()" class="btn btn-danger">
+                    <b>Logout &nbsp; </b>
+                    <span class="fas fa-sign-out-alt fa-lg"></span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

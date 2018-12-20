@@ -1,0 +1,81 @@
+th, td {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#container {
+    padding-bottom:120px; 
+    padding-left: 100px; 
+    width: 90%;
+}
+
+#create {
+    text-align: center; 
+    padding-bottom:5px; 
+    background: linear-gradient(rgba(24, 132, 233, 0.2), white); 
+}
+
+#get {
+    text-align: center;
+    padding-bottom:468px; 
+    background: linear-gradient(rgba(26, 223, 131, 0.356), white);
+}
+
+#getinput {
+    text-align:center; 
+    width: 220px; 
+    margin-left: 20%;
+}
+
+#smtablea {
+    align-items:center;
+    width:50px; 
+    height: 50px; 
+}
+
+#smtableb {
+    position: relative;
+}
+
+#back {
+    text-align:center; 
+    margin-top: 130px;
+}
+
+#update {
+    text-align:center; 
+    padding-bottom:400px; 
+    background: linear-gradient(rgba(255,152,0,0.2), white);
+}
+
+#centerh {
+    text-align: center;
+}
+
+#centerv {
+    vertical-align:middle;
+}
+
+#left {
+    text-align: left; 
+}
+
+#getby {
+    text-align:center;
+    width: 300px; 
+    margin-left:41%; 
+}
+
+#footer {
+    position: unset;
+    text-align: center;
+    right: 40%;
+    top: 40%;
+    bottom: 1px;
+    left: 40%;
+    padding: 0.5rem;
+}
+
+#contact {
+    font-size: 18px;
+}
