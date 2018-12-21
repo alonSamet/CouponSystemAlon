@@ -26,7 +26,7 @@ public class LoginServlet {
 			if (cf == null) // If login failed
 				return "redirect:http://localhost:8080";
 
-			// If login successed:
+			// If login succeeded, put the facade into the session
 			req.getSession().setAttribute("facade", cf);
 			
 			// Redirecting to the correct page:

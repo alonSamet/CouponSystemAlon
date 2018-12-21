@@ -13,4 +13,5 @@ public class AlonCouponSystemApplication {
 		SpringApplication.run(AlonCouponSystemApplication.class, args);
 		Test.projectTest();
 	}
+	
 }

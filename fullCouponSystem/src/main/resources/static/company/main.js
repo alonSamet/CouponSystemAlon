@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}"
+module.exports = "body {\r\n    background: url(\"https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\");\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n}\r\n\r\n#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnSUFBZ0k7SUFDaEksNkJBQTZCO0lBQzdCLHVCQUF1QjtDQUMxQjs7QUFFRDtJQUNJLGlCQUFpQjtJQUNqQixvQkFBb0I7Q0FDdkIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xyXG4gICAgYmFja2dyb3VuZDogdXJsKFwiaHR0cHM6Ly9pbWFnZXMucGV4ZWxzLmNvbS9waG90b3MvMjY0NTA3L3BleGVscy1waG90by0yNjQ1MDcuanBlZz9hdXRvPWNvbXByZXNzJmNzPXRpbnlzcmdiJmRwcj0yJmg9NjUwJnc9OTQwXCIpO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbn1cclxuXHJcbiNsb2dvdXQge1xyXG4gICAgcGFkZGluZy10b3A6IDhweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDI1cHg7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -55,17 +55,10 @@ module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\n    <d
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/company-spa.service */ "./src/app/services/company-spa.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+
 
 
 var AppComponent = /** @class */ (function () {
@@ -79,13 +72,13 @@ var AppComponent = /** @class */ (function () {
         // Invalidates the user session
         this._companySpa.ajaxLogOut(this.request, this.response);
     };
-    AppComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+    AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_1__["CompanySpaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -104,24 +97,20 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/my-company-details/my-company-details.component */ "./src/app/components/my-company-details/my-company-details.component.ts");
-/* harmony import */ var _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/my-coupons/my-coupons.component */ "./src/app/components/my-coupons/my-coupons.component.ts");
-/* harmony import */ var _components_about_about_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/about/about.component */ "./src/app/components/about/about.component.ts");
-/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/company-spa.service */ "./src/app/services/company-spa.service.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/my-company-details/my-company-details.component */ "./src/app/components/my-company-details/my-company-details.component.ts");
+/* harmony import */ var _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/my-coupons/my-coupons.component */ "./src/app/components/my-coupons/my-coupons.component.ts");
+/* harmony import */ var _components_about_about_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/about/about.component */ "./src/app/components/about/about.component.ts");
+/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
 
 
 
@@ -137,40 +126,40 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_6__["MyCompanyDetailsComponent"],
-                _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_7__["MyCouponsComponent"],
-                _components_about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+                _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_7__["MyCompanyDetailsComponent"],
+                _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_8__["MyCouponsComponent"],
+                _components_about_about_component__WEBPACK_IMPORTED_MODULE_9__["AboutComponent"],
+                _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot([
                     {
                         path: 'mycompanydetails',
-                        component: _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_6__["MyCompanyDetailsComponent"],
+                        component: _components_my_company_details_my_company_details_component__WEBPACK_IMPORTED_MODULE_7__["MyCompanyDetailsComponent"],
                     },
                     {
                         path: 'mycoupons',
-                        component: _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_7__["MyCouponsComponent"],
+                        component: _components_my_coupons_my_coupons_component__WEBPACK_IMPORTED_MODULE_8__["MyCouponsComponent"],
                     },
                     {
                         path: 'about',
-                        component: _components_about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"],
+                        component: _components_about_about_component__WEBPACK_IMPORTED_MODULE_9__["AboutComponent"],
                     },
                     {
                         path: '',
-                        component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"]
+                        component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"]
                     },
                 ])
             ],
-            providers: [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_9__["CompanySpaService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_11__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_11__["HashLocationStrategy"] }],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            providers: [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_10__["CompanySpaService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_12__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_12__["HashLocationStrategy"] }],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -279,7 +268,7 @@ var Coupon = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#container {\r\n    padding-bottom: 120px; \r\n    width: 90%\r\n}\r\n\r\n#leftimg {\r\n    width: 500px;\r\n    height: 500px; \r\n    border: 3px solid black;\r\n}\r\n\r\n#rightimg {\r\n    width: 900px; \r\n    height: 500px; \r\n    border: 3px solid black;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    text-align: center;\r\n    margin-top: 750px;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}"
+module.exports = "#container {\r\n    padding-bottom: 120px; \r\n    width: 90%\r\n}\r\n\r\n#leftimg {\r\n    width: 500px;\r\n    height: 500px; \r\n    border: 3px solid black;\r\n}\r\n\r\n#rightimg {\r\n    width: 900px; \r\n    height: 500px; \r\n    border: 3px solid black;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    text-align: center;\r\n    margin-top: 750px;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hYm91dC9hYm91dC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksc0JBQXNCO0lBQ3RCLFVBQVU7Q0FDYjs7QUFFRDtJQUNJLGFBQWE7SUFDYixjQUFjO0lBQ2Qsd0JBQXdCO0NBQzNCOztBQUVEO0lBQ0ksYUFBYTtJQUNiLGNBQWM7SUFDZCx3QkFBd0I7Q0FDM0I7O0FBRUQ7SUFDSSx5QkFBaUI7SUFBakIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixrQkFBa0I7SUFDbEIsV0FBVztJQUNYLFNBQVM7SUFDVCxZQUFZO0lBQ1osVUFBVTtJQUNWLGdCQUFnQjtDQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWJvdXQvYWJvdXQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjb250YWluZXIge1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEyMHB4OyBcclxuICAgIHdpZHRoOiA5MCVcclxufVxyXG5cclxuI2xlZnRpbWcge1xyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG4gICAgaGVpZ2h0OiA1MDBweDsgXHJcbiAgICBib3JkZXI6IDNweCBzb2xpZCBibGFjaztcclxufVxyXG5cclxuI3JpZ2h0aW1nIHtcclxuICAgIHdpZHRoOiA5MDBweDsgXHJcbiAgICBoZWlnaHQ6IDUwMHB4OyBcclxuICAgIGJvcmRlcjogM3B4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG4jZm9vdGVyIHtcclxuICAgIHBvc2l0aW9uOiBzdGlja3k7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW4tdG9wOiA3NTBweDtcclxuICAgIHJpZ2h0OiA0MCU7XHJcbiAgICB0b3A6IDQwJTtcclxuICAgIGJvdHRvbTogMXB4O1xyXG4gICAgbGVmdDogNDAlO1xyXG4gICAgcGFkZGluZzogMC41cmVtO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -304,29 +293,22 @@ module.exports = "<br>\n<br>\n<br>\n<br>\n<br>\n<br>\n\n<div class=\"container\"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
 
 var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
     }
     AboutComponent.prototype.ngOnInit = function () {
     };
-    AboutComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+    AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-about',
             template: __webpack_require__(/*! ./about.component.html */ "./src/app/components/about/about.component.html"),
             styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/components/about/about.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AboutComponent);
     return AboutComponent;
 }());
@@ -342,7 +324,7 @@ var AboutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#container {\r\n    padding-bottom: 120px;\r\n}\r\n\r\n#welcome {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#shadow {\r\n    text-shadow: -4px 4px 3px #999;\r\n}\r\n\r\n#row {\r\n    position: relative;\r\n    padding-left: 33%; \r\n}\r\n\r\n#img {\r\n    position: absolute;\r\n    margin-top: 300px;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%,-50%);\r\n    transform: translate(-50%,-50%);\r\n    width: 1000px; \r\n    height: 750px;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    text-align: center;\r\n    margin-top: 750px;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}\r\n"
+module.exports = "#container {\r\n    padding-bottom: 120px;\r\n}\r\n\r\n#welcome {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#shadow {\r\n    text-shadow: -4px 4px 3px #999;\r\n}\r\n\r\n#row {\r\n    position: relative;\r\n    padding-left: 33%; \r\n}\r\n\r\n#img {\r\n    position: absolute;\r\n    margin-top: 300px;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%,-50%);\r\n    transform: translate(-50%,-50%);\r\n    width: 1000px; \r\n    height: 750px;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    text-align: center;\r\n    margin-top: 750px;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9ob21lL2hvbWUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtDQUN6Qjs7QUFFRDtJQUNJLHFCQUFxQjtDQUN4Qjs7QUFFRDtJQUNJLCtCQUErQjtDQUNsQzs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixrQkFBa0I7Q0FDckI7O0FBRUQ7SUFDSSxtQkFBbUI7SUFDbkIsa0JBQWtCO0lBQ2xCLFVBQVU7SUFDVixTQUFTO0lBQ1Qsd0NBQXdDO0lBRXhDLGdDQUFnQztJQUNoQyxjQUFjO0lBQ2QsY0FBYztDQUNqQjs7QUFFRDtJQUNJLHlCQUFpQjtJQUFqQixpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsU0FBUztJQUNULFlBQVk7SUFDWixVQUFVO0lBQ1YsZ0JBQWdCO0NBQ25CIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjb250YWluZXIge1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEyMHB4O1xyXG59XHJcblxyXG4jd2VsY29tZSB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogNzBweDtcclxufVxyXG5cclxuI3NoYWRvdyB7XHJcbiAgICB0ZXh0LXNoYWRvdzogLTRweCA0cHggM3B4ICM5OTk7XHJcbn1cclxuXHJcbiNyb3cge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgcGFkZGluZy1sZWZ0OiAzMyU7IFxyXG59XHJcblxyXG4jaW1nIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIG1hcmdpbi10b3A6IDMwMHB4O1xyXG4gICAgbGVmdDogNTAlO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsLTUwJSk7XHJcbiAgICAtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwtNTAlKTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsLTUwJSk7XHJcbiAgICB3aWR0aDogMTAwMHB4OyBcclxuICAgIGhlaWdodDogNzUwcHg7XHJcbn1cclxuXHJcbiNmb290ZXIge1xyXG4gICAgcG9zaXRpb246IHN0aWNreTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbi10b3A6IDc1MHB4O1xyXG4gICAgcmlnaHQ6IDQwJTtcclxuICAgIHRvcDogNDAlO1xyXG4gICAgYm90dG9tOiAxcHg7XHJcbiAgICBsZWZ0OiA0MCU7XHJcbiAgICBwYWRkaW5nOiAwLjVyZW07XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -367,37 +349,30 @@ module.exports = "<br>\n<br>\n<br>\n<br>\n<div class=\"container\" id=\"containe
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/Company */ "./src/app/common/Company.ts");
-/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Company */ "./src/app/common/Company.ts");
+/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+
 
 
 
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(_companySpa) {
         this._companySpa = _companySpa;
-        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
+        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_2__["Company"](0, "", "", "");
         this.companyToGet = this._companySpa.companyToGet;
     }
     HomeComponent.prototype.ngOnInit = function () {
         this._companySpa.ajaxGetMyCompanyDetails();
     };
-    HomeComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+    HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__["CompanySpaService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -413,7 +388,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "th, td {\r\n    text-align: center; \r\n    line-height: 35px;\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#details {\r\n    margin-left: 300px; \r\n    margin-right: 300px; \r\n    align-items:center;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    margin-top: 750px  ;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n    text-align: center\r\n}"
+module.exports = "th, td {\r\n    text-align: center; \r\n    line-height: 35px;\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#details {\r\n    margin-left: 300px; \r\n    margin-right: 300px; \r\n    align-items:center;\r\n}\r\n\r\n#footer {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    margin-top: 750px  ;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n    text-align: center\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9teS1jb21wYW55LWRldGFpbHMvbXktY29tcGFueS1kZXRhaWxzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxtQkFBbUI7SUFDbkIsa0JBQWtCO0NBQ3JCOztBQUVEO0lBQ0ksbUJBQW1CO0NBQ3RCOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLG9CQUFvQjtJQUNwQixtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSx5QkFBaUI7SUFBakIsaUJBQWlCO0lBQ2pCLG9CQUFvQjtJQUNwQixXQUFXO0lBQ1gsU0FBUztJQUNULFlBQVk7SUFDWixVQUFVO0lBQ1YsZ0JBQWdCO0lBQ2hCLGtCQUFrQjtDQUNyQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbXktY29tcGFueS1kZXRhaWxzL215LWNvbXBhbnktZGV0YWlscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGgsIHRkIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjsgXHJcbiAgICBsaW5lLWhlaWdodDogMzVweDtcclxufVxyXG5cclxuI2NlbnRlcmgge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4jZGV0YWlscyB7XHJcbiAgICBtYXJnaW4tbGVmdDogMzAwcHg7IFxyXG4gICAgbWFyZ2luLXJpZ2h0OiAzMDBweDsgXHJcbiAgICBhbGlnbi1pdGVtczpjZW50ZXI7XHJcbn1cclxuXHJcbiNmb290ZXIge1xyXG4gICAgcG9zaXRpb246IHN0aWNreTtcclxuICAgIG1hcmdpbi10b3A6IDc1MHB4ICA7XHJcbiAgICByaWdodDogNDAlO1xyXG4gICAgdG9wOiA0MCU7XHJcbiAgICBib3R0b206IDFweDtcclxuICAgIGxlZnQ6IDQwJTtcclxuICAgIHBhZGRpbmc6IDAuNXJlbTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlclxyXG59Il19 */"
 
 /***/ }),
 
@@ -438,37 +413,30 @@ module.exports = "<br>\n<br>\n<br>\n<h3 id=\"centerh\">\n    <span class=\"label
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyCompanyDetailsComponent", function() { return MyCompanyDetailsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
-/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/./Company */ "./src/app/common/Company.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/./Company */ "./src/app/common/Company.ts");
+
 
 
 
 var MyCompanyDetailsComponent = /** @class */ (function () {
     function MyCompanyDetailsComponent(_companySpa) {
         this._companySpa = _companySpa;
-        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_2__["Company"](0, "", "", "");
+        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_3__["Company"](0, "", "", "");
         this.companyToGet = this._companySpa.companyToGet;
     }
     MyCompanyDetailsComponent.prototype.ngOnInit = function () {
         this._companySpa.ajaxGetMyCompanyDetails();
     };
-    MyCompanyDetailsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+    MyCompanyDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-my-company-details',
             template: __webpack_require__(/*! ./my-company-details.component.html */ "./src/app/components/my-company-details/my-company-details.component.html"),
             styles: [__webpack_require__(/*! ./my-company-details.component.css */ "./src/app/components/my-company-details/my-company-details.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_1__["CompanySpaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
     ], MyCompanyDetailsComponent);
     return MyCompanyDetailsComponent;
 }());
@@ -484,7 +452,7 @@ var MyCompanyDetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align: middle;\r\n}\r\n\r\n#container {\r\n    padding-bottom:120px; \r\n    padding-left: 100px; \r\n    width: 90%;\r\n}\r\n\r\n#create {\r\n    text-align: center; \r\n    padding-bottom:5px; \r\n    background: linear-gradient(rgba(24, 132, 233, 0.2), white); \r\n}\r\n\r\n#get {\r\n    text-align: center;\r\n    padding-bottom:468px; \r\n    background: linear-gradient(rgba(26, 223, 131, 0.356), white);\r\n}\r\n\r\n#getinput {\r\n    text-align:center; \r\n    width: 220px; \r\n    margin-left: 20%;\r\n}\r\n\r\n#smtablea {\r\n    align-items:center;\r\n    width:50px; \r\n    height: 50px; \r\n}\r\n\r\n#smtableb {\r\n    position: relative;\r\n}\r\n\r\n#back {\r\n    text-align:center; \r\n    margin-top: 130px;\r\n}\r\n\r\n#update {\r\n    text-align:center; \r\n    padding-bottom:400px; \r\n    background: linear-gradient(rgba(255,152,0,0.2), white);\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#centerv {\r\n    vertical-align:middle;\r\n}\r\n\r\n#left {\r\n    text-align: left; \r\n}\r\n\r\n#getby {\r\n    text-align:center;\r\n    width: 300px; \r\n    margin-left:41%; \r\n}\r\n\r\n#footer {\r\n    position: unset;\r\n    text-align: center;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}\r\n\r\n#contact {\r\n    font-size: 18px;\r\n}"
+module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align: middle;\r\n}\r\n\r\n#container {\r\n    padding-bottom:120px; \r\n    padding-left: 100px; \r\n    width: 90%;\r\n}\r\n\r\n#create {\r\n    text-align: center; \r\n    padding-bottom:5px; \r\n    background: linear-gradient(rgba(24, 132, 233, 0.2), white); \r\n}\r\n\r\n#get {\r\n    text-align: center;\r\n    padding-bottom:468px; \r\n    background: linear-gradient(rgba(26, 223, 131, 0.356), white);\r\n}\r\n\r\n#getinput {\r\n    text-align:center; \r\n    width: 220px; \r\n    margin-left: 20%;\r\n}\r\n\r\n#smtablea {\r\n    align-items:center;\r\n    width:50px; \r\n    height: 50px; \r\n}\r\n\r\n#smtableb {\r\n    position: relative;\r\n}\r\n\r\n#back {\r\n    text-align:center; \r\n    margin-top: 130px;\r\n}\r\n\r\n#update {\r\n    text-align:center; \r\n    padding-bottom:400px; \r\n    background: linear-gradient(rgba(255,152,0,0.2), white);\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#centerv {\r\n    vertical-align:middle;\r\n}\r\n\r\n#left {\r\n    text-align: left; \r\n}\r\n\r\n#getby {\r\n    text-align:center;\r\n    width: 300px; \r\n    margin-left:41%; \r\n}\r\n\r\n#footer {\r\n    position: unset;\r\n    text-align: center;\r\n    right: 40%;\r\n    top: 40%;\r\n    bottom: 1px;\r\n    left: 40%;\r\n    padding: 0.5rem;\r\n}\r\n\r\n#contact {\r\n    font-size: 18px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9teS1jb3Vwb25zL215LWNvdXBvbnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLG1CQUFtQjtJQUNuQix1QkFBdUI7Q0FDMUI7O0FBRUQ7SUFDSSxxQkFBcUI7SUFDckIsb0JBQW9CO0lBQ3BCLFdBQVc7Q0FDZDs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsNERBQTREO0NBQy9EOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLHFCQUFxQjtJQUNyQiw4REFBOEQ7Q0FDakU7O0FBRUQ7SUFDSSxrQkFBa0I7SUFDbEIsYUFBYTtJQUNiLGlCQUFpQjtDQUNwQjs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsYUFBYTtDQUNoQjs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7Q0FDckI7O0FBRUQ7SUFDSSxrQkFBa0I7SUFDbEIscUJBQXFCO0lBQ3JCLHdEQUF3RDtDQUMzRDs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtJQUNJLHNCQUFzQjtDQUN6Qjs7QUFFRDtJQUNJLGlCQUFpQjtDQUNwQjs7QUFFRDtJQUNJLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2IsZ0JBQWdCO0NBQ25COztBQUVEO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsU0FBUztJQUNULFlBQVk7SUFDWixVQUFVO0lBQ1YsZ0JBQWdCO0NBQ25COztBQUVEO0lBQ0ksZ0JBQWdCO0NBQ25CIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9teS1jb3Vwb25zL215LWNvdXBvbnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRoLCB0ZCB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7IFxyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxufVxyXG5cclxuI2NvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbToxMjBweDsgXHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwMHB4OyBcclxuICAgIHdpZHRoOiA5MCU7XHJcbn1cclxuXHJcbiNjcmVhdGUge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyOyBcclxuICAgIHBhZGRpbmctYm90dG9tOjVweDsgXHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQocmdiYSgyNCwgMTMyLCAyMzMsIDAuMiksIHdoaXRlKTsgXHJcbn1cclxuXHJcbiNnZXQge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZy1ib3R0b206NDY4cHg7IFxyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHJnYmEoMjYsIDIyMywgMTMxLCAwLjM1NiksIHdoaXRlKTtcclxufVxyXG5cclxuI2dldGlucHV0IHtcclxuICAgIHRleHQtYWxpZ246Y2VudGVyOyBcclxuICAgIHdpZHRoOiAyMjBweDsgXHJcbiAgICBtYXJnaW4tbGVmdDogMjAlO1xyXG59XHJcblxyXG4jc210YWJsZWEge1xyXG4gICAgYWxpZ24taXRlbXM6Y2VudGVyO1xyXG4gICAgd2lkdGg6NTBweDsgXHJcbiAgICBoZWlnaHQ6IDUwcHg7IFxyXG59XHJcblxyXG4jc210YWJsZWIge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcblxyXG4jYmFjayB7XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjsgXHJcbiAgICBtYXJnaW4tdG9wOiAxMzBweDtcclxufVxyXG5cclxuI3VwZGF0ZSB7XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjsgXHJcbiAgICBwYWRkaW5nLWJvdHRvbTo0MDBweDsgXHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQocmdiYSgyNTUsMTUyLDAsMC4yKSwgd2hpdGUpO1xyXG59XHJcblxyXG4jY2VudGVyaCB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbiNjZW50ZXJ2IHtcclxuICAgIHZlcnRpY2FsLWFsaWduOm1pZGRsZTtcclxufVxyXG5cclxuI2xlZnQge1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDsgXHJcbn1cclxuXHJcbiNnZXRieSB7XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjtcclxuICAgIHdpZHRoOiAzMDBweDsgXHJcbiAgICBtYXJnaW4tbGVmdDo0MSU7IFxyXG59XHJcblxyXG4jZm9vdGVyIHtcclxuICAgIHBvc2l0aW9uOiB1bnNldDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHJpZ2h0OiA0MCU7XHJcbiAgICB0b3A6IDQwJTtcclxuICAgIGJvdHRvbTogMXB4O1xyXG4gICAgbGVmdDogNDAlO1xyXG4gICAgcGFkZGluZzogMC41cmVtO1xyXG59XHJcblxyXG4jY29udGFjdCB7XHJcbiAgICBmb250LXNpemU6IDE4cHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -509,20 +477,13 @@ module.exports = "<br>\n<br>\n<br>\n<h3 id=\"centerh\">\n    <span class=\"label
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyCouponsComponent", function() { return MyCouponsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _common_Coupon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/./Coupon */ "./src/app/common/Coupon.ts");
-/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_Coupon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/./Coupon */ "./src/app/common/Coupon.ts");
+/* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -531,9 +492,9 @@ var MyCouponsComponent = /** @class */ (function () {
     function MyCouponsComponent(_companySpa) {
         this._companySpa = _companySpa;
         this.couponsList = new Array();
-        this.newCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_1__["Coupon"](0, "", null, null, 0, "", "", 0, "");
-        this.updatedCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_1__["Coupon"](0, "", null, null, 0, "", "", 0, "");
-        this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_1__["Coupon"](0, "", null, null, 0, "", "", 0, "");
+        this.newCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
+        this.updatedCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
+        this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
         this.endDateFilter = null;
         this.topPriceFilter = 0;
         //ngIf boolean variables:
@@ -594,7 +555,7 @@ var MyCouponsComponent = /** @class */ (function () {
     MyCouponsComponent.prototype.createCoupon = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             buttonsStyling: true,
@@ -612,13 +573,13 @@ var MyCouponsComponent = /** @class */ (function () {
                 _this._companySpa.ajaxCreateCoupon(_this.newCoupon);
                 swalWithBootstrapButtons('The new coupon "' + _this.newCoupon.title + '" was created !');
             }
-            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
     };
     MyCouponsComponent.prototype.removeCoupon = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             buttonsStyling: true,
@@ -637,13 +598,13 @@ var MyCouponsComponent = /** @class */ (function () {
                 _this._companySpa.ajaxRemoveCoupon(_this.couponsList[index]);
                 swalWithBootstrapButtons('The coupon "' + _this.couponsList[index].title + '"  was deleted!');
             }
-            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
     };
     MyCouponsComponent.prototype.updateCoupon = function () {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             buttonsStyling: true,
@@ -661,7 +622,7 @@ var MyCouponsComponent = /** @class */ (function () {
                 _this._companySpa.ajaxUpdateCoupon(_this.updatedCoupon);
                 swalWithBootstrapButtons('The coupon "' + _this.updatedCoupon.title + '" Was Updated!');
             }
-            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
     };
     MyCouponsComponent.prototype.getCouponById = function () {
@@ -702,13 +663,13 @@ var MyCouponsComponent = /** @class */ (function () {
         this.showGetDetails = false;
         this.showGetButtons = true;
     };
-    MyCouponsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+    MyCouponsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-my-coupons',
             template: __webpack_require__(/*! ./my-coupons.component.html */ "./src/app/components/my-coupons/my-coupons.component.html"),
             styles: [__webpack_require__(/*! ./my-coupons.component.css */ "./src/app/components/my-coupons/my-coupons.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__["CompanySpaService"]])
     ], MyCouponsComponent);
     return MyCouponsComponent;
 }());
@@ -727,21 +688,14 @@ var MyCouponsComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompanySpaService", function() { return CompanySpaService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/./Company */ "./src/app/common/Company.ts");
-/* harmony import */ var _common_Coupon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/./Coupon */ "./src/app/common/Coupon.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_Company__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/./Company */ "./src/app/common/Company.ts");
+/* harmony import */ var _common_Coupon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/./Coupon */ "./src/app/common/Coupon.ts");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -750,11 +704,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CompanySpaService = /** @class */ (function () {
     function CompanySpaService(_http) {
         this._http = _http;
-        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
+        this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_2__["Company"](0, "", "", "");
         this.couponsList = new Array();
-        this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
+        this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_3__["Coupon"](0, "", null, null, 0, "", "", 0, "");
         this.showSmallTable = false;
-        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.mixin({
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             buttonsStyling: true,
@@ -771,7 +725,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxRemoveCoupon = function (c) {
         var _this = this;
-        this._http.delete("http://localhost:8080/company/removecoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
+        this._http.delete("http://localhost:8080/company/removecoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_4__["RequestOptions"]({ body: c }))
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
@@ -904,11 +858,11 @@ var CompanySpaService = /** @class */ (function () {
             _this.swalWithBootstrapButtons(err._body);
         });
     };
-    CompanySpaService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+    CompanySpaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_3__["Http"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"]])
     ], CompanySpaService);
     return CompanySpaService;
 }());
@@ -977,7 +931,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workSpaces\angular\companywebapi\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\workSpaces\AngularCouponSystem\companywebapi\src\main.ts */"./src/main.ts");
 
 
 /***/ })

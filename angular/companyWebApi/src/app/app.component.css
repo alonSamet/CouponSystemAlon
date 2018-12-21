@@ -1,4 +1,11 @@
+body {
+    background: url("https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #logout {
     padding-top: 8px;
     padding-right: 25px;
 }
+

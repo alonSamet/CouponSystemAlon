@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}"
+module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}\r\n\r\nbody {\r\n    background: url(\"https://images.pexels.com/photos/54581/escalator-stairs-metal-segments-architecture-54581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\");\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n}\r\n"
 
 /***/ }),
 
@@ -716,7 +716,7 @@ module.exports = "#welcome {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#shadow {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<br>\n<br>\n<br>\n<div class=\"container\">\n    <div class=\"row\" id=\"welcome\">\n        <h4 id=\"shadow\">\n            <b> Hi\n                <u>\n                    <i>Admin</i>\n                </u> , you are logged-in </b>\n        </h4>\n    </div>\n\n\n    <div class=\"row\" id=\"row\">\n        <img src=\"../../../admin/assets/admin.PNG\" id=\"img\">\n    </div>\n</div>\n\n<div id=\"footer\" class=\"panel panel-info\">\n    <div class=\"panel-heading\">\n        <span style=\"font-size: 18px\">\n            <strong>Contact us:&nbsp; </strong>\n        </span>\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\n    </div>\n    <div class=\"panel-body\">\n        Powered by\n        <strong>\n            <i> Alon Samet </i>\n            <br>\n        </strong>\n        <h6> © All Rights Reserved </h6>\n    </div>\n    <br>\n</div>"
+module.exports = "<br>\n<br>\n<br>\n<br>\n<div class=\"container\">\n    <div class=\"row\" id=\"welcome\">\n        <h4 id=\"shadow\">\n            <b> Hi\n                <u>\n                    <i>Admin</i>\n                </u> , you are logged-in </b>\n        </h4>\n    </div>\n\n\n\n</div>\n\n<div id=\"footer\" class=\"panel panel-info\">\n    <div class=\"panel-heading\">\n        <span style=\"font-size: 18px\">\n            <strong>Contact us:&nbsp; </strong>\n        </span>\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\n    </div>\n    <div class=\"panel-body\">\n        Powered by\n        <strong>\n            <i> Alon Samet </i>\n            <br>\n        </strong>\n        <h6> © All Rights Reserved </h6>\n    </div>\n    <br>\n</div>"
 
 /***/ }),
 
@@ -1034,7 +1034,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workSpaces\angular\adminwebapi\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\workSpaces\AngularCouponSystem\adminwebapi\src\main.ts */"./src/main.ts");
 
 
 /***/ })

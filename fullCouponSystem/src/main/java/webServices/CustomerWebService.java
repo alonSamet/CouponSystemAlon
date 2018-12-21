@@ -114,6 +114,7 @@ public class CustomerWebService {
 	@RequestMapping(value = "/customer/logout/", method = RequestMethod.POST)
 	public void logOut(HttpServletRequest req) throws CouponSystemException {
 		HttpSession session = req.getSession(false);
+//		session.removeAttribute("facade");
 		session.invalidate();
 	}
 

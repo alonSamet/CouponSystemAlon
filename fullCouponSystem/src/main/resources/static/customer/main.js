@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}"
+module.exports = "body {\r\n    background: url(\"https://images.pexels.com/photos/264471/pexels-photo-264471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\");\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n}\r\n#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;\r\n}"
 
 /***/ }),
 
@@ -940,7 +940,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workSpaces\angular\customerwebapi\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\workSpaces\AngularCouponSystem\customerwebapi\src\main.ts */"./src/main.ts");
 
 
 /***/ })
