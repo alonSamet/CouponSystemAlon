@@ -93,7 +93,7 @@ public class CustomerFacade implements ClientFacade {
 	 */
 	public Collection<Coupon> getAllPurchesedCoupons() throws CouponSystemException {
 		Collection<Coupon> allPurchasedCoupons = customerDb.getCustomerCouponsByCustomerId(LoggedInCustomerId);
-		System.out.println("You don't hava any purchased coupons");
+		System.out.println("You don't have any purchased coupons");
 		return allPurchasedCoupons;
 
 	}

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background: url("https://images.pexels.com/photos/54581/escalator-stairs-metal-segments-architecture-54581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+    padding-bottom: 1rem;
+    min-height: 100%;
+    margin-left: 50px; margin-right: 50px; margin-top: 30px;
+    font-family: Verdana,Times New Roman,Arial,Sans-Serif;
+}
