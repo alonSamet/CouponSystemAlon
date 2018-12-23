@@ -303,7 +303,7 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
-sweetalert2@7.32.4
+sweetalert2@7.33.1
 MIT
 The MIT License (MIT)
 

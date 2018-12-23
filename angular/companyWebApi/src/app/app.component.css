@@ -4,3 +4,15 @@
     padding-right: 25px;
 }
 
+#footer {
+    border-radius: 15px;
+	position: inherit;
+	text-align: center;
+	margin-top: 100px;
+	right: 40%;
+	top: 40%;
+	bottom: 1px;
+	left: 40%;
+	padding: 0.5rem;
+}
+

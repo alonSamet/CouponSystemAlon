@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLCtFQUErRSIsImZpbGUiOiJzcmMvc3R5bGVzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbiJdfQ== */", '', '']]
+module.exports = [[module.i, "body {\r\n    /* background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") fixed;\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n    position: relative;\r\n    margin: 0; */\r\n    background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") no-repeat center center fixed;\r\n    background-size: cover;\r\n    padding-bottom: 1rem;\r\n    min-height: 100%;\r\n    margin-left: 50px; margin-right: 50px; margin-top: 30px;\r\n    font-family: Verdana,Times New Roman,Arial,Sans-Serif;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0k7Ozs7aUJBSWE7SUFDYixzSkFBc0o7SUFJdEosdUJBQXVCO0lBQ3ZCLHFCQUFxQjtJQUNyQixpQkFBaUI7SUFDakIsa0JBQWtCLENBQUMsbUJBQW1CLENBQUMsaUJBQWlCO0lBQ3hELHNEQUFzRDtDQUN6RCIsImZpbGUiOiJzcmMvc3R5bGVzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xyXG4gICAgLyogYmFja2dyb3VuZDogdXJsKFwiaHR0cHM6Ly9pbWFnZXMucGV4ZWxzLmNvbS9waG90b3MvMjE4NTkvcGV4ZWxzLXBob3RvLmpwZz9hdXRvPWNvbXByZXNzJmNzPXRpbnlzcmdiJmRwcj0yJmg9NzUwJnc9MTI2MFwiKSBmaXhlZDtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgbWFyZ2luOiAwOyAqL1xyXG4gICAgYmFja2dyb3VuZDogdXJsKFwiaHR0cHM6Ly9pbWFnZXMucGV4ZWxzLmNvbS9waG90b3MvMjE4NTkvcGV4ZWxzLXBob3RvLmpwZz9hdXRvPWNvbXByZXNzJmNzPXRpbnlzcmdiJmRwcj0yJmg9NzUwJnc9MTI2MFwiKSBuby1yZXBlYXQgY2VudGVyIGNlbnRlciBmaXhlZDsgXHJcbiAgICAtd2Via2l0LWJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgICAtbW96LWJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgICAtby1iYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxcmVtO1xyXG4gICAgbWluLWhlaWdodDogMTAwJTtcclxuICAgIG1hcmdpbi1sZWZ0OiA1MHB4OyBtYXJnaW4tcmlnaHQ6IDUwcHg7IG1hcmdpbi10b3A6IDMwcHg7XHJcbiAgICBmb250LWZhbWlseTogVmVyZGFuYSxUaW1lcyBOZXcgUm9tYW4sQXJpYWwsU2Fucy1TZXJpZjtcclxufVxyXG4iXX0= */", '', '']]
 
 /***/ }),
 
@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workSpaces\AngularCouponSystem\companywebapi\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\CouponSystemAlon\angular\companywebapi\src\styles.css */"./src/styles.css");
 
 
 /***/ })

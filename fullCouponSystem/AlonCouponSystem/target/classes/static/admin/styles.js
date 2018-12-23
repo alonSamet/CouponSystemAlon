@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "body {\r\n    background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") no-repeat center center fixed;\r\n    background-size: cover;\r\n    min-height: 100%;\r\n    margin-left: 50px; margin-right: 50px; margin-top: 30px;\r\n    font-family: Verdana,Times New Roman,Arial,Sans-Serif;\r\n}"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workSpaces\AngularCouponSystem\adminwebapi\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\CouponSystemAlon\angular\adminwebapi\src\styles.css */"./src/styles.css");
 
 
 /***/ })

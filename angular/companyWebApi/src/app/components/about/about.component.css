@@ -14,14 +14,3 @@
     height: 500px; 
     border: 3px solid black;
 }
-
-#footer {
-    position: sticky;
-    text-align: center;
-    margin-top: 750px;
-    right: 40%;
-    top: 40%;
-    bottom: 1px;
-    left: 40%;
-    padding: 0.5rem;
-}

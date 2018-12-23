@@ -22,11 +22,10 @@
 
 <div class="container">
   <div class="row">
-    <div *ngFor="let c of allCouponsList; let i = index" class="col-md-4">
+    <div *ngFor="let c of allCouponsList; let i = index" class="col-md-3">
       <div class="thumbnail">
-        <img [src]=c.image class="img-rounded" width="500" height="300" id="img">
+        <img [src]=c.image class="img-rounded" width="480" height="280" id="img">
         <div class="caption">
-
           <h3 id="centerh">
             <b>{{c.title}} </b>
           </h3>
@@ -59,7 +58,6 @@
               <span class="glyphicon glyphicon-shopping-cart"></span>
             </button>
           </p>
-
         </div>
       </div>
     </div>
@@ -77,27 +75,5 @@
         <span class="warning"></span>
       </button>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div id="footer" class="panel panel-info">
-    <div class="panel-heading">
-      <span style="font-size: 18px">
-        <strong>Contact us:&nbsp; </strong>
-      </span>
-      <a class="btn fab fa-facebook fa-2x" href="https://www.facebook.com/tamarcovich"></a>
-      <a class="btn fab fa-linkedin fa-2x" href="https://www.linkedin.com/in/alon-samet/"></a>
-      <a class="btn fas fa-envelope fa-2x" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1"></a>
-    </div>
-    <div class="panel-body">
-      Powered by
-      <strong>
-        <i> Alon Samet </i>
-        <br>
-      </strong>
-      <h6> © All Rights Reserved </h6>
-    </div>
-    <br>
   </div>
 </div>

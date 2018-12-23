@@ -52,17 +52,3 @@ th, td {
 #smtable {
     padding-block-end: 50px
 }
-
-#footer {
-    position: unset;
-    right: 40%;
-    top: 40%;
-    bottom: 1px;
-    left: 40%;
-    padding: 0.5rem;
-    text-align: center
-}
-
-#contact {
-    font-size: 18px
-}

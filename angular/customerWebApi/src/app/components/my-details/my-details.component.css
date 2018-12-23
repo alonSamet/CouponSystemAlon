@@ -12,14 +12,3 @@ th, td {
     margin-right: 300px; 
     align-items:center;
 }
-
-#footer {
-    position: sticky;
-    margin-top: 750px  ;
-    right: 40%;
-    top: 40%;
-    bottom: 1px;
-    left: 40%;
-    padding: 0.5rem;
-    text-align: center
-}

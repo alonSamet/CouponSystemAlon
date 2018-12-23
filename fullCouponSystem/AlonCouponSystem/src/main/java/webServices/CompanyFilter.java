@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import facades.CustomerFacade;
+import facades.CompanyFacade;
 
 public class CompanyFilter implements Filter {
 
@@ -26,7 +26,7 @@ public class CompanyFilter implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 		// If the client has no facade - he is redirected to the login page:
 		if (req.getSession().getAttribute("facade") == null
-				|| !(req.getSession().getAttribute("facade") instanceof CustomerFacade)) {
+				|| !(req.getSession().getAttribute("facade") instanceof CompanyFacade)) {
 			resp.sendRedirect("http://localhost:8080");
 		}
 		chain.doFilter(req, resp);

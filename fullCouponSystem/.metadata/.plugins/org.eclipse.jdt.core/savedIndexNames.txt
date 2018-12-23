@@ -24,7 +24,6 @@ INDEX VERSION 1.131+C:\CouponSystemAlon\fullCouponSystem\.metadata\.plugins\org.
 3906732440.index
 3119180803.index
 670058770.index
-1980938622.index
 1745880115.index
 4084867800.index
 1924913261.index

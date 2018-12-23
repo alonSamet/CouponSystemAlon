@@ -22,14 +22,3 @@
     width: 1000px; 
     height: 750px;
 }
-
-#footer {
-    position: sticky;
-    text-align: center;
-    margin-top: 750px;
-    right: 40%;
-    top: 40%;
-    bottom: 1px;
-    left: 40%;
-    padding: 0.5rem;
-}

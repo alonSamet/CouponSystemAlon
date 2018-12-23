@@ -1,0 +1,72 @@
+body {
+	font-family: Verdana,Times New Roman,Arial,Sans-Serif;
+	padding-bottom: 1rem;
+	min-height: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 130px;
+	background: rgb(239, 243, 246);
+	font-family: Verdana, Times New Roman, Arial, Sans-Serif;
+	background:
+		url("https://images.pexels.com/photos/264576/pexels-photo-264576.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	text-align: center;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0
+		#b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px
+		rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px
+		rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px
+		rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+
+h4 {
+	text-align: center;
+}
+
+#box {
+
+  width: 30%;
+}
+
+#login {
+	border-radius: 25px;
+	text-align: center;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	background: linear-gradient(rgba(2, 91, 173, 0.2), white);
+}
+
+#centerh {
+	text-align: center;
+}
+
+#centerv {
+	vertical-align: middle
+}
+
+#left {
+	text-align: left;
+}
+
+#footer {
+	border-radius: 15px;
+	position: inherit;
+	text-align: center;
+	margin-top: 100px;
+	right: 40%;
+	top: 40%;
+	bottom: 1px;
+	left: 40%;
+	padding: 0.5rem;
+}
+
+#panel {
+	border-radius: 15px;
+}
+
+#contact {
+	font-size: 18px
+}
