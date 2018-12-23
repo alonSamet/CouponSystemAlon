@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body {\r\n    /* background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") fixed;\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n    position: relative; */\r\n    background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") no-repeat center center fixed;\r\n    background-size: cover;\r\n    margin: 0;\r\n    padding-bottom: 1rem;\r\n    min-height: 100%;\r\n    margin-left: 50px; margin-right: 50px; margin-top: 30px;\r\n    font-family: Verdana,Times New Roman,Arial,Sans-Serif;\r\n}\r\n\r\n"
+module.exports = "body {\r\n    background: url(\"https://images.pexels.com/photos/21859/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\") no-repeat center center fixed;\r\n    background-size: cover;\r\n    margin: 0;\r\n    padding-bottom: 1rem;\r\n    min-height: 100%;\r\n    margin-left: 50px; margin-right: 50px; margin-top: 30px;\r\n    font-family: Verdana,Times New Roman,Arial,Sans-Serif;\r\n}\r\n\r\n"
 
 /***/ }),
 
