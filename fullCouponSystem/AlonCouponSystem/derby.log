@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sun Dec 23 00:53:17 EET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-d81f-6d91-000008e0b818 
-on database directory C:\workSpaces\CStest2\AlonCouponSystem\db with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Sun Dec 23 10:07:14 EET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-da1a-94a5-0000086e3148 
+on database directory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\db with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
 Loaded from file:/C:/Users/Alon/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_191-b12
-user.dir=C:\workSpaces\CStest2\AlonCouponSystem
+user.dir=C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
