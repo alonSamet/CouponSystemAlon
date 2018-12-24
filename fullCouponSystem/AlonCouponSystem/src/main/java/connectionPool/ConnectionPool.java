@@ -35,6 +35,11 @@ public class ConnectionPool {
 
 	private static ConnectionPool instance;
 
+	/**
+	 * 
+	 * @return
+	 * @throws CouponSystemException
+	 */
 	public static ConnectionPool getInstance() throws CouponSystemException {
 		if (instance == null) {
 			try {

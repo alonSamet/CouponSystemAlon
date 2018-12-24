@@ -93,7 +93,9 @@ public class CustomerFacade implements ClientFacade {
 	 */
 	public Collection<Coupon> getAllPurchesedCoupons() throws CouponSystemException {
 		Collection<Coupon> allPurchasedCoupons = customerDb.getCustomerCouponsByCustomerId(LoggedInCustomerId);
-		System.out.println("You don't have any purchased coupons");
+		if (allPurchasedCoupons.isEmpty()) {
+			System.out.println("You don't have any purchased coupons");
+		}
 		return allPurchasedCoupons;
 
 	}
@@ -107,7 +109,7 @@ public class CustomerFacade implements ClientFacade {
 			}
 		}
 		if (allPurchasedCouponsByType.isEmpty()) {
-			System.out.println("You don't have purchased coupons of this type");
+			System.out.println("You don't have any purchased coupons of this type.\nPlease try again");
 		}
 		return allPurchasedCouponsByType;
 	}
@@ -129,7 +131,7 @@ public class CustomerFacade implements ClientFacade {
 			}
 		}
 		if (allCouponsByPrice.isEmpty()) {
-			System.out.println("You don't have purchased coupons below this price.\nPlease try again");
+			System.out.println("You don't have any purchased coupons below this price.\nPlease try again");
 		}
 		return allCouponsByPrice;
 	}

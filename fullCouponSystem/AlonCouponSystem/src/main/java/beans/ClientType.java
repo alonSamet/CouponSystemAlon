@@ -1,7 +1,7 @@
 package beans;
 
 /**
- * for the login method in the coupon system singelton
+ * This Enum is for the login method in the coupon system singelton
  */
 
 public enum ClientType {

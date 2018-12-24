@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * 
+ * Coupon class
+ *
+ */
 @SuppressWarnings("serial")
 @XmlRootElement
 public class Coupon implements Serializable {

@@ -1,4 +1,8 @@
+//******* disabled! *******
+
 //package cleanerTask;
+
+
 //
 //import java.util.Date;
 //import beans.Coupon;

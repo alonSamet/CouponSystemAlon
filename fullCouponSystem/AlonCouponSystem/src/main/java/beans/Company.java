@@ -3,6 +3,11 @@ package beans;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * 
+ * Company class
+ *
+ */
 @SuppressWarnings("serial")
 @XmlRootElement
 public class Company implements Serializable {

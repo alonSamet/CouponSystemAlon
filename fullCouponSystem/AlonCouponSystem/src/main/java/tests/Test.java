@@ -12,7 +12,6 @@ import beans.Customer;
 import exceptions.CouponSystemException;
 import facades.AdminFacade;
 import facades.CompanyFacade;
-import facades.CustomerFacade;
 import manageTables.ManageTables;
 import singleton.CouponSystem;
 
@@ -117,33 +116,6 @@ public class Test {
 		adminFacade.createCustomer(hadas);
 		adminFacade.createCustomer(david);
 		adminFacade.createCustomer(ayala);
-
-		System.out.println("****************************************");
-
-		// The new customer gets his customerFacade:
-		CustomerFacade tamarFacade = (CustomerFacade) couponSystem.Login("tamar", "tamarPwd", ClientType.CUSTOMER);
-//		CustomerFacade eliFacade = (CustomerFacade) couponSystem.Login("eli", "eliPwd", ClientType.CUSTOMER);
-//		CustomerFacade hadasFacade = (CustomerFacade) couponSystem.Login("hadas", "hadasPwd", ClientType.CUSTOMER);
-//		CustomerFacade davidFacade = (CustomerFacade) couponSystem.Login("david", "davidPwd", ClientType.CUSTOMER);
-//		CustomerFacade ayalaFacade = (CustomerFacade) couponSystem.Login("ayala", "ayalaPwd", ClientType.CUSTOMER);
-
-		System.out.println("****************************************");
-
-		System.out.println(adminFacade.getCompanyById(2));
-		System.out.println(adminFacade.getCompanyByName("foodMarket"));
-		System.out.println(adminFacade.getCustomerById(3));
-		System.out.println(adminFacade.getCustomerByName("tamar"));
-		System.out.println(adminFacade.getAllCompanies());
-		System.out.println(adminFacade.getAllCustomers());		
-		System.out.println();
-		
-		System.out.println(tamarFacade.getAllPurchesedCoupons());
-		System.out.println();
-		tamarFacade.purchaseCoupon(vacation);
-		System.out.println(tamarFacade.getAllPurchesedCoupons());
-		System.out.println();
-		tamarFacade.removePurchasedCoupon(vacation);
-		System.out.println(tamarFacade.getAllPurchesedCoupons());
 
 	}
 }
