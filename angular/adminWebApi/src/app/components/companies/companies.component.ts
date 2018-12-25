@@ -123,11 +123,8 @@ export class CompaniesComponent implements OnInit {
   // ****************************************************
 
   showUpdateCompany(index) { // admin cannot update company name
-    this.updatedCompany.name = this.companiesList[index].name;
     this.updatedCompany.password = ""; // Resets the displayed password when pressing the showUpdate button, so the user can insert its input
     this.updatedCompany.email = ""; // Resets the displayed email when pressing the showUpdate button, so the user can insert its input
-    // this.showDataOnTable = false;
-    // this.showInputsOnTable = true;
     this.showUpdateBool = true;
   }
 

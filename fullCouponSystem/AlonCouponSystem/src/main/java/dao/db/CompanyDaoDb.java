@@ -15,19 +15,22 @@ import dao.CompanyDAO;
 import exceptions.CouponSystemException;
 
 /**
- * In this layer there are CRUD methods & additional methods to use in facade
+ * This layer contains CRUD methods & additional methods for using in the facade
  * layer, according to user needs (no business logic).
  */
-
 public class CompanyDaoDb implements CompanyDAO {
 
 	public CompanyDaoDb() {
 	}
 
 	/**
-	 * Login with company name & password
+	 * Login to the system by company user name & password
+	 * 
+	 * @param name     name of the company
+	 * @param password password of the company
+	 * @return true (login succeeded) or false (login failed)
+	 * @throws CouponSystemException
 	 */
-	@Override
 	public boolean login(String compName, String password) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {
@@ -44,14 +47,13 @@ public class CompanyDaoDb implements CompanyDAO {
 		} finally {
 			ConnectionPool.getInstance().returnConnection(con);
 		}
-
 	}
 
 	/**
-	 * Add new company to db
+	 * Creates new company in the database (db)
 	 * 
-	 * @param Company
-	 * @exception CouponSystemException
+	 * @param {@link Company}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public void create(Company company) throws CouponSystemException {
@@ -80,7 +82,10 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Remove company from db
+	 * Removes company from the db
+	 * 
+	 * @param {@link Company}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public void remove(Company company) throws CouponSystemException {
@@ -100,7 +105,10 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Update details of existing company in db
+	 * Updates company in the db
+	 * 
+	 * @param {@link Company}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public void update(Company company) throws CouponSystemException {
@@ -125,11 +133,11 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Get company details from db using company id
+	 * Gets the company object from db by its id
 	 * 
-	 * @param companyId
-	 * @return Company
-	 * @exception CouponSystemException
+	 * @param companyId id of the company to get
+	 * @return {@link Company}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Company getCompanyById(long companyId) throws CouponSystemException {
@@ -152,11 +160,11 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Get company details from db using company name
+	 * Gets the company object from db by its name
 	 * 
-	 * @param companyName
-	 * @return Company
-	 * @exception CouponSystemException
+	 * @param companyName name of the company to get
+	 * @return {@link Company}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Company getCompanyByName(String companyName) throws CouponSystemException {
@@ -180,10 +188,10 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Get details of all companies existing in db
+	 * Gets all company objects from the db
 	 * 
-	 * @return Set<Company>
-	 * @exception CouponSystemException
+	 * @return collection of companies
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Collection<Company> getAllCompanies() throws CouponSystemException {
@@ -206,7 +214,11 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * Get from db details of coupons related to selected company
+	 * Gets all coupons of specific company by its id
+	 * 
+	 * @param compId id of the company
+	 * @return collection of coupons
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Collection<Coupon> getMyCouponsByMyCompanyId(long companyId) throws CouponSystemException {
@@ -230,30 +242,9 @@ public class CompanyDaoDb implements CompanyDAO {
 
 	}
 
-	/**
-	 * These are additional methods to handle the join tabels
-	 * 
-	 * @param companyId
-	 * @param couponId
-	 * @throws CouponSystemException
-	 */
-
-	public void updateCompanyCouponTable(long companyId, long couponId) throws CouponSystemException {
-		Connection con = ConnectionPool.getInstance().getConnection();
-		String insert = "INSERT INTO CompanyCoupon(Company_id,Coupon_id) VALUES(?, ?)";
-		try {
-			PreparedStatement psmt = con.prepareStatement(insert);
-			psmt.setLong(1, companyId);
-			psmt.setLong(2, couponId);
-			psmt.executeUpdate();
-			System.out.println("CompanyCoupon table was updated");
-
-		} catch (SQLException e) {
-			throw new CouponSystemException("Something went wrong");
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);
-		}
-	}
+	/**********************************************************/
+	/****** Additional methods to handle the join tabels ******/
+	/**********************************************************/
 
 	public void removeFromCompanyCouponTable(long couponId) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();

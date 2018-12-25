@@ -1,0 +1,84 @@
+package dao;
+
+import java.util.Collection;
+
+import beans.Company;
+import beans.Coupon;
+import exceptions.CouponSystemException;
+
+/**
+ * The Dao layer contains only the signature of the methods
+ */
+
+public interface CompanyDAO {
+
+	/**
+	 * This method (its implementation) creates new company in the database (db)
+	 * 
+	 * @param {@link Company}
+	 * @throws CouponSystemException
+	 */
+	void create(Company company) throws CouponSystemException;
+
+	/**
+	 * This method removes company from the db
+	 * 
+	 * @param {@link Company}
+	 * @throws CouponSystemException
+	 */
+	void remove(Company company) throws CouponSystemException;
+
+	/**
+	 * This method updates company in the db
+	 * 
+	 * @param {@link Company}
+	 * @throws CouponSystemException
+	 */
+	void update(Company company) throws CouponSystemException;
+
+	/**
+	 * This method is being used for login to the system
+	 * 
+	 * @param name name of the company
+	 * @param password password of the company
+	 * @return true (login succeeded) or false (login failed)
+	 * @throws CouponSystemException
+	 */
+	boolean login(String name, String password) throws CouponSystemException;
+
+	/**
+	 * This method returns the company object from db by the company id
+	 * 
+	 * @param id id of the company to get
+	 * @return {@link Company}
+	 * @throws CouponSystemException
+	 */
+	Company getCompanyById(long id) throws CouponSystemException;
+
+	/**
+	 * This method returns the company object from db by the company name
+	 * 
+	 * @param companyName name of the company to get
+	 * @return {@link Company}
+	 * @throws CouponSystemException
+	 */
+	Company getCompanyByName(String companyName) throws CouponSystemException;
+
+	/**
+	* This method returns all compnay objects from the db
+	 * 
+	 * @return collection of companies
+	 * @throws CouponSystemException
+	 */
+	Collection<Company> getAllCompanies() throws CouponSystemException;
+
+	/**
+	 * This This method returns all coupons of specific company by company id
+	 * 
+	 * @param compId id of the company
+	 * @return collection of coupons
+	 * @throws CouponSystemException
+	 */
+	Collection<Coupon> getMyCouponsByMyCompanyId(long compId) throws CouponSystemException;
+
+}

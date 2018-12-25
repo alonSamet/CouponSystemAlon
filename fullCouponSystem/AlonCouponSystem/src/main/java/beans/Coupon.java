@@ -5,8 +5,11 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * @author Alon Samet
  * 
- * Coupon class
+ *         This class generates the coupon object, which has id, title, start
+ *         date, end (expiration) date, amount (of coupons left), coupon type,
+ *         message (coupon details), price and an image of the coupon.
  *
  */
 @SuppressWarnings("serial")
@@ -28,7 +31,7 @@ public class Coupon implements Serializable {
 
 	String str = "aaa";
 	String up = str.toUpperCase();
-	
+
 	public Coupon(long id, String title, Date startDate, Date endDate, int amount, CouponType couponType,
 			String message, double price, String image) {
 		super();

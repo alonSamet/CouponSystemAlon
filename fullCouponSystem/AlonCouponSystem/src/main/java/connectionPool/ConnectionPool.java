@@ -9,6 +9,14 @@ import java.util.Set;
 
 import exceptions.CouponSystemException;
 
+/**
+ * 
+ * @author Alon Samet
+ * 
+ *         This class is a singleton with a constant number of connections that
+ *         stored in a Set collection
+ *
+ */
 public class ConnectionPool {
 
 	private String url = "jdbc:derby:db";
@@ -36,8 +44,9 @@ public class ConnectionPool {
 	private static ConnectionPool instance;
 
 	/**
+	 * This method Instantiates the connection pool singleton
 	 * 
-	 * @return
+	 * @return instance of the connection pool
 	 * @throws CouponSystemException
 	 */
 	public static ConnectionPool getInstance() throws CouponSystemException {
@@ -51,7 +60,13 @@ public class ConnectionPool {
 		return instance;
 	}
 
-	// This method takes one connection from the connections set
+	/**
+	 * This method returns connection, and removes one connection from the
+	 * connections set
+	 * 
+	 * @return one connection from the connection pool
+	 * @throws CouponSystemException
+	 */
 	public synchronized Connection getConnection() throws CouponSystemException {
 		if (closing == true) {
 			throw new CouponSystemException("We are closing the progrem");
@@ -70,11 +85,22 @@ public class ConnectionPool {
 
 	}
 
+	/**
+	 * This method adds one connection to the set collection
+	 * 
+	 * @param con single connection
+	 */
 	public synchronized void returnConnection(Connection con) {
 		connections.add(con);
 		notify();
 	}
 
+	/**
+	 * This method closes all the open connections by removing them from the set
+	 * collections
+	 * 
+	 * @throws CouponSystemException
+	 */
 	public synchronized void closeAllConnections() throws CouponSystemException {
 		closing = true;
 		while (connections.size() < CON_MAX_SIZE) {

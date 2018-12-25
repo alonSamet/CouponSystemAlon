@@ -1,0 +1,42 @@
+package dao;
+
+import java.util.Collection;
+
+import beans.Company;
+import beans.Coupon;
+import beans.Customer;
+import exceptions.CouponSystemException;
+
+/**
+ * This is an interface of The system customer DAO (Data Access Objects) layer,
+ * which contains basic CRUD methods
+ */
+public interface CustomerDAO {
+	
+	/**
+	 * Creates new customer in the database (db)
+	 * 
+	 * @param {@link Customer}
+	 * @throws CouponSystemException
+	 */
+	void create(Customer customer) throws CouponSystemException;
+	
+	void remove(Customer customer) throws CouponSystemException;
+
+	void update(Customer customer) throws CouponSystemException;
+	
+	boolean login(String name, String password) throws CouponSystemException;
+	
+	Customer getCustomerById(long id) throws CouponSystemException;
+			
+	Customer getCustomerByName(String customerName) throws CouponSystemException;
+	
+	Collection<Customer> getAllCustomers() throws CouponSystemException;
+	
+	Collection<Coupon> getCustomerCouponsByCustomerId(long custId) throws CouponSystemException;
+	
+}
+
+
+
+

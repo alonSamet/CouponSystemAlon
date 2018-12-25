@@ -20,7 +20,7 @@ public class LoginServlet {
 	public String doPost(@RequestParam String name, @RequestParam String pwd, @RequestParam ClientType usertype,
 			HttpServletRequest req) {
 		try {
-			// Gets the facade from the singelton login method
+			// Gets the facade from the singleton login method
 			ClientFacade cf = CouponSystem.getInstance().Login(name, pwd, usertype);
 
 			if (cf == null) // If login failed

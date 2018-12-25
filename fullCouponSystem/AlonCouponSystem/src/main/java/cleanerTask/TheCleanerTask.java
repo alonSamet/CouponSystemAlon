@@ -12,9 +12,9 @@
 //import exceptions.CouponSystemException;
 //
 ///**
-// * This task is stating inside a thread in the singleton of coupon system. it
-// * will run ones a day and rest for 24 hours . you can stop it by change the
-// * setQuit method (the singleton is doing it where he close).
+// * This task is stating inside a thread in the coupon system singleton. it
+// * will run ones a day and rest for 24 hours . It can be changed by the
+// * setQuit method (The singleton does this).
 // * 
 // *
 // */

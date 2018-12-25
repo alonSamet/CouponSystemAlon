@@ -29,8 +29,8 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * The login method saves the logged in customer id, so he can use all
-	 * facade methods without retype the id every time
+	 * The login method saves the logged in customer id, so he can use all facade
+	 * methods without retype the id every time
 	 * 
 	 */
 	@Override
@@ -46,9 +46,9 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * A customer can purchase coupon after several validations: 1. Customer
-	 * hasn't already bought this coupon. 2. There are coupons left. 3. The date
-	 * of the coupon hasn't expired.
+	 * A customer can purchase coupon after several validations: 1. Customer hasn't
+	 * already bought this coupon. 2. There are coupons left. 3. The date of the
+	 * coupon hasn't expired.
 	 * 
 	 * After coupon is being purchased, the method decreases the amount of the
 	 * coupon from the company balance
@@ -115,8 +115,8 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * user can get all the coupon that he or she bought with lower or equal to
-	 * the price he gave .
+	 * user can get all the coupon that he or she bought with lower or equal to the
+	 * price he gave .
 	 * 
 	 * @param price
 	 * @return

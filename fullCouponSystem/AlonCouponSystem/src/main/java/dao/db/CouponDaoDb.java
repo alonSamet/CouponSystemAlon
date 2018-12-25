@@ -15,10 +15,9 @@ import dao.CouponDAO;
 import exceptions.CouponSystemException;
 
 /**
- * In this layer there are CRUD methods & additional methods to use in facade
+ * This layer contains CRUD methods & additional methods for using in the facade
  * layer, according to user needs (no business logic).
  */
-
 public class CouponDaoDb implements CouponDAO {
 
 	public CouponDaoDb() {

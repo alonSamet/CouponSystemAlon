@@ -4,8 +4,9 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * @author Alon Samet
  * 
- * Company class
+ * This class generates the company object, which has id, name, password & email
  *
  */
 @SuppressWarnings("serial")

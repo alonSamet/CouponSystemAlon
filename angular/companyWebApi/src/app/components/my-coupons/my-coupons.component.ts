@@ -19,14 +19,13 @@ export class MyCouponsComponent implements OnInit {
   topPriceFilter: number = 0;
   typeFilter: string;
 
-  //ngIf boolean variables:
+  // Boolean variables for using ngIf:
   showUpdateBool = false;
   showGetButtons = true;
   showGetInputByIdBool = false;
   showGetInputByTitleBool = false;
   showGetDetails = false;
   showCouponsTable = false;
-
   showEndDateInputFormBool = false;
   showTopPriceInputFormBool = false;
   showTypeInputFormBool = false;
@@ -69,7 +68,6 @@ export class MyCouponsComponent implements OnInit {
   }
 
   getMyCouponsByEndDate() {
-    console.log("endDateFilter:  " + this.endDateFilter);
     this._companySpa.ajaxGetMyCouponsByEndDate(this.endDateFilter);
     this.showCouponsTable = true;
   }
@@ -78,6 +76,7 @@ export class MyCouponsComponent implements OnInit {
     this._companySpa.ajaxGetMyCouponsByTopPrice(this.topPriceFilter);
     this.showCouponsTable = true;
   }
+  
   getMyCouponsByType() {
     this._companySpa.ajaxGetMyCouponsByType(this.typeFilter);
     this.showCouponsTable = true;
@@ -169,15 +168,8 @@ export class MyCouponsComponent implements OnInit {
 
   showUpdateCoupon(i) { // Company can update only its coupon's price & end date
     this.showUpdateBool = true;
-    this.updatedCoupon.id = this.couponsList[i].id; // Gets the data from the relevant line in the getAllCoupons Table
-    this.updatedCoupon.title = this.couponsList[i].title;
-    this.updatedCoupon.startDate = this.couponsList[i].startDate;
-    this.updatedCoupon.endDate = null; // resets the displayed endDate when pressing the showUpdate button, so the user can insert its input
-    this.updatedCoupon.amount = this.couponsList[i].amount;
-    this.updatedCoupon.couponType = this.couponsList[i].couponType;
-    this.updatedCoupon.message = this.couponsList[i].message;
-    this.updatedCoupon.price = 0; // resets the displayed price when pressing the showUpdate button, so the user can insert its input
-    this.updatedCoupon.image = this.couponsList[i].image;
+    this.updatedCoupon.endDate = null; // Resets the displayed endDate when pressing the showUpdate button, so the user can insert its input
+    this.updatedCoupon.price = 0; // Resets the displayed price when pressing the showUpdate button, so the user can insert its input
   }
 
   showGetInputById() {
