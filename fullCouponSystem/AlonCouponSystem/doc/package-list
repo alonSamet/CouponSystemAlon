@@ -1,0 +1,10 @@
+beans
+connectionPool
+dao
+dao.db
+exceptions
+facades
+manageTables
+singleton
+tests
+webServices

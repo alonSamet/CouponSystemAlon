@@ -26,7 +26,6 @@ export class CompanySpaService {
 
   constructor(private _http: Http) { }
 
-
 ajaxCreateCoupon(c : Coupon) {
   this._http.post("http://localhost:8080/company/createcoupon", c)
     .subscribe(

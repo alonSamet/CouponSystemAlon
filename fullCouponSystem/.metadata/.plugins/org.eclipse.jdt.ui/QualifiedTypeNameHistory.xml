@@ -3,4 +3,6 @@
 <fullyQualifiedTypeName name="facades.AdminFacade"/>
 <fullyQualifiedTypeName name="beans.Customer"/>
 <fullyQualifiedTypeName name="facades.CustomerFacade"/>
+<fullyQualifiedTypeName name="exceptions.CouponSystemException"/>
+<fullyQualifiedTypeName name="beans.Company"/>
 </qualifiedTypeNameHistroy>

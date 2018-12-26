@@ -497,7 +497,7 @@ var MyCouponsComponent = /** @class */ (function () {
         this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
         this.endDateFilter = null;
         this.topPriceFilter = 0;
-        //ngIf boolean variables:
+        // Boolean variables for using ngIf:
         this.showUpdateBool = false;
         this.showGetButtons = true;
         this.showGetInputByIdBool = false;
@@ -540,7 +540,6 @@ var MyCouponsComponent = /** @class */ (function () {
         this.showTypeInputFormBool = true;
     };
     MyCouponsComponent.prototype.getMyCouponsByEndDate = function () {
-        console.log("endDateFilter:  " + this.endDateFilter);
         this._companySpa.ajaxGetMyCouponsByEndDate(this.endDateFilter);
         this.showCouponsTable = true;
     };

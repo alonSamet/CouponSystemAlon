@@ -50,11 +50,11 @@ public interface CompanyDAO {
 	/**
 	 * Gets the company object from db by its id
 	 * 
-	 * @param id id of the company to get
+	 * @param companyId id of the company to get
 	 * @return {@link Company}
 	 * @throws CouponSystemException
 	 */
-	Company getCompanyById(long id) throws CouponSystemException;
+	Company getCompanyById(long companyId) throws CouponSystemException;
 
 	/**
 	 * Gets the company object from db by its name
@@ -66,7 +66,7 @@ public interface CompanyDAO {
 	Company getCompanyByName(String companyName) throws CouponSystemException;
 
 	/**
-	 * Gets all compnay objects from the db
+	 * Gets all company objects from the db
 	 * 
 	 * @return collection of companies
 	 * @throws CouponSystemException

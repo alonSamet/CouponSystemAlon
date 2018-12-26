@@ -467,12 +467,10 @@ var CompaniesComponent = /** @class */ (function () {
     // ****************************************************
     // ************* methods for ngIf tags: ***************
     // ****************************************************
-    CompaniesComponent.prototype.showUpdateCompany = function (index) {
-        this.updatedCompany.name = this.companiesList[index].name;
+    CompaniesComponent.prototype.showUpdateCompany = function (i) {
+        this.updatedCompany.name = this.companiesList[i].name;
         this.updatedCompany.password = ""; // Resets the displayed password when pressing the showUpdate button, so the user can insert its input
         this.updatedCompany.email = ""; // Resets the displayed email when pressing the showUpdate button, so the user can insert its input
-        // this.showDataOnTable = false;
-        // this.showInputsOnTable = true;
         this.showUpdateBool = true;
     };
     CompaniesComponent.prototype.showGetInputById = function () {
@@ -662,7 +660,7 @@ var CustomersComponent = /** @class */ (function () {
     // ****************************************************
     CustomersComponent.prototype.showUpdateCustomer = function (i) {
         this.showUpdateBool = true;
-        this.updatedCustomer.name = this.customersList[i].name; // Gets the data from the relevant line in the getAllCustomers Table
+        this.updatedCustomer.name = this.customersList[i].name;
         this.updatedCustomer.password = ""; // Resets the displayed password when pressing the showUpdate button, so the user can insert its input
     };
     CustomersComponent.prototype.showGetInputById = function () {

@@ -117,6 +117,7 @@ export class CustomersComponent implements OnInit {
 
   showUpdateCustomer(i) { // admin cannot update customer name 
     this.showUpdateBool = true;
+    this.updatedCustomer.name = this.customersList[i].name;
     this.updatedCustomer.password = ""; // Resets the displayed password when pressing the showUpdate button, so the user can insert its input
   }
   showGetInputById() {

@@ -122,7 +122,8 @@ export class CompaniesComponent implements OnInit {
   // ************* methods for ngIf tags: ***************
   // ****************************************************
 
-  showUpdateCompany(index) { // admin cannot update company name
+  showUpdateCompany(i) { // admin cannot update company name
+    this.updatedCompany.name = this.companiesList[i].name;
     this.updatedCompany.password = ""; // Resets the displayed password when pressing the showUpdate button, so the user can insert its input
     this.updatedCompany.email = ""; // Resets the displayed email when pressing the showUpdate button, so the user can insert its input
     this.showUpdateBool = true;
