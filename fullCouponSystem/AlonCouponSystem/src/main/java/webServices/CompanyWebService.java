@@ -103,7 +103,7 @@ public class CompanyWebService {
 	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req) throws CouponSystemException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsOfLoggedInCompany());
+			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllCouponsOfLoggedInCompany());
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
 		}

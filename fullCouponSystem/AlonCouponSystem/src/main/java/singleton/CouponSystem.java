@@ -1,25 +1,24 @@
 package singleton;
 
 import beans.ClientType;
-//import cleanerTask.TheCleanerTask;
-import connectionPool.ConnectionPool;
 import exceptions.CouponSystemException;
 import facades.AdminFacade;
-import facades.CompanyFacade;
 import facades.ClientFacade;
+import facades.CompanyFacade;
 import facades.CustomerFacade;
 
 /**
- * the CouponSystem is a singleton that give access to the rest of the system
- * and start and finish the cleaner thread that remove all the expired coupons .
- *
+ * The CouponSystem class is a singleton that allows access to the rest of the
+ * system (by loging in and returning facade to the user), shuts down the system
+ * (closes all connections) and activates the cleaner thread (that remove all
+ * the expired coupons).
+ * 
  */
 public class CouponSystem {
 
 //	TheCleanerTask task = new TheCleanerTask();
 //	Thread cleaner = new Thread(task);
 
-	// singleton ;
 	private CouponSystem() {
 //		cleaner.start();
 	}
@@ -27,9 +26,9 @@ public class CouponSystem {
 	private static CouponSystem instance;
 
 	/**
-	 * User can only use an instance of only coupon System, not create a new one
+	 * Creates and returns the only instance of the singleton
 	 * 
-	 * @return
+	 * @return instance of the singleton
 	 */
 	public static synchronized CouponSystem getInstance() {
 		if (instance == null) {
@@ -39,54 +38,55 @@ public class CouponSystem {
 	}
 
 	/**
-	 * User can get facade according to its Type and if he has the right user name & password. 
+	 * Login to the system. Thos method returns facade to the user by its type
+	 * (administrator, company or customer), its username and its password
 	 * 
-	 * @param userName
-	 * @param password
-	 * @param type
+	 * @param userName username of the user
+	 * @param password password of the user
+	 * @param type type of the client that tries to login the system (admin/company/customer)
 	 * @return
 	 * @throws CouponSystemException
 	 */
 	public ClientFacade Login(String userName, String password, ClientType type) throws CouponSystemException {
-		
-			if (type.equals(ClientType.ADMIN)) {
-				AdminFacade adminFacade = new AdminFacade();
-				if (adminFacade.login(userName, password)) {
-					System.out.println("Admin is logged in");
-					return adminFacade;
-				}
+
+		if (type.equals(ClientType.ADMIN)) {
+			AdminFacade adminFacade = new AdminFacade();
+			if (adminFacade.login(userName, password)) {
+				System.out.println("Admin is logged in");
+				return adminFacade;
 			}
-			if (type.equals(ClientType.COMPANY)) {
-				CompanyFacade companyFacade = new CompanyFacade();
-				if (companyFacade.login(userName, password)) {
-					System.out.println("Company is logged in");
-					return companyFacade;
-				}
+		}
+		if (type.equals(ClientType.COMPANY)) {
+			CompanyFacade companyFacade = new CompanyFacade();
+			if (companyFacade.login(userName, password)) {
+				System.out.println("Company is logged in");
+				return companyFacade;
 			}
-			if (type.equals(ClientType.CUSTOMER)) {
-				CustomerFacade customerFacade = new CustomerFacade();
-				if (customerFacade.login(userName, password)) {
-					System.out.println("Customer is logged in");
-					return customerFacade;
-				}
+		}
+		if (type.equals(ClientType.CUSTOMER)) {
+			CustomerFacade customerFacade = new CustomerFacade();
+			if (customerFacade.login(userName, password)) {
+				System.out.println("Customer is logged in");
+				return customerFacade;
 			}
-			
+		}
+
 		return null;
 	}
 
 	/**
-	 * The shutdown method will close all open connections and stop the cleaner task
+	 * Closes all open connections and stops the cleaner task 
 	 * 
-	 * @throws CouponSystemException
+	 * @throws CouponSystemException 
 	 */
-	public void shutDown() throws CouponSystemException {
-//		task.setQuit();
-		try {
-			ConnectionPool.getInstance().closeAllConnections();
-			System.out.println("System shut down was completed");
-
-		} catch (Exception e) {
-			throw new CouponSystemException("Something went wrong");
-		}
-	}
+//	public void shutDown() throws CouponSystemException {
+////		task.setQuit();
+//		try {
+//			ConnectionPool.getInstance().closeAllConnections();
+//			System.out.println("System shut down was completed");
+//
+//		} catch (Exception e) {
+//			throw new CouponSystemException("Something went wrong");
+//		}
+//	}
 }

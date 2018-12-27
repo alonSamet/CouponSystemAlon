@@ -11,11 +11,11 @@ import exceptions.CouponSystemException;
  * which contains basic CRUD methods
  */
 public interface CompanyDAO {
-	
+
 	/**
 	 * Login to the system by company user name & password
 	 * 
-	 * @param name     name of the company
+	 * @param name     username of the company
 	 * @param password password of the company
 	 * @return true (login succeeded) or false (login failed)
 	 * @throws CouponSystemException
@@ -45,7 +45,6 @@ public interface CompanyDAO {
 	 * @throws CouponSystemException
 	 */
 	void update(Company company) throws CouponSystemException;
-
 
 	/**
 	 * Gets the company object from db by its id

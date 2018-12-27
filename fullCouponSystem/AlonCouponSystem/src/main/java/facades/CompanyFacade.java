@@ -1,4 +1,3 @@
-
 package facades;
 
 import java.util.ArrayList;
@@ -12,8 +11,9 @@ import dao.db.CustomerDaoDb;
 import exceptions.CouponSystemException;
 
 /**
- * With this company facade (the layer for the business logic) company can
- * perform various actions relating to its details & coupons
+ * With the company facade - the layer for the business logic - the company can
+ * create, remove and perform various actions relating to its details & coupons.
+ * There are no SQL commands in the facade layer
  */
 public class CompanyFacade implements ClientFacade {
 
@@ -21,10 +21,14 @@ public class CompanyFacade implements ClientFacade {
 	private CompanyDaoDb companyDb;
 	private CustomerDaoDb customerDb;
 
-	// This variable will be initialize to the logged-in company id (in login
+	// This variable will be initialized to the loggedIn company id (in login
 	// method)
 	private long LoggedIncompanyId;
 
+	/**
+	 * This CTOR instantiates the company, customer & coupon DaoDb layer, in order
+	 * to allow access to its methods
+	 */
 	public CompanyFacade() {
 		super();
 		couponDb = new CouponDaoDb();
@@ -32,10 +36,17 @@ public class CompanyFacade implements ClientFacade {
 		customerDb = new CustomerDaoDb();
 	}
 
+	/**
+	 * Login to the system by company username & password
+	 * 
+	 * @param name     username of company
+	 * @param password password of company
+	 * @return true (if login succeeded) or false (if login failed)
+	 */
 	@Override
 	public boolean login(String name, String password) throws CouponSystemException {
 		if (companyDb.login(name, password)) {
-			// Initiation of the variable LoggedIncompanyId:
+			// Initialization of the variable LoggedIncompanyId:
 			this.LoggedIncompanyId = companyDb.getCompanyIdByName(name);
 			return true;
 		} else {
@@ -45,13 +56,15 @@ public class CompanyFacade implements ClientFacade {
 	}
 
 	/**
-	 * Add new coupon to company, after we check that the coupon title is unique
+	 * Adds new coupon to the loggedIn company, after a validation that the coupon
+	 * title is unique
 	 * 
-	 * @param coupon
+	 * @param {{@link Coupon}
 	 * @throws CouponSystemException
 	 */
 	public void createCoupon(Coupon coupon) throws CouponSystemException {
 		for (Coupon c : couponDb.getAllCoupons()) {
+			// Validation that the coupon title is unique
 			if (c.getTitle().equals(coupon.getTitle())) {
 				throw new CouponSystemException(
 						"Your company already has a coupon with the same title.\nPlease choose other title");
@@ -63,10 +76,10 @@ public class CompanyFacade implements ClientFacade {
 	}
 
 	/**
-	 * Remove selected coupon from coupon table, CompanyCoupon Table &
+	 * Removes selected coupon from coupon table, CompanyCoupon Table &
 	 * CustomerCouponTable
 	 * 
-	 * @param coupon
+	 * @param {{@link Coupon}
 	 * @throws CouponSystemException
 	 */
 	public void removeCoupon(Coupon coupon) throws CouponSystemException {
@@ -82,9 +95,9 @@ public class CompanyFacade implements ClientFacade {
 	}
 
 	/**
-	 * Update coupon's price & end date
+	 * Updates coupon price & end (expiration) date only
 	 * 
-	 * @param coupon
+	 * @param {@link Coupon}
 	 * @throws CouponSystemException
 	 */
 	public void updateCoupon(Coupon coupon) throws CouponSystemException {
@@ -100,33 +113,68 @@ public class CompanyFacade implements ClientFacade {
 		}
 	}
 
+	/**
+	 * Gets a coupon of the loggedIn company by its id
+	 * 
+	 * @param couponId the id of the coupon
+	 * @return {@link Coupon}
+	 * @throws CouponSystemException
+	 */
 	public Coupon getMyCouponById(long couponId) throws CouponSystemException {
 		if (couponDb.isCouponBelongsToLoggedInCompany(LoggedIncompanyId, couponId)) {
-			return couponDb.getCouponById(couponId);
+			Coupon coupon = couponDb.getCouponById(couponId);
+			return coupon;
 		} else {
 			throw new CouponSystemException("Your company does not have coupon with this id.\n\nPlease try again");
 		}
 	}
 
+	/**
+	 * Gets a coupon of the loggedIn company by its title
+	 * 
+	 * @param couponTitle the title of the coupon
+	 * @return {@link Coupon}
+	 * @throws CouponSystemException
+	 */
 	public Coupon getMyCouponByTitle(String couponTitle) throws CouponSystemException {
 		long couponId = couponDb.getCouponIdByTitle(couponTitle);
 		if (couponDb.isCouponBelongsToLoggedInCompany(LoggedIncompanyId, couponId)) {
-			return couponDb.getCouponById(couponId);
+			Coupon coupon = couponDb.getCouponById(couponId);
+			return coupon;
 		} else {
 			throw new CouponSystemException("Your company does not have coupon with this title.\n\nPlease try again");
 		}
 	}
 
+	/**
+	 * Gets the details of the loggedIn company by the company id
+	 * 
+	 * @return {@link Company}
+	 * @throws CouponSystemException
+	 */
 	public Company getMyCompany() throws CouponSystemException {
 		Company comp = companyDb.getCompanyById(LoggedIncompanyId);
 		return comp;
 	}
 
-	public Collection<Coupon> getCouponsOfLoggedInCompany() throws CouponSystemException {
+	/**
+	 * Gets all coupons of the loggedIn company by the company id
+	 * 
+	 * @return collection of all coupons belongs to the loggedIn company
+	 * @throws CouponSystemException
+	 */
+	public Collection<Coupon> getAllCouponsOfLoggedInCompany() throws CouponSystemException {
 		Collection<Coupon> myCoupons = companyDb.getMyCouponsByMyCompanyId(LoggedIncompanyId);
 		return myCoupons;
 	}
 
+	/**
+	 * Gets coupons of the loggedIn company by the coupons type
+	 * 
+	 * @return collection of all coupons (belongs to the loggedIn company) in the
+	 *         selected type
+	 * @throws CouponSystemException
+	 */
 	public Collection<Coupon> getCouponsByType(CouponType Type) throws CouponSystemException {
 		Collection<Coupon> couponsByType = new ArrayList<>();
 		Collection<Coupon> myCoupons = companyDb.getMyCouponsByMyCompanyId(LoggedIncompanyId);
@@ -138,6 +186,13 @@ public class CompanyFacade implements ClientFacade {
 		return couponsByType;
 	}
 
+	/**
+	 * Gets coupons of the loggedIn company by the coupons top price
+	 * 
+	 * @return collection of all coupons (belongs to the loggedIn company) with
+	 *         price lower than the selected top price
+	 * @throws CouponSystemException
+	 */
 	public Collection<Coupon> getCouponsByTopPrice(double topPrice) throws CouponSystemException {
 		Collection<Coupon> CouponsByTopPrice = new ArrayList<>();
 		Collection<Coupon> myCoupons = companyDb.getMyCouponsByMyCompanyId(LoggedIncompanyId);
@@ -149,6 +204,13 @@ public class CompanyFacade implements ClientFacade {
 		return CouponsByTopPrice;
 	}
 
+	/**
+	 * Gets coupons of the loggedIn company by the coupons end (expiration) date
+	 * 
+	 * @return collection of all coupons (belongs to the loggedIn company) with end
+	 *         date earlier than or equal to the selected coupon end date
+	 * @throws CouponSystemException
+	 */
 	public Collection<Coupon> getCouponsByEndDate(java.util.Date date) throws CouponSystemException {
 		Collection<Coupon> CouponsByEndDate = new ArrayList<>();
 		Collection<Coupon> myCoupons = companyDb.getMyCouponsByMyCompanyId(LoggedIncompanyId);

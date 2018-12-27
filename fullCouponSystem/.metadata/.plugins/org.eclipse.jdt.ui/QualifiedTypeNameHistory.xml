@@ -5,4 +5,7 @@
 <fullyQualifiedTypeName name="facades.CustomerFacade"/>
 <fullyQualifiedTypeName name="exceptions.CouponSystemException"/>
 <fullyQualifiedTypeName name="beans.Company"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.apache.catalina.servlet4preview.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 </qualifiedTypeNameHistroy>

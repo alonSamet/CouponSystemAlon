@@ -15,13 +15,13 @@ public interface CustomerDAO {
 	/**
 	 * Login to the system by customer user name & password
 	 * 
-	 * @param name     name of the customer
+	 * @param name     username of the customer
 	 * @param password password of the customer
-	 * @return true (login succeeded) or false (login failed)
+	 * @return true (if login succeeded) or false (if login failed)
 	 * @throws CouponSystemException
 	 */
 	boolean login(String name, String password) throws CouponSystemException;
-	
+
 	/**
 	 * Creates new customer in the database (db)
 	 * 
@@ -29,7 +29,7 @@ public interface CustomerDAO {
 	 * @throws CouponSystemException
 	 */
 	void create(Customer customer) throws CouponSystemException;
-	
+
 	/**
 	 * Removes customer from the db
 	 * 
@@ -45,17 +45,16 @@ public interface CustomerDAO {
 	 * @throws CouponSystemException
 	 */
 	void update(Customer customer) throws CouponSystemException;
-	
-	
+
 	/**
 	 * Gets the customer object from db by its id
 	 * 
-	 * @param id id of the customer to get
+	 * @param customerId id of the customer to get
 	 * @return {@link Customer}
 	 * @throws CouponSystemException
 	 */
-	Customer getCustomerById(long id) throws CouponSystemException;
-			
+	Customer getCustomerById(long customerId) throws CouponSystemException;
+
 	/**
 	 * Gets the customer object from db by its name
 	 * 
@@ -64,7 +63,7 @@ public interface CustomerDAO {
 	 * @throws CouponSystemException
 	 */
 	Customer getCustomerByName(String customerName) throws CouponSystemException;
-	
+
 	/**
 	 * Gets all customer objects from the db
 	 * 
@@ -72,7 +71,7 @@ public interface CustomerDAO {
 	 * @throws CouponSystemException
 	 */
 	Collection<Customer> getAllCustomers() throws CouponSystemException;
-	
+
 	/**
 	 * Gets all coupons of specific customer by its id
 	 * 
@@ -80,10 +79,6 @@ public interface CustomerDAO {
 	 * @return collection of coupons
 	 * @throws CouponSystemException
 	 */
-	Collection<Coupon> getCustomerCouponsByCustomerId(long custId) throws CouponSystemException;
-	
+	Collection<Coupon> getCustomerCouponsByCustomerId(long customerId) throws CouponSystemException;
+
 }
-
-
-
-

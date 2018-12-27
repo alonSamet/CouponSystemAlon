@@ -11,10 +11,8 @@ import dao.db.CustomerDaoDb;
 import exceptions.CouponSystemException;
 
 /**
- * the customer facade is more complicated methods that use the methods from the
- * dao.db layer in a way that separate the access to the database from the
- * client .
- *
+ * With the customer facade - the layer for the business logic - the customer
+ * can purchase coupon (and remove it) and get its coupons
  */
 public class CustomerFacade implements ClientFacade {
 
@@ -22,6 +20,10 @@ public class CustomerFacade implements ClientFacade {
 	private CustomerDaoDb customerDb;
 	private long LoggedInCustomerId;
 
+	/**
+	 * This CTOR instantiates the company & customer DaoDb layer, in order to allow
+	 * access to its methods
+	 */
 	public CustomerFacade() {
 		super();
 		couponDb = new CouponDaoDb();
@@ -29,14 +31,16 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * The login method saves the logged in customer id, so he can use all facade
-	 * methods without retype the id every time
+	 * Login to the system by customer username & password
 	 * 
+	 * @param name     username of customer
+	 * @param password password of customer
+	 * @return true (if login succeeded) or false (if login failed)
 	 */
 	@Override
 	public boolean login(String name, String password) throws CouponSystemException {
 		if (customerDb.login(name, password)) {
-			// Initiation of the variable LoggedIncompanyId:
+			// Initiation of the variable LoggedInCustomerId:
 			LoggedInCustomerId = customerDb.getCustomerIdByName(name);
 			return true;
 		} else {
@@ -46,18 +50,17 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * A customer can purchase coupon after several validations: 1. Customer hasn't
-	 * already bought this coupon. 2. There are coupons left. 3. The date of the
-	 * coupon hasn't expired.
-	 * 
+	 * A customer can purchase coupon after several validations: (1) Customer hasn't
+	 * already bought this coupon. (2) There are coupons left (amount > 0). (3) The
+	 * date of the coupon hasn't expired (end date is later than current time).
 	 * After coupon is being purchased, the method decreases the amount of the
 	 * coupon from the company balance
 	 * 
-	 * 
-	 * @param coupon
+	 * @param {{@link Coupon}
 	 * @throws CouponSystemException
 	 */
 	public void purchaseCoupon(Coupon coupon) throws CouponSystemException {
+		// Check for the above 3 validations:
 		if ((!(customerDb.IsCouponWasAlreadyPurchased(coupon.getTitle()))) && couponDb.isThereCouponsLeft(coupon)
 				&& couponDb.isCouponDateValid(coupon)) {
 			customerDb.addToCustomerCouponTable(LoggedInCustomerId, coupon.getId());
@@ -69,9 +72,9 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * Remove selected purchased coupon from CustomerCouponTable
+	 * Removes selected purchased coupon from CustomerCouponTable
 	 * 
-	 * @param coupon
+	 * @param {{@link Coupon}
 	 * @throws CouponSystemException
 	 */
 	public void removePurchasedCoupon(Coupon coupon) throws CouponSystemException {
@@ -85,10 +88,9 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * This method allows the customer to get all his purchased coupons
+	 * Gets all coupons being purchased by the loggedIn customer
 	 * 
-	 * @param LoggedInCustomerId
-	 * @return
+	 * @return collection of all coupons being purchased by the loggedIn customer
 	 * @throws CouponSystemException
 	 */
 	public Collection<Coupon> getAllPurchesedCoupons() throws CouponSystemException {
@@ -100,6 +102,12 @@ public class CustomerFacade implements ClientFacade {
 
 	}
 
+	/**
+	 * Gets coupons being purchased by the loggedIn customer, by the coupons type
+	 * 
+	 * @return collection of coupons
+	 * @throws CouponSystemException
+	 */
 	public Collection<Coupon> getAllPurchesedCouponsByType(CouponType selectedType) throws CouponSystemException {
 		Collection<Coupon> allPurchasedCouponsByType = new ArrayList<>();
 		Collection<Coupon> myCoupons = customerDb.getCustomerCouponsByCustomerId(LoggedInCustomerId);
@@ -115,11 +123,9 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * user can get all the coupon that he or she bought with lower or equal to the
-	 * price he gave .
+	 * Gets coupons being purchased by the loggedIn customer, by the coupons top price
 	 * 
-	 * @param price
-	 * @return
+	 * @return collection of purcahsed coupons with price lower than the selected top price
 	 * @throws CouponSystemException
 	 */
 	public Collection<Coupon> getAllPurchesedCouponsByTopPrice(double price) throws CouponSystemException {
@@ -137,9 +143,9 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * This method allows the customer to view all coupons
+	 * Gets all existing coupons
 	 * 
-	 * @return
+	 * @return collection of all coupons belongs to the loggedIn customer
 	 * @throws CouponSystemException
 	 */
 	public Collection<Coupon> getAllCoupons() throws CouponSystemException {
@@ -149,14 +155,14 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * This method allows the customer to view his details
+	 * Gets the details of the loggedIn customer
 	 * 
-	 * @return
+	 * @return {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	public Customer getMyCustomer() throws CouponSystemException {
-		Customer cust = customerDb.getCustomerById(LoggedInCustomerId);
-		return cust;
+		Customer customer = customerDb.getCustomerById(LoggedInCustomerId);
+		return customer;
 	}
 
 }

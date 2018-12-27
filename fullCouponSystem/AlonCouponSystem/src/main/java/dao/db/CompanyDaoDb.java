@@ -26,9 +26,9 @@ public class CompanyDaoDb implements CompanyDAO {
 	/**
 	 * Login to the system by company user name & password
 	 * 
-	 * @param name     name of the company
+	 * @param name     username of the company
 	 * @param password password of the company
-	 * @return true (login succeeded) or false (login failed)
+	 * @return true (if login succeeded) or false (if login failed)
 	 * @throws CouponSystemException
 	 */
 	public boolean login(String compName, String password) throws CouponSystemException {
@@ -246,47 +246,9 @@ public class CompanyDaoDb implements CompanyDAO {
 	/****** Additional methods to handle the join tabels ******/
 	/**********************************************************/
 
-
-	public void updateCompanyCouponTable(long companyId, long couponId) throws CouponSystemException {
-		Connection con = ConnectionPool.getInstance().getConnection();
-		String insert = "INSERT INTO CompanyCoupon(Company_id,Coupon_id) VALUES(?, ?)";
-		try {
-			PreparedStatement psmt = con.prepareStatement(insert);
-			psmt.setLong(1, companyId);
-			psmt.setLong(2, couponId);
-			psmt.executeUpdate();
-			System.out.println("CompanyCoupon table was updated");
-
-		} catch (SQLException e) {
-			throw new CouponSystemException("Something went wrong");
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);
-		}
-	}
-
 	/**
-	 * Removes the company & coupon from CompanyCoupon table in the database, after deleting company or deleting coupon
-	 * 
-	 * @param companyId id of the company
-	 * @param couponId  id of the coupon
-	 * @throws CouponSystemException
-	 */
-	public void removeFromCompanyCouponTable(long couponId) throws CouponSystemException {
-		Connection con = ConnectionPool.getInstance().getConnection();
-		String delete = "DELETE FROM CompanyCoupon WHERE Coupon_id=" + couponId;
-		try {
-			con.createStatement().executeUpdate(delete);
-			System.out.println("Company coupons were deleted from CompanyCoupon table");
-
-		} catch (SQLException e) {
-			throw new CouponSystemException("Something went wrong");
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);
-		}
-	}
-
-	/**
-	 * Updates the CompanyCoupon table in the database, after company creates new coupon
+	 * Adds company id and its coupon id to the CompanyCoupon table in the database,
+	 * after company creates new coupon
 	 * 
 	 * @param companyId id of the company
 	 * @param couponId  id of the coupon
@@ -307,11 +269,31 @@ public class CompanyDaoDb implements CompanyDAO {
 	}
 
 	/**
-	 * this method can help users to restore id
+	 * Removes the company & coupon from CompanyCoupon table in the database, after
+	 * deleting a company or deleting a coupon
 	 * 
-	 * @param compName
-	 * @param compPassword
-	 * @return
+	 * @param couponId id of the coupon
+	 * @throws CouponSystemException
+	 */
+	public void removeFromCompanyCouponTable(long couponId) throws CouponSystemException {
+		Connection con = ConnectionPool.getInstance().getConnection();
+		String delete = "DELETE FROM CompanyCoupon WHERE Coupon_id=" + couponId;
+		try {
+			con.createStatement().executeUpdate(delete);
+			System.out.println("Company coupons were deleted from CompanyCoupon table");
+
+		} catch (SQLException e) {
+			throw new CouponSystemException("Something went wrong");
+		} finally {
+			ConnectionPool.getInstance().returnConnection(con);
+		}
+	}
+
+	/**
+	 * Gets the company id from the company table in db, by the company name
+	 * 
+	 * @param compName name of the company
+	 * @return the id of the company
 	 * @throws CouponSystemException
 	 */
 	public long getCompanyIdByName(String compName) throws CouponSystemException {
@@ -335,6 +317,14 @@ public class CompanyDaoDb implements CompanyDAO {
 
 	}
 
+	/**
+	 * Checks whether selected company name is already exists in db or not
+	 * 
+	 * @param compName name of the company
+	 * @return true (if company name already exists) or false (if company name is
+	 *         unique)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCompanyNameExist(String compName) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {

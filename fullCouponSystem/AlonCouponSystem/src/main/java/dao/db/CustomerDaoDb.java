@@ -23,6 +23,14 @@ public class CustomerDaoDb implements CustomerDAO {
 	public CustomerDaoDb() {
 	}
 
+	/**
+	 * Login to the system by customer user name & password
+	 * 
+	 * @param name     username of the customer
+	 * @param password password of the customer
+	 * @return true (if login succeeded) or false (if login failed)
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public boolean login(String custName, String password) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -43,6 +51,12 @@ public class CustomerDaoDb implements CustomerDAO {
 
 	}
 
+	/**
+	 * Creates new customer in the database (db)
+	 * 
+	 * @param {@link Customer}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void create(Customer customer) throws CouponSystemException {
 		// get connection from pool
@@ -70,6 +84,12 @@ public class CustomerDaoDb implements CustomerDAO {
 
 	}
 
+	/**
+	 * Removes customer from the db
+	 * 
+	 * @param {@link Customer}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void remove(Customer customer) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -85,6 +105,12 @@ public class CustomerDaoDb implements CustomerDAO {
 		}
 	}
 
+	/**
+	 * Updates customer in the db
+	 * 
+	 * @param {@link Customer}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void update(Customer customer) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -107,11 +133,11 @@ public class CustomerDaoDb implements CustomerDAO {
 	}
 
 	/**
-	 * Get customer details from db using customer id
+	 * Gets the customer object from db by its id
 	 * 
-	 * @param customerId
-	 * @return Customer
-	 * @exception CouponSystemException
+	 * @param customerId id of the customer to get
+	 * @return {@link Customer}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Customer getCustomerById(long customerId) throws CouponSystemException {
@@ -135,11 +161,11 @@ public class CustomerDaoDb implements CustomerDAO {
 	}
 
 	/**
-	 * Get customer details from db using customer name
+	 * Gets the customer object from db by its name
 	 * 
-	 * @param customerName
-	 * @return Customer
-	 * @exception CouponSystemException
+	 * @param customerName name of the customer to get
+	 * @return {@link Customer}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Customer getCustomerByName(String customerName) throws CouponSystemException {
@@ -164,6 +190,12 @@ public class CustomerDaoDb implements CustomerDAO {
 		}
 	}
 
+	/**
+	 * Gets all customer objects from the db
+	 * 
+	 * @return collection of customers
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public Collection<Customer> getAllCustomers() throws CouponSystemException {
 		Collection<Customer> allCustomers = new ArrayList<>();
@@ -184,6 +216,13 @@ public class CustomerDaoDb implements CustomerDAO {
 
 	}
 
+	/**
+	 * Gets all coupons of specific customer by its id
+	 * 
+	 * @param customerId id of the customer
+	 * @return collection of coupons
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public Collection<Coupon> getCustomerCouponsByCustomerId(long customerId) throws CouponSystemException {
 		Collection<Coupon> coupons = new ArrayList<>();
@@ -206,51 +245,17 @@ public class CustomerDaoDb implements CustomerDAO {
 
 	}
 
+	/**********************************************************/
+	/****** Additional methods to handle the join tabels ******/
+	/**********************************************************/
+
 	/**
-	 * These are additional methods to handle the join tabels
+	 * Adds customer id and its coupon id to the CustomerCoupon table in the
+	 * database, after a coupon is being purchased by a customer
 	 * 
-	 * @param customerId
-	 * @param couponId
+	 * @param customerId id of the customer
+	 * @param couponId   id of the coupon
 	 * @throws CouponSystemException
-	 */
-
-	public void updateCustomerCouponTable(long customerId, long couponId) throws CouponSystemException {
-		Connection con = ConnectionPool.getInstance().getConnection();
-		String insert = "INSERT INTO CustomerCoupon (Custumer_id,Coupon_id) VALUES(?, ?)";
-		try {
-			PreparedStatement psmt = con.prepareStatement(insert);
-			psmt.setLong(1, customerId);
-			psmt.setLong(2, couponId);
-			psmt.executeUpdate();
-			System.out.println("CustomerCoupon table was updated");
-
-		} catch (SQLException e) {
-			throw new CouponSystemException("Something went wrong");
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);
-		}
-	}
-
-	/**
-	 * removing the coupons that the customer bought.
-	 */
-	public void removeFromCustomerCouponTable(long couponId) throws CouponSystemException {
-		Connection con = ConnectionPool.getInstance().getConnection();
-		String delete = "DELETE FROM CustomerCoupon WHERE Coupon_id=" + couponId;
-		try {
-			con.createStatement().executeUpdate(delete);
-			System.out.println("Customer coupon was removed from CustomerCoupon table");
-
-		} catch (SQLException e) {
-			throw new CouponSystemException("Something went wrong");
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);
-		}
-	}
-
-	/**
-	 * whene a customet buy coupon it will be save in a table in the database
-	 * for him to use .
 	 */
 	public void addToCustomerCouponTable(long customerId, long couponId) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -270,13 +275,33 @@ public class CustomerDaoDb implements CustomerDAO {
 	}
 
 	/**
-	 * this method gets customer id by customer name.
+	 * Removes the customer & coupon from CustomerCoupon table in the database,
+	 * after deleting a customer or deleting a coupon
 	 * 
-	 * @param customerName
-	 * @return
+	 * @param couponId id of the coupon
 	 * @throws CouponSystemException
 	 */
+	public void removeFromCustomerCouponTable(long couponId) throws CouponSystemException {
+		Connection con = ConnectionPool.getInstance().getConnection();
+		String delete = "DELETE FROM CustomerCoupon WHERE Coupon_id=" + couponId;
+		try {
+			con.createStatement().executeUpdate(delete);
+			System.out.println("Customer coupon was removed from CustomerCoupon table");
 
+		} catch (SQLException e) {
+			throw new CouponSystemException("Something went wrong");
+		} finally {
+			ConnectionPool.getInstance().returnConnection(con);
+		}
+	}
+
+	/**
+	 * Gets the customer id from the customer table in db, by the customer name
+	 * 
+	 * @param customerName name of the customer
+	 * @return the id of the customer
+	 * @throws CouponSystemException
+	 */
 	public long getCustomerIdByName(String customerName) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {
@@ -299,8 +324,13 @@ public class CustomerDaoDb implements CustomerDAO {
 	}
 
 	/**
-	 * With this method we can check if a coupon title is already exist (if
-	 * exist - throw exception), so every coupon will be unique
+	 * Checks if a selected coupon title is already exist in db (so every coupon
+	 * will be unique)
+	 * 
+	 * @param title title of a selected coupon
+	 * @return true (if a selected coupon title is already exist) or false (if the
+	 *         coupon title is unique)
+	 * @throws CouponSystemException
 	 */
 	public boolean IsCouponWasAlreadyPurchased(String title) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -322,6 +352,14 @@ public class CustomerDaoDb implements CustomerDAO {
 
 	}
 
+	/**
+	 * Checks whether selected customer name is already exists in db or not
+	 * 
+	 * @param customerName name of the customer
+	 * @return true (if customer name already exists) or false (if customer name is
+	 *         unique)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCustomerNameExist(String customerName) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {

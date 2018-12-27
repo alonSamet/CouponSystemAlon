@@ -23,6 +23,12 @@ public class CouponDaoDb implements CouponDAO {
 	public CouponDaoDb() {
 	}
 
+	/**
+	 * Creates new coupon in the database
+	 * 
+	 * @param {@link Coupon}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void create(Coupon coupon) throws CouponSystemException {
 		// get connection from pool
@@ -54,6 +60,12 @@ public class CouponDaoDb implements CouponDAO {
 
 	}
 
+	/**
+	 * Removes coupon from db
+	 * 
+	 * @param {@link Coupon}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void remove(Coupon coupon) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -70,6 +82,12 @@ public class CouponDaoDb implements CouponDAO {
 		}
 	}
 
+	/**
+	 * Updates coupon in db
+	 * 
+	 * @param {@link Coupon}
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public void update(Coupon coupon) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
@@ -100,8 +118,11 @@ public class CouponDaoDb implements CouponDAO {
 	}
 
 	/**
-	 * User can get coupon by giving the id. No user will give id in the system
-	 * - it will happened automatically in the facade layer, after logging in
+	 * Gets the coupon object from db by its id
+	 * 
+	 * @param couponId id of the coupon to get
+	 * @return {@link Coupon}
+	 * @throws CouponSystemException
 	 */
 	@Override
 	public Coupon getCouponById(long couponId) throws CouponSystemException {
@@ -124,6 +145,12 @@ public class CouponDaoDb implements CouponDAO {
 		}
 	}
 
+	/**
+	 * Gets all coupon objects from db
+	 * 
+	 * @return collection of coupons
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public Collection<Coupon> getAllCoupons() throws CouponSystemException {
 		Collection<Coupon> allCoupons = new ArrayList<>();
@@ -145,6 +172,13 @@ public class CouponDaoDb implements CouponDAO {
 
 	}
 
+	/**
+	 * Gets all coupons by selected coupons type
+	 * 
+	 * @param coupon_type selected type of the coupons (Enum)
+	 * @return collection of coupons
+	 * @throws CouponSystemException
+	 */
 	@Override
 	public Collection<Coupon> getCouponsByType(CouponType coupon_type) throws CouponSystemException {
 		Collection<Coupon> coupons = new ArrayList<>();
@@ -167,11 +201,10 @@ public class CouponDaoDb implements CouponDAO {
 	}
 
 	/**
-	 * This is an additional method that helps the user to restore the coupon id
-	 * by title
+	 * Gets the coupon id by its title
 	 * 
-	 * @param title
-	 * @return id
+	 * @param title the title of the coupon
+	 * @return the id of the coupon
 	 * @throws CouponSystemException
 	 */
 	public long getCouponIdByTitle(String title) throws CouponSystemException {
@@ -193,6 +226,17 @@ public class CouponDaoDb implements CouponDAO {
 
 	}
 
+	/**
+	 * Checks whether a selected coupon belongs to the loggedIn company, so it can
+	 * be manipulated
+	 * 
+	 * 
+	 * @param companyId the id of the company
+	 * @param couponId  the id of the coupon
+	 * @return true (if the selected coupon belongs to the loggedIn company) or
+	 *         false (if the selected coupon doesn't belong to the loggedIn company)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCouponBelongsToLoggedInCompany(long companyId, long couponId) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {
@@ -209,11 +253,23 @@ public class CouponDaoDb implements CouponDAO {
 			ConnectionPool.getInstance().returnConnection(con);
 		}
 	}
-	
+
+	/**
+	 * Checks whether a selected coupon belongs to the loggedIn customer, so it can
+	 * be manipulated
+	 * 
+	 * @param customerId the id of the customer
+	 * @param couponId   the id of the coupon
+	 * @return true (if the selected coupon belongs to the loggedIn customer) or
+	 *         false (if the selected coupon doesn't belong to the loggedIn
+	 *         customer)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCouponBelongsToLoggedInCustomer(long customerId, long couponId) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {
-			String select = "SELECT * FROM CustomerCoupon WHERE Customer_id=" + customerId + " AND Coupon_id =" + couponId;
+			String select = "SELECT * FROM CustomerCoupon WHERE Customer_id=" + customerId + " AND Coupon_id ="
+					+ couponId;
 			ResultSet rs = con.createStatement().executeQuery(select);
 			if (rs.next()) {
 				return true;
@@ -227,6 +283,14 @@ public class CouponDaoDb implements CouponDAO {
 		}
 	}
 
+	/**
+	 * Check whether a selected coupon title is already exists in db
+	 * 
+	 * @param {@link Coupon}
+	 * @return true (if coupon title is already exists) or false (if the coupon
+	 *         title is unique)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCouponTitleExist(Coupon coupon) throws CouponSystemException {
 		Connection con = ConnectionPool.getInstance().getConnection();
 		try {
@@ -245,6 +309,14 @@ public class CouponDaoDb implements CouponDAO {
 		}
 	}
 
+	/**
+	 * Checks if there are still coupons left (if coupons amount > 0) or not 
+	 * 
+	 * @param {@link Coupon}
+	 * @return true, if there are still coupons left (coupons amount > 0) or false,
+	 *         if there are no coupons left (coupons amount = 0)
+	 * @throws CouponSystemException
+	 */
 	public boolean isThereCouponsLeft(Coupon coupon) throws CouponSystemException {
 		if (coupon.getAmount() > 0) {
 			return true;
@@ -253,7 +325,14 @@ public class CouponDaoDb implements CouponDAO {
 		}
 
 	}
-	
+
+	/**
+	 * Checks if a selected coupon is valid (coupon expiration date is later than current time) or not 
+	 * 
+	 * @param {@link Coupon}
+	 * @return true (if the coupon is valid) or false (if the coupon is not valid)
+	 * @throws CouponSystemException
+	 */
 	public boolean isCouponDateValid(Coupon coupon) throws CouponSystemException {
 		Date today = new Date(System.currentTimeMillis());
 		if (coupon.getEndDate().after(today)) {

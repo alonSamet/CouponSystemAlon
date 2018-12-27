@@ -13,7 +13,7 @@ import exceptions.CouponSystemException;
 public interface CouponDAO {
 
 	/**
-	 * Creates new coupon in the database (db)
+	 * Creates new coupon in the database 
 	 * 
 	 * @param {@link Coupon}
 	 * @throws CouponSystemException
@@ -21,7 +21,7 @@ public interface CouponDAO {
 	void create(Coupon coupon) throws CouponSystemException;
 
 	/**
-	 * Removes coupon from the db
+	 * Removes coupon from db
 	 * 
 	 * @param {@link Coupon}
 	 * @throws CouponSystemException
@@ -29,7 +29,7 @@ public interface CouponDAO {
 	void remove(Coupon coupon) throws CouponSystemException;
 
 	/**
-	 * Updates coupon in the db
+	 * Updates coupon in db
 	 * 
 	 * @param {@link Coupon}
 	 * @throws CouponSystemException
@@ -46,7 +46,7 @@ public interface CouponDAO {
 	Coupon getCouponById(long couponId) throws CouponSystemException;
 
 	/**
-	 * Gets all coupon objects from the db
+	 * Gets all coupon objects from db
 	 * 
 	 * @return collection of coupons
 	 * @throws CouponSystemException

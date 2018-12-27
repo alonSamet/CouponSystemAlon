@@ -5,28 +5,33 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import connectionPool.ConnectionPool;
 import exceptions.CouponSystemException;
 
+/**
+ * This class manages the database tables (creates/drops tables)
+ * 
+ * @author Alon samet
+ *
+ */
 public class ManageTables {
 
+	/*
+	 * Adds new tables to the database: tables for company, customer, coupons & join tables
+	 */
 	public void createTables() throws CouponSystemException {
 
 		String url = "jdbc:derby:db";
 
 		// Commands of creating tables
 		String sql1 = " CREATE TABLE Company(id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-				+ " comp_name VARCHAR(40),password VARCHAR(40),email VARCHAR(40),"
-				+ " PRIMARY KEY (id))";
+				+ " comp_name VARCHAR(40),password VARCHAR(40),email VARCHAR(40)," + " PRIMARY KEY (id))";
 
 		String sql2 = " CREATE TABLE Customer(id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-				+ " cust_name VARCHAR(40),password VARCHAR(40),"
-				+ " PRIMARY KEY (id))";
+				+ " cust_name VARCHAR(40),password VARCHAR(40)," + " PRIMARY KEY (id))";
 
 		String sql3 = " CREATE TABLE Coupon(id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
 				+ " title VARCHAR(40), startDate DATE, endDate DATE, amount INTEGER, couponType VARCHAR(40),"
-				+ " message VARCHAR(225), price FLOAT, image VARCHAR(225),"
-				+ " PRIMARY KEY (id))";
+				+ " message VARCHAR(225), price FLOAT, image VARCHAR(225)," + " PRIMARY KEY (id))";
 
 		String sql4 = "CREATE TABLE CustomerCoupon(Customer_id BIGINT, Coupon_id BIGINT, PRIMARY KEY(Customer_id, Coupon_id))";
 
@@ -53,9 +58,11 @@ public class ManageTables {
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new CouponSystemException("SQLException or ClassNotFoundException", e);
 		}
-
 	}
 
+	/*
+	 * Removes all tables from the database
+	 */
 	public void dropTables() throws CouponSystemException {
 
 		String url = "jdbc:derby:db";
@@ -82,56 +89,5 @@ public class ManageTables {
 			throw new CouponSystemException("Drop tables main failed", e);
 		}
 		System.out.println("All tables were deleted");
-	}
-
-	public void clearCompanyTable() throws CouponSystemException {
-		// get connection from pool
-		Connection con = ConnectionPool.getInstance().getConnection(); // (Removes 1 connection from pool)
-		try {
-			String clearTable = "TRUNCATE TABLE Company";
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate(clearTable);
-			System.out.println("Company table was cleared");
-		} catch (SQLException e) {
-			throw new CouponSystemException("clearCompanyTable failed", e);
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);// (Adds 1 connection to pool)
-
-		}
-
-	}
-
-	public void clearCustomerTable() throws CouponSystemException {
-		// get connection from pool
-		Connection con = ConnectionPool.getInstance().getConnection(); // (Removes 1 connection from pool)
-		try {
-			String clearTable = "TRUNCATE TABLE Customer";
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate(clearTable);
-			System.out.println("Customer table was cleared");
-		} catch (SQLException e) {
-			throw new CouponSystemException("clearCustomerTable failed", e);
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);// (Adds 1 connection to pool)
-
-		}
-
-	}
-
-	public void clearCouponTable() throws CouponSystemException {
-		// get connection from pool
-		Connection con = ConnectionPool.getInstance().getConnection(); // (Removes 1 connection from pool)
-		try {
-			String clearTable = "TRUNCATE TABLE Coupon";
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate(clearTable);
-			System.out.println("Coupon table was cleared");
-		} catch (SQLException e) {
-			throw new CouponSystemException("clearCouponTable failed", e);
-		} finally {
-			ConnectionPool.getInstance().returnConnection(con);// (Adds 1 connection to pool)
-
-		}
-
 	}
 }

@@ -10,8 +10,9 @@ import dao.db.CustomerDaoDb;
 import exceptions.CouponSystemException;
 
 /**
- * With this admin facade (the layer for the business logic) admin can create,
- * remove and perform various actions relating to companies & customers
+ * With the admin (administrator) facade - the layer for the business logic -
+ * the administrator can create, remove and perform various actions relating to
+ * companies & customers
  */
 public class AdminFacade implements ClientFacade {
 
@@ -19,6 +20,10 @@ public class AdminFacade implements ClientFacade {
 	private CustomerDaoDb customerDb;
 	private CouponDaoDb couponDb;
 
+	/**
+	 * This CTOR instantiates the company, customer & coupon DaoDb layer, in order
+	 * to allow access to its methods. There are no SQL commands in the facade layer
+	 */
 	public AdminFacade() {
 		super();
 		companyDb = new CompanyDaoDb();
@@ -27,11 +32,11 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Admin login with name and password
+	 * Login to the system by administrator username & password
 	 * 
-	 * @param name
-	 * @param password
-	 * @return
+	 * @param name     username of administrator
+	 * @param password of administrator
+	 * @return true (if login succeeded) or false (if login failed)
 	 */
 	@Override
 	public boolean login(String name, String password) throws CouponSystemException {
@@ -39,32 +44,30 @@ public class AdminFacade implements ClientFacade {
 			return true;
 		} else {
 			System.out.println("Invalid admin username or password");
-			throw new CouponSystemException ("Invalid admin username or password.\nPlease try again");
+			throw new CouponSystemException("Invalid admin username or password.\nPlease try again");
 		}
 	}
 
 	/**
-	 * Only the admin can create a company user (after check whether the name chosen
-	 * for the company is unique or not)
+	 * Creates new company. Only the admin can create new company, after validation
+	 * whether the name that has been chosen for this company is unique
 	 * 
-	 * @param company
+	 * @param {@link Company}
 	 * @throws CouponSystemException
 	 */
 	public void createCompany(Company company) throws CouponSystemException {
 		// Check for duplicate company name:
-		for (Company c : companyDb.getAllCompanies()) {
-			if (c.getName().equals(company.getName())) {
-				throw new CouponSystemException("Company name allready exists!");
-			}
+		if (companyDb.isCompanyNameExist(company.getName())) {
+			throw new CouponSystemException("Company name allready exists!");
 		}
 		companyDb.create(company);
 	}
 
 	/**
-	 * Erase a company with all her coupons, including those been bought by
-	 * customers
+	 * Removes a company with all its coupons, including coupons that have been
+	 * bought by customers
 	 * 
-	 * @param company
+	 * @param {@link Company}
 	 * @throws CouponSystemException
 	 */
 	public void removeCompany(Company company) throws CouponSystemException {
@@ -86,9 +89,9 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Update email and password only
+	 * Updates company email & password only
 	 * 
-	 * @param company
+	 * @param {@link Company}
 	 * @throws CouponSystemException
 	 */
 	public void updateCompany(Company company) throws CouponSystemException {
@@ -111,42 +114,45 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Get specific company by id
+	 * Gets a company object by its id
 	 * 
-	 * @return
-	 * @param id
+	 * @return {@link Company}
+	 * @param companyId id of the company to get
 	 * @throws CouponSystemException
 	 */
 	public Company getCompanyById(long companyId) throws CouponSystemException {
-		return companyDb.getCompanyById(companyId);
+		Company company = companyDb.getCompanyById(companyId);
+		return company;
 	}
 
 	/**
-	 * Get specific company by name
+	 * Gets a specific company by its name
 	 * 
-	 * @return
-	 * @param name
+	 * @return {@link Company}
+	 * @param companyName the name of the company to get
 	 * @throws CouponSystemException
 	 */
 	public Company getCompanyByName(String companyName) throws CouponSystemException {
-		return companyDb.getCompanyByName(companyName);
+		Company company = companyDb.getCompanyByName(companyName);
+		return company;
 	}
 
 	/**
-	 * Get all the existing companies
+	 * Gets all the existing companies in the db
 	 * 
-	 * @return
+	 * @return collection of companies
 	 * @throws CouponSystemException
 	 */
 	public Collection<Company> getAllCompanies() throws CouponSystemException {
-		return companyDb.getAllCompanies();
+		Collection<Company> companies = companyDb.getAllCompanies();
+		return companies;
 	}
 
 	/**
-	 * Only the admin can create a customer (have to check if the name chosen for
-	 * the customer is unique)
+	 * Creates new customer. Only the admin can create new customer, after
+	 * validation whether the name that has been chosen for this customer is unique
 	 * 
-	 * @param customer
+	 * @param {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	public void createCustomer(Customer customer) throws CouponSystemException {
@@ -159,9 +165,9 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Remove a customer and all its coupons
+	 * Removes a customer with all its coupons
 	 * 
-	 * @param customer
+	 * @param {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	public void removeCustomer(Customer customer) throws CouponSystemException {
@@ -184,9 +190,9 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Update customer password only
+	 * Updates customer password only
 	 * 
-	 * @param customer
+	 * @param {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	public void updateCustomer(Customer customer) throws CouponSystemException {
@@ -206,39 +212,37 @@ public class AdminFacade implements ClientFacade {
 	}
 
 	/**
-	 * Get specific customer by id
+	 * Gets a customer object by its id
 	 * 
-	 * @param customerId
-	 * @return
+	 * @return {@link Customer}
+	 * @param customerId id of the customer to get
 	 * @throws CouponSystemException
 	 */
 	public Customer getCustomerById(long customerId) throws CouponSystemException {
-		return customerDb.getCustomerById(customerId);
+		Customer customer = customerDb.getCustomerById(customerId);
+		return customer;
 	}
 
 	/**
-	 * Get specific customer by name
+	 * Gets a specific customer by its name
 	 * 
-	 * @return
-	 * @param name
+	 * @return {@link Customer}
+	 * @param customerName the name of the customer to get
 	 * @throws CouponSystemException
 	 */
 	public Customer getCustomerByName(String customerName) throws CouponSystemException {
-		try {
-			return customerDb.getCustomerByName(customerName);
-
-		} catch (CouponSystemException e) {
-			throw new CouponSystemException("AdminFacade.getCustomerByName failed", e);
-		}
+		Customer customer = customerDb.getCustomerByName(customerName);
+		return customer;
 	}
 
 	/**
-	 * Get all customers in the system
+	 * Gets all the existing customers in the db
 	 * 
-	 * @return
+	 * @return collection of customers
 	 * @throws CouponSystemException
 	 */
 	public Collection<Customer> getAllCustomers() throws CouponSystemException {
-		return customerDb.getAllCustomers();
+		Collection<Customer> customers = customerDb.getAllCustomers();
+		return customers;
 	}
 }

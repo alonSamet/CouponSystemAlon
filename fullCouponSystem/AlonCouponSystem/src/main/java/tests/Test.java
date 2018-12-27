@@ -15,6 +15,13 @@ import facades.CompanyFacade;
 import manageTables.ManageTables;
 import singleton.CouponSystem;
 
+/**
+ * This class drops, creates and populates the coupon system database tables. In
+ * this way, the system can easily be tested 
+ * 
+ * @author Alon Samet
+ *
+ */
 public class Test {
 
 	public static void projectTest() throws CouponSystemException {
@@ -66,13 +73,16 @@ public class Test {
 		Coupon rowboat = new Coupon("Rowboat", startDate, endDate6, 5, CouponType.HOBBY, "The perfect romantic rowboat",
 				2000,
 				"https://images.pexels.com/photos/275538/pexels-photo-275538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-		Coupon movie = new Coupon("Vip Movie Double Tickets", startDate, endDate7, 30, CouponType.HOBBY, "The best way to watch a movie",
-				120, "https://images.pexels.com/photos/1353368/pexels-photo-1353368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-		Coupon breakfast = new Coupon("Luxurious Breakfast For Two", startDate, endDate8, 15, CouponType.FOOD, "The perfect date! Come hungry..",
-				110, "https://images.pexels.com/photos/1305063/pexels-photo-1305063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-		Coupon surf = new Coupon("Surfing Course", startDate, endDate9, 8, CouponType.HOBBY, "Learn the basic principles of independent surfing",
-				500, "http://cdn.theatlantic.com/static/infocus/surf091411/s01_20153614.jpg");
-		
+		Coupon movie = new Coupon("Vip Movie Double Tickets", startDate, endDate7, 30, CouponType.HOBBY,
+				"The best way to watch a movie", 120,
+				"https://images.pexels.com/photos/1353368/pexels-photo-1353368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+		Coupon breakfast = new Coupon("Luxurious Breakfast For Two", startDate, endDate8, 15, CouponType.FOOD,
+				"The perfect date! Come hungry..", 110,
+				"https://images.pexels.com/photos/1305063/pexels-photo-1305063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+		Coupon surf = new Coupon("Surfing Course", startDate, endDate9, 8, CouponType.HOBBY,
+				"Learn the basic principles of independent surfing", 500,
+				"http://cdn.theatlantic.com/static/infocus/surf091411/s01_20153614.jpg");
+
 		CouponSystem couponSystem = CouponSystem.getInstance();
 		// Get admin Facade:
 		AdminFacade adminFacade = (AdminFacade) couponSystem.Login("admin", "1234", ClientType.ADMIN);

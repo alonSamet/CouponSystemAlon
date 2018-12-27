@@ -20,6 +20,13 @@ import exceptions.CouponSystemException;
 import facades.AdminFacade;
 import facades.ClientFacade;
 
+/**
+ * The admin web service handles the HTTP requests sent from the admin web page (client side)
+ * 
+ * @author Alon Samet
+ *
+ */
+
 @RestController
 @CrossOrigin("*")
 public class AdminWebService {
@@ -34,6 +41,14 @@ public class AdminWebService {
 	// ********** AdminFacade methods related to company: **********
 	// *************************************************************
 
+	/**
+	 * Creates new company
+	 * 
+	 * @param {@link Company}
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with success/error massage
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/createcompany", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> createCompany(@RequestBody Company company, HttpServletRequest req)
 			throws CouponSystemException {
