@@ -120,7 +120,7 @@ public class CouponDaoDb implements CouponDAO {
 	/**
 	 * Gets the coupon object from db by its id
 	 * 
-	 * @param couponId id of the requested coupon
+	 * @param couponId id of the coupon to get
 	 * @return {@link Coupon}
 	 * @throws CouponSystemException
 	 */

@@ -1910,3 +1910,70 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.apache.de
 2018-12-27 14:20:14,974 [Worker-268: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
 2018-12-27 14:20:14,980 [Worker-268: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-12-27 14:20:14,981 [Worker-268: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-27 14:21:45,308 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-12-28 18:06:57,907 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-12-30 12:07:08,668 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:08,668 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:07:08,684 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:07:09,138 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:09,138 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:07:34,115 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:34,130 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:07:34,130 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:07:34,146 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:34,146 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:07:50,228 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:50,244 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:07:50,244 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:07:50,244 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:50,244 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:07:55,198 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:55,213 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:07:55,213 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:07:55,213 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:07:55,213 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:08:15,369 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:15,369 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:08:15,385 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:08:15,385 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:15,385 [Worker-89: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:08:22,140 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:22,140 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:08:22,140 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:08:22,156 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:22,156 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:08:33,979 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:33,979 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:08:33,979 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:08:33,995 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:33,995 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:08:44,901 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:44,901 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:08:44,901 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:08:44,917 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:44,917 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:08:50,176 [Worker-93: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:50,176 [Worker-93: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:08:50,176 [Worker-93: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:08:50,191 [Worker-93: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:08:50,191 [Worker-93: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:09:02,283 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:02,283 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:09:02,283 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:09:02,299 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:02,299 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:09:32,849 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:32,865 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:09:32,865 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:09:32,865 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:32,865 [Worker-92: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:09:36,900 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:36,900 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:09:36,916 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:09:36,916 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:09:36,916 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources
+2018-12-30 12:10:18,490 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:10:18,490 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-12-30 12:10:18,505 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 73 resources
+2018-12-30 12:10:18,505 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-30 12:10:18,505 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\CouponSystemAlon\fullCouponSystem\AlonCouponSystem\src\test\resources

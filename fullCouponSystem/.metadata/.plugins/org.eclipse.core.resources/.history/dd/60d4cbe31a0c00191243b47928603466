@@ -49,7 +49,7 @@ public interface CustomerDAO {
 	/**
 	 * Gets the customer object from db by its id
 	 * 
-	 * @param customerId id of the requested customer
+	 * @param customerId id of the customer to get
 	 * @return {@link Customer}
 	 * @throws CouponSystemException
 	 */
@@ -58,7 +58,7 @@ public interface CustomerDAO {
 	/**
 	 * Gets the customer object from db by its name
 	 * 
-	 * @param customerName name of the requested customer
+	 * @param customerName name of the customer to get
 	 * @return {@link Customer}
 	 * @throws CouponSystemException
 	 */

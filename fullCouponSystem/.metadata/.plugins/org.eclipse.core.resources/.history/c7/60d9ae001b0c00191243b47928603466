@@ -117,7 +117,7 @@ public class AdminFacade implements ClientFacade {
 	 * Gets a company object by its id
 	 * 
 	 * @return {@link Company}
-	 * @param companyId id of the requested company
+	 * @param companyId id of the company to get
 	 * @throws CouponSystemException
 	 */
 	public Company getCompanyById(long companyId) throws CouponSystemException {
@@ -129,7 +129,7 @@ public class AdminFacade implements ClientFacade {
 	 * Gets a specific company by its name
 	 * 
 	 * @return {@link Company}
-	 * @param companyName the name of the requested company
+	 * @param companyName the name of the company to get
 	 * @throws CouponSystemException
 	 */
 	public Company getCompanyByName(String companyName) throws CouponSystemException {
@@ -227,7 +227,7 @@ public class AdminFacade implements ClientFacade {
 	 * Gets a specific customer by its name
 	 * 
 	 * @return {@link Customer}
-	 * @param customerName the name of the requested customer
+	 * @param customerName the name of the customer to get
 	 * @throws CouponSystemException
 	 */
 	public Customer getCustomerByName(String customerName) throws CouponSystemException {

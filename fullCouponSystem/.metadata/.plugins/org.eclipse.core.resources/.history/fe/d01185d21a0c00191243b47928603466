@@ -49,7 +49,7 @@ public interface CompanyDAO {
 	/**
 	 * Gets the company object from db by its id
 	 * 
-	 * @param companyId id of the requested company
+	 * @param companyId id of the company to get
 	 * @return {@link Company}
 	 * @throws CouponSystemException
 	 */
@@ -58,7 +58,7 @@ public interface CompanyDAO {
 	/**
 	 * Gets the company object from db by its name
 	 * 
-	 * @param companyName name of the requested company
+	 * @param companyName name of the company to get
 	 * @return {@link Company}
 	 * @throws CouponSystemException
 	 */

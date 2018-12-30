@@ -127,14 +127,6 @@ public class AdminWebService {
 		}
 	}
 
-	/**
-	 * Gets a company object by its name
-	 * 
-	 * @param name name of the requested company
-	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
-	 * @throws CouponSystemException
-	 */
 	@RequestMapping(value = "/admin/getcompanybyname/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getCompanyByName(@PathVariable("name") String name, HttpServletRequest req)
 			throws CouponSystemException {
