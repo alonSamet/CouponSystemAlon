@@ -53,8 +53,8 @@ public class CustomerFacade implements ClientFacade {
 	 * A customer can purchase coupon after several validations: (1) Customer hasn't
 	 * already bought this coupon. (2) There are coupons left (amount > 0). (3) The
 	 * date of the coupon hasn't expired (end date is later than current time).
-	 * After coupon is being purchased, the method decreases the amount of the
-	 * coupon from the company balance
+	 * After coupon is being purchased, the amount of the coupons is been decreased
+	 * from the company balance
 	 * 
 	 * @param {{@link Coupon}
 	 * @throws CouponSystemException
@@ -123,9 +123,11 @@ public class CustomerFacade implements ClientFacade {
 	}
 
 	/**
-	 * Gets coupons being purchased by the loggedIn customer, by the coupons top price
+	 * Gets coupons being purchased by the loggedIn customer, by the coupons top
+	 * price
 	 * 
-	 * @return collection of purcahsed coupons with price lower than the selected top price
+	 * @return collection of purcahsed coupons with price lower than the selected
+	 *         top price
 	 * @throws CouponSystemException
 	 */
 	public Collection<Coupon> getAllPurchesedCouponsByTopPrice(double price) throws CouponSystemException {

@@ -333,7 +333,7 @@ public class CompanyDaoDb implements CompanyDAO {
 			if (rs.next()) {
 				return true;
 			} else {
-				throw new CouponSystemException("No company with this name.\n\nPlease try again");
+				return false;
 			}
 
 		} catch (SQLException e) {

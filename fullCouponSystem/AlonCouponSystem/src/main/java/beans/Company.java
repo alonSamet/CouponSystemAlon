@@ -6,7 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author Alon Samet
  * 
- * This class generates the company object, which has id, name, password & email
+ *         This class generates the company object, which has id, name, password
+ *         & email
  *
  */
 @SuppressWarnings("serial")
@@ -18,9 +19,13 @@ public class Company implements Serializable {
 	private String password;
 	private String email;
 
-	public Company(){
+	public Company() {
 	}
-	
+
+	/**
+	 * This CTOR sets the company class fields - including the id field - to those
+	 * sent when an instance of the object is created
+	 */
 	public Company(long id, String name, String password, String email) {
 		super();
 		this.id = id;
@@ -29,6 +34,10 @@ public class Company implements Serializable {
 		this.email = email;
 	}
 
+	/**
+	 * This CTOR sets the company class fields - not including the id field - to those
+	 * sent when an instance of the object is created
+	 */
 	public Company(String name, String password, String email) {
 		super();
 		this.name = name;
@@ -36,6 +45,7 @@ public class Company implements Serializable {
 		this.email = email;
 	}
 
+	
 	public long getId() {
 		return id;
 	}

@@ -85,6 +85,8 @@ public class ManageTables {
 			stmt.executeUpdate(sql4);
 			stmt.executeUpdate(sql5);
 
+			System.out.println("All tables were removed");
+
 		} catch (SQLException | ClassNotFoundException e) {
 			throw new CouponSystemException("Drop tables main failed", e);
 		}

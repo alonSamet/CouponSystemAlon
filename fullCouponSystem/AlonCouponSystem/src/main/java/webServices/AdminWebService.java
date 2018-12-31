@@ -27,16 +27,23 @@ import facades.ClientFacade;
  * @author Alon Samet
  *
  */
-
 @RestController
 @CrossOrigin("*")
 public class AdminWebService {
 
-	// Get the facade from the session
+	// Get the admin facade from the session
 	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException {
 		AdminFacade af = (AdminFacade) req.getSession().getAttribute("facade");
 		return af;
 	}
+	
+//	private <????> getFacade(HttpServletRequest req) throws CouponSystemException {
+//		AdminFacade af = (AdminFacade) req.getSession().getAttribute("facade");
+//		if (af == null || !(af instanceof AdminFacade)) {
+//			return "redirect:http://localhost:8080";
+//		} else {
+//			return af;
+//	}
 
 	// *************************************************************
 	// ********** AdminFacade methods related to company: **********
@@ -47,7 +54,8 @@ public class AdminWebService {
 	 * 
 	 * @param {@link Company}
 	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
+	 * @return {@link ResponseEntity} with company creation success/error string
+	 *         massage
 	 * @throws CouponSystemException
 	 */
 	@RequestMapping(value = "/admin/createcompany", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -69,7 +77,8 @@ public class AdminWebService {
 	 * 
 	 * @param {@link Company}
 	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
+	 * @return {@link ResponseEntity} with company removal success/error string
+	 *         massage
 	 * @throws CouponSystemException
 	 */
 	@RequestMapping(value = "/admin/removecompany", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -91,7 +100,8 @@ public class AdminWebService {
 	 * 
 	 * @param {@link Company}
 	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
+	 * @return {@link ResponseEntity} with company update success/error string
+	 *         massage
 	 * @throws CouponSystemException
 	 */
 	@RequestMapping(value = "/admin/updatecompany", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -112,8 +122,9 @@ public class AdminWebService {
 	 * Gets a company object by its id
 	 * 
 	 * @param id id of the requested company
-	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
+	 * @param    {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with company object details (in json format)
+	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
 	 */
 	@RequestMapping(value = "/admin/getcompanybyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -131,8 +142,9 @@ public class AdminWebService {
 	 * Gets a company object by its name
 	 * 
 	 * @param name name of the requested company
-	 * @param {@link HttpServletRequest}
-	 * @return {@link ResponseEntity} with success/error string massage
+	 * @param      {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with company object details (in json format)
+	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
 	 */
 	@RequestMapping(value = "/admin/getcompanybyname/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -146,6 +158,14 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Gets all the existing companies in the db
+	 * 
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with all company objects details (in json
+	 *         format) or an error string massage (in case of a failure)
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/getallcompanies", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getAllCompanies(HttpServletRequest req) throws CouponSystemException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
@@ -160,6 +180,15 @@ public class AdminWebService {
 	// ********** AdminFacede methods related to customer: **********
 	// **************************************************************
 
+	/**
+	 * Creates new customer
+	 * 
+	 * @param {@link Customer}
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with customer creation success/error string
+	 *         massage
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/createcustomer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> createCustomer(@RequestBody Customer customer, HttpServletRequest req)
 			throws CouponSystemException {
@@ -174,6 +203,15 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Removes a customer with all its coupons
+	 * 
+	 * @param {@link Customer}
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with customer removal success/error string
+	 *         massage
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/removecustomer", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> removeCustomer(@RequestBody Customer customer, HttpServletRequest req)
 			throws CouponSystemException {
@@ -188,8 +226,17 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Updates customer password
+	 * 
+	 * @param {@link Customer}
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with customer update success/error string
+	 *         massage
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/updatecustomer", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> updateCompany(@RequestBody Customer customer, HttpServletRequest req)
+	public @ResponseBody ResponseEntity<String> updateCustomer(@RequestBody Customer customer, HttpServletRequest req)
 			throws CouponSystemException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
@@ -202,6 +249,15 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Gets a customer object by its id
+	 * 
+	 * @param id id of the requested customer
+	 * @param    {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with customer object details (in json format)
+	 *         or an error string massage (in case of a failure)
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/getcustomerbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("id") long id, HttpServletRequest req)
 			throws CouponSystemException {
@@ -213,6 +269,15 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Gets a customer object by its name
+	 * 
+	 * @param name name of the requested customer
+	 * @param      {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with customer object details (in json format)
+	 *         or an error string massage (in case of a failure)
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/getcustomerbyname/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("name") String name, HttpServletRequest req)
 			throws CouponSystemException {
@@ -224,6 +289,14 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Gets all customers from database
+	 * 
+	 * @param {@link HttpServletRequest}
+	 * @return {@link ResponseEntity} with all customer objects details (in json
+	 *         format) or an error string massage (in case of a failure)
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/getallcustomers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getAllCustomers(HttpServletRequest req) throws CouponSystemException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
@@ -234,6 +307,12 @@ public class AdminWebService {
 		}
 	}
 
+	/**
+	 * Logs out from the system by invalidating the session
+	 * 
+	 * @param {@link HttpServletRequest}
+	 * @throws CouponSystemException
+	 */
 	@RequestMapping(value = "/admin/logout/", method = RequestMethod.POST)
 	public void logOut(HttpServletRequest req) throws CouponSystemException {
 		HttpSession session = req.getSession(false);
