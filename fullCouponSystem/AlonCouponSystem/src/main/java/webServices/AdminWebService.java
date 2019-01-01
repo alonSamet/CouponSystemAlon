@@ -26,9 +26,6 @@ import facades.ClientFacade;
 /**
  * The admin web service handles the HTTP requests sent from the admin web page
  * (client side)
- * 
- * @author Alon Samet
- *
  */
 @RestController
 @CrossOrigin("*")
@@ -55,7 +52,8 @@ public class AdminWebService {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/createcompany", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> createCompany(@RequestBody Company company, HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<String> createCompany(@RequestBody Company company, HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.createCompany(company);
@@ -78,7 +76,8 @@ public class AdminWebService {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/removecompany", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> removeCompany(@RequestBody Company company, HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<String> removeCompany(@RequestBody Company company, HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.removeCompany(company);

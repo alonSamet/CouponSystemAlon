@@ -3,9 +3,6 @@ package exceptions;
 /**
  * The main exception of the coupon system, which inherits from the Exception
  * class
- * 
- * @author Alon Samet
- *
  */
 public class CouponSystemException extends Exception {
 

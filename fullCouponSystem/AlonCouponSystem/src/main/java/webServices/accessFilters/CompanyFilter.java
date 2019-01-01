@@ -14,11 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import facades.CompanyFacade;
 
 /**
- * This filter handles a scenario when a user is trying to access the
- * company page, without login and receiving of a company facade
- * 
- * @author Alon Samet
- *
+ * This filter handles a scenario when a user is trying to access the company
+ * page, without login and receiving of a company facade
  */
 public class CompanyFilter implements Filter {
 
@@ -30,8 +27,9 @@ public class CompanyFilter implements Filter {
 	}
 
 	/**
-	 * The main method of the company filter, which operating the check whether the user has
-	 * an company facade (if not - the system sends the user to the login page)
+	 * The main method of the company filter, which operating the check whether the
+	 * user has an company facade (if not - the system sends the user to the login
+	 * page)
 	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

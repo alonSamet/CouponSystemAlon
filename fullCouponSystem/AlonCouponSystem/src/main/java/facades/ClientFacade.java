@@ -5,7 +5,6 @@ import exceptions.CouponSystemException;
 /**
  * This general interface (which enables polymorphism) is being used in the
  * login method of the coupon system singleton
- * 
  */
 public interface ClientFacade {
 

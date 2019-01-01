@@ -27,9 +27,6 @@ import facades.CompanyFacade;
 /**
  * The company web service handles the HTTP requests sent from the company web
  * page (client side)
- * 
- * @author Alon Samet
- *
  */
 @RestController
 @CrossOrigin("*")
@@ -38,7 +35,7 @@ public class CompanyWebService {
 	// Get the company facade from the session
 	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) req.getSession().getAttribute("facade");
-			return cf;
+		return cf;
 	}
 
 	/**
@@ -49,7 +46,7 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon creation success/error string
 	 *         massage
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/createcoupon", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> createCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
@@ -73,7 +70,7 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon removal success/error string
 	 *         massage
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/removecoupon", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> removeCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
@@ -97,7 +94,7 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon update success/error string
 	 *         massage
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/updatecoupon", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> updateCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
@@ -121,7 +118,7 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon object details (in json format) or
 	 *         an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycouponbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponById(@PathVariable("id") long id, HttpServletRequest req)
@@ -143,7 +140,7 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon object details (in json format) or
 	 *         an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycouponbytitle/{title}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponByTitle(@PathVariable("title") String title,
@@ -165,10 +162,11 @@ public class CompanyWebService {
 	 *         logged-in company (in json format) or an error string massage (in
 	 *         case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getallmycoupons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllCouponsOfLoggedInCompany());
@@ -186,7 +184,7 @@ public class CompanyWebService {
 	 *         format) of the requested coupon type, or an error string massage (in
 	 *         case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycouponsbytype/{type}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByType(@PathVariable("type") CouponType type,
@@ -210,7 +208,7 @@ public class CompanyWebService {
 	 *         format) with price below/equal the requested top price, or an error
 	 *         string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycouponsbytopprice/{topprice}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByTopPrice(@PathVariable("topprice") Double topPrice,
@@ -232,7 +230,7 @@ public class CompanyWebService {
 	 *         format) with with expiration date that is earlier than the requested
 	 *         one, or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycouponsbyenddate/{enddate}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByEndDate(
@@ -253,10 +251,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with the logged-in company object details (in
 	 *         json format), or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/company/getmycompanydetails", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getMyCompanyDetails(HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<?> getMyCompanyDetails(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCompany());

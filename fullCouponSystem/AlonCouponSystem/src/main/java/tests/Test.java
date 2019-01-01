@@ -18,9 +18,6 @@ import singleton.CouponSystem;
 /**
  * This class drops, creates and populates the coupon system database tables. In
  * this way, the system can easily be tested
- * 
- * @author Alon Samet
- *
  */
 public class Test {
 
@@ -36,7 +33,7 @@ public class Test {
 		Company foodMarket = new Company("foodMarket", "foodPwd", "foodMarket@com");
 		Company dufresneBoats = new Company("dufresneBoats", "boatPwd", "dufresneBoats@com");
 		Company lightning = new Company("lightning", "lightPwd", "lightning@com");
-		
+
 		System.out.println("Four company instances were initiated");
 
 		// Create customer instances:
@@ -45,9 +42,8 @@ public class Test {
 		Customer hadas = new Customer("hadas", "hadasPwd");
 		Customer david = new Customer("david", "davidPwd");
 		Customer ayala = new Customer("ayala", "ayalaPwd");
-		
-		System.out.println("Five customer instances were initiated");
 
+		System.out.println("Five customer instances were initiated");
 
 		// Create coupon instances:
 		Date startDate = new Date(System.currentTimeMillis());
@@ -87,7 +83,7 @@ public class Test {
 		Coupon surf = new Coupon("Surfing Course", startDate, endDate9, 8, CouponType.HOBBY,
 				"Learn the basic principles of independent surfing", 500,
 				"http://cdn.theatlantic.com/static/infocus/surf091411/s01_20153614.jpg");
-		
+
 		System.out.println("Nine coupon instances were initiated");
 
 		CouponSystem couponSystem = CouponSystem.getInstance();
@@ -104,7 +100,6 @@ public class Test {
 
 		System.out.println("Admin created 4 companies");
 
-		
 		System.out.println("****************************************");
 
 		// The new company gets her companyFacade:
@@ -138,12 +133,11 @@ public class Test {
 		adminFacade.createCustomer(hadas);
 		adminFacade.createCustomer(david);
 		adminFacade.createCustomer(ayala);
-		
+
 		System.out.println("Admin created 5 customers");
 
-
 	}
-	
+
 	public static void main(String[] args) {
 		try {
 			projectTest();
@@ -152,5 +146,5 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

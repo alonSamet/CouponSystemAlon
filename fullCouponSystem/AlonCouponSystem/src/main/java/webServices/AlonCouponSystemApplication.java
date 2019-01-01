@@ -9,9 +9,6 @@ import tests.Test;
 /**
  * This class runs the spring application and activates the test method in the
  * test class
- * 
- * @author Alon Samet
- *
  */
 @SpringBootApplication
 public class AlonCouponSystemApplication {

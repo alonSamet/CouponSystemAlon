@@ -25,9 +25,6 @@ import facades.CustomerFacade;
 /**
  * The customer web service handles the HTTP requests sent from the customer web
  * page (client side)
- * 
- * @author Alon Samet
- *
  */
 @RestController
 @CrossOrigin("*")
@@ -47,7 +44,7 @@ public class CustomerWebService {
 	 * @return {@link ResponseEntity} with coupon purchase success/error string
 	 *         massage
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/purchasecoupon", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> purchaseCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
@@ -72,7 +69,7 @@ public class CustomerWebService {
 	 * @return {@link ResponseEntity} with purchased coupon removal success/error
 	 *         string massage
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/removepurchasedcoupon", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> removePurchasedCoupon(@RequestBody Coupon coupon,
@@ -95,10 +92,11 @@ public class CustomerWebService {
 	 * @return {@link ResponseEntity} with all purchased coupon objects details (in
 	 *         json format), or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/getallpurchasedcoupons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllPurchesedCoupons(HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<?> getAllPurchesedCoupons(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		CustomerFacade cf = (CustomerFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllPurchesedCoupons());
@@ -116,7 +114,7 @@ public class CustomerWebService {
 	 *         json format) of the requested coupon type, or an error string massage
 	 *         (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/getallpurchasedcouponsbytype/{type}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getAllPurchesedCouponsByType(@PathVariable("type") CouponType type,
@@ -138,7 +136,7 @@ public class CustomerWebService {
 	 *         json format) with price below/equal the requested top price, or an
 	 *         error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/getallpurchasedcouponsbytopprice/{topprice}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getAllPurchesedCouponsByTopPrice(@PathVariable("topprice") Double topprice,
@@ -158,10 +156,11 @@ public class CustomerWebService {
 	 * @return {@link ResponseEntity} with all coupon objects details (in json
 	 *         format) or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/getallcoupons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllCoupons(HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<?> getAllCoupons(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		CustomerFacade cf = (CustomerFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllCoupons());
@@ -177,10 +176,11 @@ public class CustomerWebService {
 	 * @return {@link ResponseEntity} with the logged-in custoemr object details (in
 	 *         json format), or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/customer/getmydetails", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getMyDetails(HttpServletRequest req) throws CouponSystemException, IOException {
+	public @ResponseBody ResponseEntity<?> getMyDetails(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		CustomerFacade cf = (CustomerFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCustomer());

@@ -8,3 +8,5 @@ manageTables
 singleton
 tests
 webServices
+webServices.accessFilters
+webServices.loginServlet

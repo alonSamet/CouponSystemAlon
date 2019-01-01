@@ -10,12 +10,8 @@ import java.util.Set;
 import exceptions.CouponSystemException;
 
 /**
- * 
- * @author Alon Samet
- * 
- *         This class is a singleton with a constant number of connections that
- *         stored in a Set collection
- *
+ * This class is a singleton with a constant number of connections that stored
+ * in a Set collection
  */
 public class ConnectionPool {
 

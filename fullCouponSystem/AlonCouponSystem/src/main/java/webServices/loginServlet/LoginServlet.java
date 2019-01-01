@@ -15,9 +15,6 @@ import singleton.CouponSystem;
 /**
  * This servlet gets the data from the login page inputs and redirects the user
  * to the relevant page
- * 
- * @author Alon Samet
- *
  */
 @Controller
 public class LoginServlet {
@@ -30,8 +27,9 @@ public class LoginServlet {
 	 * @param pwd      password that has been typed by the client in the login page
 	 * @param usertype type of the user (admin/company/customer) that has been
 	 *                 selected by the client in the login page
-	 * @param {@link HttpServletRequest}
-	 * @return command (string) with URL of the page that the client was redirected to
+	 * @param          {@link HttpServletRequest}
+	 * @return command (string) with URL of the page that the client was redirected
+	 *         to
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String doPost(@RequestParam String username, @RequestParam String pwd, @RequestParam ClientType usertype,

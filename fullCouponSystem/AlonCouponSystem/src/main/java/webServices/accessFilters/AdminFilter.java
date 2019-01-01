@@ -16,9 +16,6 @@ import facades.AdminFacade;
 /**
  * This filter handles a scenario when a user is trying to access the
  * administrator page, without login and receiving of an admin facade
- * 
- * @author Alon Samet
- *
  */
 public class AdminFilter implements Filter {
 
@@ -30,8 +27,9 @@ public class AdminFilter implements Filter {
 	}
 
 	/**
-	 * The main method of the admin filter, which operating the check whether the user has
-	 * an admin facade (if not - the system sends the user to the login page)
+	 * The main method of the admin filter, which operating the check whether the
+	 * user has an admin facade (if not - the system sends the user to the login
+	 * page)
 	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

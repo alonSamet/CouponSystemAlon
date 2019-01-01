@@ -12,7 +12,6 @@ import facades.CustomerFacade;
  * system (by loging in and returning facade to the user), shuts down the system
  * (closes all connections) and activates the cleaner thread (that remove all
  * the expired coupons).
- * 
  */
 public class CouponSystem {
 
@@ -43,7 +42,8 @@ public class CouponSystem {
 	 * 
 	 * @param userName username of the user
 	 * @param password password of the user
-	 * @param type type of the client that tries to login the system (admin/company/customer)
+	 * @param type     type of the client that tries to login the system
+	 *                 (admin/company/customer)
 	 * @return
 	 * @throws CouponSystemException
 	 */
@@ -75,9 +75,9 @@ public class CouponSystem {
 	}
 
 	/**
-	 * Closes all open connections and stops the cleaner task 
+	 * Closes all open connections and stops the cleaner task
 	 * 
-	 * @throws CouponSystemException 
+	 * @throws CouponSystemException
 	 */
 //	public void shutDown() throws CouponSystemException {
 ////		task.setQuit();

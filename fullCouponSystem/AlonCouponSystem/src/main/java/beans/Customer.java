@@ -4,11 +4,7 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Alon Samet
- * 
- *         This class generates the customer object, which has id, name &
- *         password
- *
+ * This class generates the customer object, which has id, name &password
  */
 @SuppressWarnings("serial")
 @XmlRootElement
@@ -18,7 +14,7 @@ public class Customer implements Serializable {
 	private String name;
 	private String password;
 
-	/*
+	/**
 	 * Empty customer CTOR
 	 */
 	public Customer() {

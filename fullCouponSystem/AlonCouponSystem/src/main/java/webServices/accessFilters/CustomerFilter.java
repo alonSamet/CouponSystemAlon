@@ -14,11 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import facades.CustomerFacade;
 
 /**
- * This filter handles a scenario when a user is trying to access the
- * customer page, without login and receiving of a customer facade
- * 
- * @author Alon Samet
- *
+ * This filter handles a scenario when a user is trying to access the customer
+ * page, without login and receiving of a customer facade
  */
 public class CustomerFilter implements Filter {
 
@@ -30,8 +27,9 @@ public class CustomerFilter implements Filter {
 	}
 
 	/**
-	 * The main method of the customer filter, which operating the check whether the user has
-	 * an customer facade (if not - the system sends the user to the login page)
+	 * The main method of the customer filter, which operating the check whether the
+	 * user has an customer facade (if not - the system sends the user to the login
+	 * page)
 	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

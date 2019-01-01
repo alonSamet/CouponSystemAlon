@@ -5,12 +5,9 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Alon Samet
- * 
- *         This class generates the coupon object, which has id, title, start
- *         date, end (expiration) date, amount (of coupons left), coupon type,
- *         message (coupon details), price and an image of the coupon.
- *
+ * This class generates the coupon object, which has id, title, start date, end
+ * (expiration) date, amount (of coupons left), coupon type, message (coupon
+ * details), price and an image of the coupon.
  */
 @SuppressWarnings("serial")
 @XmlRootElement
@@ -26,7 +23,7 @@ public class Coupon implements Serializable {
 	private double price;
 	private String image;
 
-	/*
+	/**
 	 * Empty coupon CTOR
 	 */
 	public Coupon() {
@@ -119,7 +116,7 @@ public class Coupon implements Serializable {
 	}
 
 	/**
-	 * @return end date (the expiration date) for the coupon 
+	 * @return end date (the expiration date) for the coupon
 	 */
 	public java.util.Date getEndDate() {
 		return endDate;

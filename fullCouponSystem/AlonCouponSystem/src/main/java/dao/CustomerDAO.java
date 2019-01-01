@@ -25,7 +25,7 @@ public interface CustomerDAO {
 	/**
 	 * Creates new customer in the database (db)
 	 * 
-	 * @param {@link Customer}
+	 * @param customer {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	void create(Customer customer) throws CouponSystemException;
@@ -33,7 +33,7 @@ public interface CustomerDAO {
 	/**
 	 * Removes customer from the db
 	 * 
-	 * @param {@link Customer}
+	 * @param customer {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	void remove(Customer customer) throws CouponSystemException;
@@ -41,7 +41,7 @@ public interface CustomerDAO {
 	/**
 	 * Updates customer in the db
 	 * 
-	 * @param {@link Customer}
+	 * @param customer {@link Customer}
 	 * @throws CouponSystemException
 	 */
 	void update(Customer customer) throws CouponSystemException;

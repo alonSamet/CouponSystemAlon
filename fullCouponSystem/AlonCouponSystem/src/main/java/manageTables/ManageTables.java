@@ -9,14 +9,12 @@ import exceptions.CouponSystemException;
 
 /**
  * This class manages the database tables (creates/drops tables)
- * 
- * @author Alon samet
- *
  */
 public class ManageTables {
 
 	/*
-	 * Adds new tables to the database: tables for company, customer, coupons & join tables
+	 * Adds new tables to the database: tables for company, customer, coupons & join
+	 * tables
 	 */
 	public void createTables() throws CouponSystemException {
 
