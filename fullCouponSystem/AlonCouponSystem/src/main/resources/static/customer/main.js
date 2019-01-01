@@ -41,7 +41,7 @@ module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/allcoupons\"> All Coupons\r\n                    <span class=\"glyphicon glyphicon-th-list\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mypurchasedcoupons\"> My Purchased Coupons\r\n                    <span class=\"glyphicon glyphicon-shopping-cart\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mydetails\"> My Details\r\n                    <span class=\"glyphicon glyphicon-copyright-mark\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b>Logout </b>\r\n                    <span class=\"fas fa-sign-out-alt\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n    <div class=\"panel-heading\">\r\n        <span style=\"font-size: 18px\">\r\n            <strong>Contact us:&nbsp; </strong>\r\n        </span>\r\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n    </div>\r\n    <div class=\"panel-body\">\r\n        Powered by\r\n        <strong>\r\n            <i> Alon Samet </i>\r\n            <br>\r\n        </strong>\r\n        <h6> © All Rights Reserved </h6>\r\n    </div>\r\n    <br>\r\n</div>"
+module.exports = "\r\n<!--\r\nThis component generates the nav bar that allows the access to the other customer SPA components: \r\nHome, all Coupons, my Purchased Coupons, My Details, About & Logout. In addition, it generates the footer of the system, \r\nwhich contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.\r\n-->\r\n\r\n<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/allcoupons\"> All Coupons\r\n                    <span class=\"glyphicon glyphicon-th-list\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mypurchasedcoupons\"> My Purchased Coupons\r\n                    <span class=\"glyphicon glyphicon-shopping-cart\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mydetails\"> My Details\r\n                    <span class=\"glyphicon glyphicon-copyright-mark\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b>Logout </b>\r\n                    <span class=\"fas fa-sign-out-alt\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n    <div class=\"panel-heading\">\r\n        <span style=\"font-size: 18px\">\r\n            <strong>Contact us:&nbsp; </strong>\r\n        </span>\r\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n    </div>\r\n    <div class=\"panel-body\">\r\n        Powered by\r\n        <strong>\r\n            <i> Alon Samet </i>\r\n            <br>\r\n        </strong>\r\n        <h6> © All Rights Reserved </h6>\r\n    </div>\r\n    <br>\r\n</div>"
 
 /***/ }),
 
@@ -84,7 +84,11 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        }),
+        })
+        // This component generates the nav bar that allows the access to the other customer SPA components: 
+        // Home, all Coupons, my Purchased Coupons, My Details, About & Logout. In addition, it generates the footer of the system, 
+        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__["CustomerSpaService"]])
     ], AppComponent);
     return AppComponent;
@@ -197,6 +201,9 @@ var AppModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Coupon", function() { return Coupon; });
+// This class generates the coupon object, which has id, title, 
+// star date, end (expiration) date, amount (of coupons left), 
+// coupon type, message (coupon details), price and an image of the coupon.
 var Coupon = /** @class */ (function () {
     function Coupon(id, title, startDate, endDate, amount, couponType, message, price, image) {
         this.id = id;
@@ -253,6 +260,7 @@ var Coupon = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Customer", function() { return Customer; });
+// This class generates the customer object, which has id, name & password
 var Customer = /** @class */ (function () {
     function Customer(id, name, password) {
         this.id = id;
@@ -293,7 +301,7 @@ module.exports = "#container {\r\n    padding-bottom: 120px; \r\n    width: 90%\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../customer/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../customer/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\nThis component displays details about the coupon system project (left image) and the project author (right image) \r\n-->\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../customer/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../customer/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -328,7 +336,9 @@ var AboutComponent = /** @class */ (function () {
             selector: 'app-about',
             template: __webpack_require__(/*! ./about.component.html */ "./src/app/components/about/about.component.html"),
             styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/components/about/about.component.css")]
-        }),
+        })
+        // This component displays details about the coupon system project and the project author (Alon Samet)
+        ,
         __metadata("design:paramtypes", [])
     ], AboutComponent);
     return AboutComponent;
@@ -345,7 +355,7 @@ var AboutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n#shadow {\r\n    text-shadow: 1px 1px;\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#getby {\r\n    text-align:center;\r\n    width: 300px; \r\n    margin-left:41%; \r\n}\r\n\r\n#button {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#img {\r\n    padding-top: 20px; \r\n    padding-left: 20px; \r\n    padding-right: 20px;\r\n}\r\n\r\n"
+module.exports = "\r\n#shadow {\r\n    text-shadow: 1px 1px;\r\n}\r\n\r\n#centerh {\r\n    text-align: center;\r\n}\r\n\r\n#getby {\r\n    text-align:center;\r\n    width: 300px; \r\n    margin-left:41%; \r\n}\r\n\r\n#button {\r\n    padding-bottom: 70px;\r\n}\r\n\r\nimg {\r\n    padding-top: 20px; \r\n    padding-left: 20px; \r\n    padding-right: 20px;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -356,7 +366,7 @@ module.exports = "\r\n#shadow {\r\n    text-shadow: 1px 1px;\r\n}\r\n\r\n#center
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<h3 id=\"centerh\">\r\n  <span class=\"label label-success\"> All Coupons </span>\r\n</h3>\r\n<br>\r\n\r\n<div class=\"row\">\r\n  <!-- Go to purchased coupons page -->\r\n  <br>\r\n  <div id=\"button\">\r\n    <div id=\"centerh\">\r\n      <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n        Go to my purchased coupons list\r\n        <span class=\"warning\"></span>\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let c of allCouponsList; let i = index\" class=\"col-md-3\">\r\n      <div class=\"thumbnail\">\r\n        <img [src]=c.image class=\"img-rounded\" width=\"480\" height=\"280\" id=\"img\">\r\n        <div class=\"caption\">\r\n          <h3 id=\"centerh\">\r\n            <b>{{c.title}} </b>\r\n          </h3>\r\n          <hr style=\"border: 1px solid rgb(5, 5, 5);\">\r\n          <p id=\"centerh\"> {{c.message}} </p>\r\n          <hr style=\"border: 1px solid rgb(0, 0, 0);\">\r\n          <ul>\r\n            <li>\r\n              <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS\r\n            </li>\r\n            <li>\r\n              <b> Coupon Type: </b> &nbsp; {{c.couponType}}\r\n            </li>\r\n            <li>\r\n              <b> Start Date: </b> &nbsp; {{c.startDate}}\r\n            </li>\r\n            <li>\r\n              <b> End Date: </b> &nbsp; {{c.endDate}}\r\n            </li>\r\n            <li>\r\n              <b> Amount: </b> &nbsp; {{c.amount}}\r\n            </li>\r\n            <li>\r\n              <b> Coupon ID: </b> &nbsp; {{c.id}}\r\n            </li>\r\n          </ul>\r\n          <br>\r\n          <p id=\"centerh\">\r\n            <button class=\"btn-lg btn btn-warning\" (click)=\"purchaseCoupon(i)\"> Purchase it!\r\n              <span class=\"glyphicon glyphicon-shopping-cart\"></span>\r\n            </button>\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n\r\n<div class=\"row\">\r\n  <!-- Go to purchased coupons page -->\r\n  <br>\r\n  <div id=\"button\">\r\n    <div id=\"centerh\">\r\n      <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n        Go to my purchased coupons list\r\n        <span class=\"warning\"></span>\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n  This component displays all coupons that can be purchased by the logged-in customer, \r\n  and allows the customer to purchase them.\r\n-->\r\n\r\n<div class=\"container\">\r\n\r\n  <div class=\"row\">\r\n    <h3 id=\"centerh\">\r\n      <span class=\"label label-success\"> All Coupons </span>\r\n    </h3>\r\n  </div>\r\n  <br>\r\n\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <br>\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Show all coupons that can be purchased by the logged-in customer -->\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let c of allCouponsList; let i = index\" class=\"col-md-3\">\r\n      <div class=\"thumbnail\">\r\n        <img [src]=c.image class=\"img-rounded\" width=\"480\" height=\"280\" id=\"img\">\r\n        <div class=\"caption\">\r\n          <h3 id=\"centerh\">\r\n            <b>{{c.title}} </b>\r\n          </h3>\r\n          <hr style=\"border: 1px solid rgb(5, 5, 5);\">\r\n          <p id=\"centerh\"> {{c.message}} </p>\r\n          <hr style=\"border: 1px solid rgb(0, 0, 0);\">\r\n          <ul>\r\n            <li>\r\n              <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS\r\n            </li>\r\n            <li>\r\n              <b> Coupon Type: </b> &nbsp; {{c.couponType}}\r\n            </li>\r\n            <li>\r\n              <b> Start Date: </b> &nbsp; {{c.startDate}}\r\n            </li>\r\n            <li>\r\n              <b> End Date: </b> &nbsp; {{c.endDate}}\r\n            </li>\r\n            <li>\r\n              <b> Amount: </b> &nbsp; {{c.amount}}\r\n            </li>\r\n            <li>\r\n              <b> Coupon ID: </b> &nbsp; {{c.id}}\r\n            </li>\r\n          </ul>\r\n          <br>\r\n          <p id=\"centerh\">\r\n            <button class=\"btn-lg btn btn-warning\" (click)=\"purchaseCoupon(i)\"> Purchase it!\r\n              <span class=\"glyphicon glyphicon-shopping-cart\"></span>\r\n            </button>\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <br>\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -395,6 +405,7 @@ var AllCouponsComponent = /** @class */ (function () {
         this.allCouponsList = new Array();
         this.allCouponsList = this._customerSpa.allCouponsList;
     }
+    // This method displays all coupons that can be purchased by the logged-in customer
     AllCouponsComponent.prototype.ngOnInit = function () {
         this._customerSpa.ajaxGetAllCoupons();
     };
@@ -415,7 +426,7 @@ var AllCouponsComponent = /** @class */ (function () {
             reverseButtons: true
         }).then(function (result) {
             if (result.value) {
-                // call ajax method in service
+                // call ajax method in the customer service
                 _this._customerSpa.ajaxPurchaseCoupon(_this.allCouponsList[index]);
                 swalWithBootstrapButtons({
                     title: 'The coupon "' + _this.allCouponsList[index].title + '" was successfully purchased!',
@@ -439,7 +450,12 @@ var AllCouponsComponent = /** @class */ (function () {
             selector: 'app-all-coupons',
             template: __webpack_require__(/*! ./all-coupons.component.html */ "./src/app/components/all-coupons/all-coupons.component.html"),
             styles: [__webpack_require__(/*! ./all-coupons.component.css */ "./src/app/components/all-coupons/all-coupons.component.css")]
-        }),
+        })
+        /*
+        This component displays all coupons that can be purchased by the logged-in customer,
+        and allows the customer to purchase them.
+        */
+        ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__["CustomerSpaService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AllCouponsComponent);
     return AllCouponsComponent;
@@ -467,7 +483,7 @@ module.exports = "#welcome {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#shadow {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<div class=\"container\">\r\n  <div class=\"row\" id=\"welcome\">\r\n    <h4 id=\"shadow\">\r\n      <b> Hi\r\n        <i>\"{{customerToGet.name}}</i>\", </b> you are logged-in!\r\n    </h4>\r\n  </div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\nThis component generates the landing page of the customer SPA. \r\nIt contains a basic welcome message with the logged-in customer name,\r\nand enables the customer to Access all other components\r\n-->\r\n\r\n<div class=\"container\">\r\n  <div class=\"row\" id=\"welcome\">\r\n    <h4 id=\"shadow\">\r\n      <b> Hi\r\n        <i>\"{{customerToGet.name}}</i>\", </b> you are logged-in!\r\n    </h4>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -510,7 +526,11 @@ var HomeComponent = /** @class */ (function () {
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
-        }),
+        })
+        // This component generates the landing page of the customer SPA. 
+        // It contains a basic welcome message with the logged-in customer name,
+        // and enables the customer to Access all other components
+        ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_2__["CustomerSpaService"]])
     ], HomeComponent);
     return HomeComponent;
@@ -538,7 +558,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    line-height: 35px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<h3 id=\"centerh\">\r\n  <span class=\"label label-success\"> My Details </span>\r\n</h3>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div id=\"details\">\r\n  <table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n      <th> ID </th>\r\n      <th> Name </th>\r\n      <th> Password </th>\r\n    </tr>\r\n    <tr>\r\n      <td> {{customerToGet.id}} </td>\r\n      <td> {{customerToGet.name}} </td>\r\n      <td> {{customerToGet.password}} </td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n<br>"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n  This component shows the details (id, name & password) of the logged-in customer \r\n-->\r\n\r\n<h3 id=\"centerh\">\r\n  <span class=\"label label-success\"> My Details </span>\r\n</h3>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div id=\"details\">\r\n  <table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n      <th> ID </th>\r\n      <th> Name </th>\r\n      <th> Password </th>\r\n    </tr>\r\n    <tr>\r\n      <td> {{customerToGet.id}} </td>\r\n      <td> {{customerToGet.name}} </td>\r\n      <td> {{customerToGet.password}} </td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n<br>"
 
 /***/ }),
 
@@ -573,6 +593,7 @@ var MyDetailsComponent = /** @class */ (function () {
         this.customerToGet = new _common_Customer__WEBPACK_IMPORTED_MODULE_2__["Customer"](0, "", "");
         this.customerToGet = this._customerSpa.customerToGet;
     }
+    // Gets the logged-in customer details from the customer service (which fires AJAX request to the server)
     MyDetailsComponent.prototype.ngOnInit = function () {
         this._customerSpa.ajaxGetMyDetails();
     };
@@ -581,7 +602,9 @@ var MyDetailsComponent = /** @class */ (function () {
             selector: 'app-my-details',
             template: __webpack_require__(/*! ./my-details.component.html */ "./src/app/components/my-details/my-details.component.html"),
             styles: [__webpack_require__(/*! ./my-details.component.css */ "./src/app/components/my-details/my-details.component.css")]
-        }),
+        })
+        // This component shows the details (id, name & password) of the logged-in customer 
+        ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__["CustomerSpaService"]])
     ], MyDetailsComponent);
     return MyDetailsComponent;
@@ -609,7 +632,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align:mid
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<h3 id=\"centerh\">\r\n  <span class=\"label label-success\"> &nbsp; My Purchased Coupons &nbsp;\r\n  </span> \r\n</h3>\r\n\r\n<!-- Coupons table filter buttons  -->\r\n<div class=\"form-group\" id=\"centerh\">\r\n  <br>\r\n  <h3> Please choose which coupons to show on table: </h3>\r\n</div>\r\n<br>\r\n<div id=\"centerh\">\r\n  <button class=\"btn btn-info\" (click)=\"getAllPurchasedCoupons()\"> Show All My Purchased Coupons </button> &nbsp;\r\n  <button class=\"btn btn-info\" (click)=\"showTopPriceInputForm()\"> By Top Price </button> &nbsp;\r\n  <button class=\"btn btn-info\" (click)=\"showTypeInputForm()\"> By Type </button>\r\n</div>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!-- Purchased coupons by *top price* input form filter -->\r\n<div *ngIf=\"showTopPriceInputFormBool\" id=\"getby\" class=\"form-group\">\r\n  <label>\r\n    <b> Please select coupons top price: </b>\r\n  </label>\r\n  <input type=\"number\" [(ngModel)]=\"topPriceFilter\" class=\"form-control\" id=\"centerh\">\r\n  <br>\r\n  <br>\r\n  <button class=\"btn btn-primary\" (click)=\"getAllPurchasedCouponsByTopPrice()\"> Show Coupons Table! </button>\r\n</div>\r\n\r\n<!-- Purchased coupons by *type* input form filter -->\r\n<div *ngIf=\"showTypeInputFormBool\" id=\"getby\" class=\"form-group\">\r\n  <label> Please select coupons type: </label>\r\n  <select [(ngModel)]=\"typeFilter\" class=\"form-control\">\r\n    <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n    <option value=\"FOOD\"> Food </option>\r\n    <option value=\"ELECTRICITY\"> Electricity</option>\r\n    <option value=\"HOBBY\"> Hobby </option>\r\n    <option value=\"VACATION\"> Vacation </option>\r\n  </select>\r\n  <br>\r\n  <br>\r\n  <button class=\"btn btn-primary\" (click)=\"getAllPurchasedCouponsByType()\"> Show Coupons Table! </button>\r\n</div>\r\n\r\n<!-- Get table of customer's purchased coupons -->\r\n<table *ngIf=\"showCouponsTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n  <tr>\r\n    <th> ID </th>\r\n    <th> Title </th>\r\n    <th> Start Date </th>\r\n    <th> End Date </th>\r\n    <th> Amount </th>\r\n    <th> Type </th>\r\n    <th> Details </th>\r\n    <th> Price (NIS) </th>\r\n    <th> Image </th>\r\n    <th> Delete </th>\r\n\r\n\r\n  </tr>\r\n  <!-- Get purchased coupons data into table -->\r\n  <tr *ngFor=\"let c of purchasedCouponsList; let i = index\">\r\n    <td> {{c.id}} </td>\r\n    <td> {{c.title}} </td>\r\n    <td> {{c.startDate}} </td>\r\n    <td> {{c.endDate}} </td>\r\n    <td> {{c.amount}} </td>\r\n    <td> {{c.couponType}} </td>\r\n    <td> {{c.message}} </td>\r\n    <td> {{c.price}} </td>\r\n    <td>\r\n      <img [src]=c.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n    </td>\r\n    <td>\r\n      <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removePurchasedCoupon(i)\"> </button>\r\n    </td>\r\n  </tr>\r\n</table>\r\n\r\n<!-- Go to all coupons page -->\r\n<br>\r\n<br>\r\n<div id=\"centerh\">\r\n  <button class=\"btn-lg btn btn-warning\" routerLink=\"/allcoupons\">\r\n    Purchase more coupons!\r\n    <span class=\"warning glyphicon glyphicon-shopping-cart\"></span>\r\n  </button>\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n  This component displays all the coupons that were purchased by the logged-in customer, \r\n  allows the customer to remove coupons from its cart and allow the customer to go to \r\n  the \"all coupons\" page in order to purchase more coupons.\r\n-->\r\n\r\n<h3 id=\"centerh\">\r\n  <span class=\"label label-success\"> &nbsp; My Purchased Coupons &nbsp;\r\n  </span> \r\n</h3>\r\n\r\n<!-- Coupons table filter buttons  -->\r\n  <div class=\"form-group\" id=\"centerh\">\r\n    <br>\r\n    <h3> Please choose which coupons to show on table: </h3>\r\n  </div>\r\n  <br>\r\n  <div id=\"centerh\">\r\n    <button class=\"btn btn-info\" (click)=\"getAllPurchasedCoupons()\"> Show All My Purchased Coupons </button> &nbsp;\r\n    <button class=\"btn btn-info\" (click)=\"showTopPriceInputForm()\"> By Top Price </button> &nbsp;\r\n    <button class=\"btn btn-info\" (click)=\"showTypeInputForm()\"> By Type </button>\r\n  </div>\r\n  <br>\r\n  <br>\r\n  <br>\r\n\r\n<!-- Purchased coupons by *top price* input form filter -->\r\n  <div *ngIf=\"showTopPriceInputFormBool\" id=\"getby\" class=\"form-group\">\r\n    <label>\r\n      <b> Please select coupons top price: </b>\r\n    </label>\r\n    <input type=\"number\" [(ngModel)]=\"topPriceFilter\" class=\"form-control\" id=\"centerh\">\r\n    <br>\r\n    <br>\r\n    <button class=\"btn btn-primary\" (click)=\"getAllPurchasedCouponsByTopPrice()\"> Show Coupons Table! </button>\r\n  </div>\r\n\r\n<!-- Purchased coupons by *type* input form filter -->\r\n  <div *ngIf=\"showTypeInputFormBool\" id=\"getby\" class=\"form-group\">\r\n    <label> Please select coupons type: </label>\r\n    <select [(ngModel)]=\"typeFilter\" class=\"form-control\">\r\n      <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n      <option value=\"FOOD\"> Food </option>\r\n      <option value=\"ELECTRICITY\"> Electricity</option>\r\n      <option value=\"HOBBY\"> Hobby </option>\r\n      <option value=\"VACATION\"> Vacation </option>\r\n    </select>\r\n    <br>\r\n    <br>\r\n    <button class=\"btn btn-primary\" (click)=\"getAllPurchasedCouponsByType()\"> Show Coupons Table! </button>\r\n  </div>\r\n\r\n<!-- Get table of customer's purchased coupons -->\r\n  <table *ngIf=\"showCouponsTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n      <th> ID </th>\r\n      <th> Title </th>\r\n      <th> Start Date </th>\r\n      <th> End Date </th>\r\n      <th> Amount </th>\r\n      <th> Type </th>\r\n      <th> Details </th>\r\n      <th> Price (NIS) </th>\r\n      <th> Image </th>\r\n      <th> Delete </th>\r\n    </tr>\r\n\r\n<!-- Get purchased coupons data into table -->\r\n  <tr *ngFor=\"let c of purchasedCouponsList; let i = index\">\r\n    <td> {{c.id}} </td>\r\n    <td> {{c.title}} </td>\r\n    <td> {{c.startDate}} </td>\r\n    <td> {{c.endDate}} </td>\r\n    <td> {{c.amount}} </td>\r\n    <td> {{c.couponType}} </td>\r\n    <td> {{c.message}} </td>\r\n    <td> {{c.price}} </td>\r\n    <td>\r\n      <img [src]=c.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n    </td>\r\n    <td>\r\n      <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removePurchasedCoupon(i)\"> </button>\r\n    </td>\r\n  </tr>\r\n</table>\r\n\r\n<!-- Go to all coupons page -->\r\n  <br>\r\n  <br>\r\n  <div id=\"centerh\">\r\n    <button class=\"btn-lg btn btn-warning\" routerLink=\"/allcoupons\">\r\n      Purchase more coupons!\r\n      <span class=\"warning glyphicon glyphicon-shopping-cart\"></span>\r\n    </button>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -685,11 +708,13 @@ var MyPurchasedCouponsComponent = /** @class */ (function () {
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.DismissReason.cancel) { }
         });
     };
+    // This method shows the input form that gets purchased coupons by top price
     MyPurchasedCouponsComponent.prototype.showTopPriceInputForm = function () {
         this.showCouponsTable = false;
         this.showTopPriceInputFormBool = true;
         this.showTypeInputFormBool = false;
     };
+    // This method shows the input form that gets purchased coupons by type
     MyPurchasedCouponsComponent.prototype.showTypeInputForm = function () {
         this.showCouponsTable = false;
         this.showTopPriceInputFormBool = false;
@@ -708,7 +733,13 @@ var MyPurchasedCouponsComponent = /** @class */ (function () {
             selector: 'app-my-purchased-coupons',
             template: __webpack_require__(/*! ./my-purchased-coupons.component.html */ "./src/app/components/my-purchased-coupons/my-purchased-coupons.component.html"),
             styles: [__webpack_require__(/*! ./my-purchased-coupons.component.css */ "./src/app/components/my-purchased-coupons/my-purchased-coupons.component.css")]
-        }),
+        })
+        /*
+        This component displays all the coupons that were purchased by the logged-in customer,
+        allows the customer to remove coupons from its cart and allow the customer to go to
+        the "all coupons" page in order to purchase more coupons.
+        */
+        ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__["CustomerSpaService"]])
     ], MyPurchasedCouponsComponent);
     return MyPurchasedCouponsComponent;
@@ -751,6 +782,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CustomerSpaService = /** @class */ (function () {
     function CustomerSpaService(_http) {
         this._http = _http;
+        this.baseURL = "http://localhost:8080/";
         this.customerToGet = new _common_Customer__WEBPACK_IMPORTED_MODULE_1__["Customer"](0, "", "");
         this.allCouponsList = new Array();
         this.purchasedCouponsList = new Array();
@@ -764,7 +796,7 @@ var CustomerSpaService = /** @class */ (function () {
     }
     CustomerSpaService.prototype.ajaxPurchaseCoupon = function (c) {
         var _this = this;
-        this._http.post("http://localhost:8080/customer/purchasecoupon", c)
+        this._http.post(this.baseURL + "customer/purchasecoupon", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
@@ -773,7 +805,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxRemovePurchasedCoupon = function (c) {
         var _this = this;
-        this._http.delete("http://localhost:8080/customer/removepurchasedcoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
+        this._http.delete(this.baseURL + "customer/removepurchasedcoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
             .subscribe(function (resp) {
             _this.ajaxGetAllPurchasedCoupons();
         }, function (err) {
@@ -782,7 +814,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxGetAllCoupons = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/customer/getallcoupons").subscribe(function (resp) {
+        this._http.get(this.baseURL + "customer/getallcoupons").subscribe(function (resp) {
             while (_this.allCouponsList.length > 0)
                 _this.allCouponsList.pop();
             var tempList = resp.json();
@@ -796,7 +828,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCoupons = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/customer/getallpurchasedcoupons").subscribe(function (resp) {
+        this._http.get(this.baseURL + "customer/getallpurchasedcoupons").subscribe(function (resp) {
             while (_this.purchasedCouponsList.length > 0)
                 _this.purchasedCouponsList.pop();
             var tempList = resp.json();
@@ -813,7 +845,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCouponsByType = function (couponType) {
         var _this = this;
-        this._http.get("http://localhost:8080/customer/getallpurchasedcouponsbytype/" + couponType).subscribe(function (resp) {
+        this._http.get(this.baseURL + "customer/getallpurchasedcouponsbytype/" + couponType).subscribe(function (resp) {
             while (_this.purchasedCouponsList.length > 0)
                 _this.purchasedCouponsList.pop();
             var tempList = resp.json();
@@ -830,7 +862,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCouponsByTopPrice = function (couponTopPrice) {
         var _this = this;
-        this._http.get("http://localhost:8080/customer/getallpurchasedcouponsbytopprice/" + couponTopPrice).subscribe(function (resp) {
+        this._http.get(this.baseURL + "customer/getallpurchasedcouponsbytopprice/" + couponTopPrice).subscribe(function (resp) {
             while (_this.purchasedCouponsList.length > 0)
                 _this.purchasedCouponsList.pop();
             var tempList = resp.json();
@@ -847,7 +879,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxGetMyDetails = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/customer/getmydetails/").subscribe(function (resp) {
+        this._http.get(this.baseURL + "customer/getmydetails/").subscribe(function (resp) {
             var tempCustomer = resp.json();
             _this.customerToGet.setId(tempCustomer.id);
             _this.customerToGet.setName(tempCustomer.name);
@@ -858,7 +890,7 @@ var CustomerSpaService = /** @class */ (function () {
     };
     CustomerSpaService.prototype.ajaxLogOut = function (request, response) {
         var _this = this;
-        this._http.post("http://localhost:8080/customer/logout/", request, response).subscribe(function (resp) {
+        this._http.post(this.baseURL + "customer/logout/", request, response).subscribe(function (resp) {
             _this.swalWithBootstrapButtons({
                 title: 'You have successfully logged out',
                 type: 'info',
@@ -870,7 +902,12 @@ var CustomerSpaService = /** @class */ (function () {
     CustomerSpaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
-        }),
+        })
+        // This class is the service of the customer SPA. 
+        // It conatains methods that fires AJAX requests to the server,
+        // in order to purchase coupons, remove coupons and show (purchased/all) coupons, show the logged-in customer details,
+        // and logging out of the system. These methods also handles the server success/error responses.
+        ,
         __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_3__["Http"]])
     ], CustomerSpaService);
     return CustomerSpaService;

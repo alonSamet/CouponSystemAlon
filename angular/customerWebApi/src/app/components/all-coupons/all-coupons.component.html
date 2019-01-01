@@ -8,25 +8,31 @@
   and allows the customer to purchase them.
 -->
 
-<h3 id="centerh">
-  <span class="label label-success"> All Coupons </span>
-</h3>
-<br>
+<div class="container">
 
-<div class="row">
-  <!-- Go to purchased coupons page -->
+  <div class="row">
+    <h3 id="centerh">
+      <span class="label label-success"> All Coupons </span>
+    </h3>
+  </div>
   <br>
-  <div id="button">
-    <div id="centerh">
-      <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
-        Go to my purchased coupons list
-        <span class="warning"></span>
-      </button>
+
+
+  <!-- Go to purchased coupons page -->
+  <div class="row">
+    <br>
+    <div id="button">
+      <div id="centerh">
+        <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
+          Go to my purchased coupons list
+          <span class="warning"></span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
+
+  <!-- Show all coupons that can be purchased by the logged-in customer -->
   <div class="row">
     <div *ngFor="let c of allCouponsList; let i = index" class="col-md-3">
       <div class="thumbnail">
@@ -68,18 +74,19 @@
       </div>
     </div>
   </div>
-</div>
-<br>
 
-<div class="row">
-  <!-- Go to purchased coupons page -->
   <br>
-  <div id="button">
-    <div id="centerh">
-      <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
-        Go to my purchased coupons list
-        <span class="warning"></span>
-      </button>
+
+  <!-- Go to purchased coupons page -->
+  <div class="row">
+    <div id="button">
+      <div id="centerh">
+        <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
+          Go to my purchased coupons list
+          <span class="warning"></span>
+        </button>
+      </div>
     </div>
   </div>
+
 </div>

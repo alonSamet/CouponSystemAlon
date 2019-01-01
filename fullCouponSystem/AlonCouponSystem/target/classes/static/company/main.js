@@ -41,7 +41,7 @@ module.exports = "\r\n#logout {\r\n    padding-top: 8px;\r\n    padding-right: 2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mycoupons\"> My Company Coupons\r\n                    <span class=\"glyphicon glyphicon-th-list\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mycompanydetails\"> My Company Details\r\n                    <span class=\"glyphicon glyphicon-copyright-mark\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b> Logout </b>\r\n                    <span class=\"fas fa-sign-out-alt\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n    <div class=\"panel-heading\">\r\n        <span style=\"font-size: 18px\">\r\n            <strong>Contact us:&nbsp; </strong>\r\n        </span>\r\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n    </div>\r\n    <div class=\"panel-body\">\r\n        Powered by\r\n        <strong>\r\n            <i> Alon Samet </i>\r\n            <br>\r\n        </strong>\r\n        <h6> © All Rights Reserved </h6>\r\n    </div>\r\n    <br>\r\n</div>"
+module.exports = "\r\n<!-- \r\n    This component generates the nav bar that allows the access to the other company SPA components: \r\n    Home, My Company Coupons, My Company Details, About & Logout. In addition, it generates the footer of the system, \r\n    which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.\r\n-->\r\n\r\n<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mycoupons\"> My Company Coupons\r\n                    <span class=\"glyphicon glyphicon-th-list\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/mycompanydetails\"> My Company Details\r\n                    <span class=\"glyphicon glyphicon-copyright-mark\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b> Logout </b>\r\n                    <span class=\"fas fa-sign-out-alt\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n    <div class=\"panel-heading\">\r\n        <span style=\"font-size: 18px\">\r\n            <strong>Contact us:&nbsp; </strong>\r\n        </span>\r\n        <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n        <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n        <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n    </div>\r\n    <div class=\"panel-body\">\r\n        Powered by\r\n        <strong>\r\n            <i> Alon Samet </i>\r\n            <br>\r\n        </strong>\r\n        <h6> © All Rights Reserved </h6>\r\n    </div>\r\n    <br>\r\n</div>"
 
 /***/ }),
 
@@ -77,7 +77,11 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        }),
+        })
+        // This component generates the nav bar that allows the access to the other company SPA components: 
+        // Home, My Company Coupons, My Company Details, About & Logout. In addition, it generates the footer of the system, 
+        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
     ], AppComponent);
     return AppComponent;
@@ -179,6 +183,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Company", function() { return Company; });
+// This class generates the company object, which has id, name, password & email
 var Company = /** @class */ (function () {
     function Company(id, name, password, email) {
         this.id = id;
@@ -215,6 +220,9 @@ var Company = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Coupon", function() { return Coupon; });
+// This class generates the coupon object, which has id, title, 
+// star date, end (expiration) date, amount (of coupons left), 
+// coupon type, message (coupon details), price and an image of the coupon.
 var Coupon = /** @class */ (function () {
     function Coupon(id, title, startDate, endDate, amount, couponType, message, price, image) {
         this.id = id;
@@ -279,7 +287,7 @@ module.exports = "#container {\r\n    padding-bottom: 120px; \r\n    width: 90%\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../company/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../company/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\nThis component displays details about the coupon system project (left image) and the project author (right image) \r\n-->\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../company/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../company/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -307,7 +315,9 @@ var AboutComponent = /** @class */ (function () {
             selector: 'app-about',
             template: __webpack_require__(/*! ./about.component.html */ "./src/app/components/about/about.component.html"),
             styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/components/about/about.component.css")]
-        }),
+        })
+        // This component displays details about the coupon system project and the project author (Alon Samet)
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AboutComponent);
     return AboutComponent;
@@ -335,7 +345,7 @@ module.exports = "#container {\r\n    padding-bottom: 120px;\r\n}\r\n\r\n#welcom
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<div class=\"container\" id=\"container\">\r\n  <div class=\"row\" id=\"welcome\">\r\n    <h4 id=\"shadow\">\r\n      <b> Hi\r\n        <i>\"{{companyToGet.name}}</i>\", </b> you are logged-in!\r\n    </h4>\r\n  </div>\r\n\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\nThis component generates the landing page of the company SPA. \r\nIt contains a basic welcome message with the logged-in company name,\r\nand enables the company to Access all other components\r\n-->\r\n\r\n<div class=\"container\" id=\"container\">\r\n  <div class=\"row\" id=\"welcome\">\r\n    <h4 id=\"shadow\">\r\n      <b> Hi\r\n        <i>\"{{companyToGet.name}}</i>\", </b> you are logged-in!\r\n    </h4>\r\n  </div>\r\n\r\n"
 
 /***/ }),
 
@@ -371,7 +381,13 @@ var HomeComponent = /** @class */ (function () {
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
-        }),
+        })
+        /*
+        This component generates the landing page of the company SPA.
+        It contains a basic welcome message with the logged-in company name,
+        and enables the company to Access all other components
+        */
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__["CompanySpaService"]])
     ], HomeComponent);
     return HomeComponent;
@@ -399,7 +415,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    line-height: 35px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> My Company Details </span>\r\n</h3>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div id=\"details\">\r\n    <table border=\"1\" class=\"table table-striped table-bordered\">\r\n        <tr>\r\n            <th> ID </th>\r\n            <th> Name </th>\r\n            <th> Password </th>\r\n            <th> Email </th>\r\n        </tr>\r\n        <tr>\r\n            <td> {{companyToGet.id}} </td>\r\n            <td> {{companyToGet.name}} </td>\r\n            <td> {{companyToGet.password}} </td>\r\n            <td> {{companyToGet.email}} </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n    This component shows the details (id, name, password & email) of the logged-in company \r\n-->\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> My Company Details </span>\r\n</h3>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div id=\"details\">\r\n    <table border=\"1\" class=\"table table-striped table-bordered\">\r\n        <tr>\r\n            <th> ID </th>\r\n            <th> Name </th>\r\n            <th> Password </th>\r\n            <th> Email </th>\r\n        </tr>\r\n        <tr>\r\n            <td> {{companyToGet.id}} </td>\r\n            <td> {{companyToGet.name}} </td>\r\n            <td> {{companyToGet.password}} </td>\r\n            <td> {{companyToGet.email}} </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -427,6 +443,7 @@ var MyCompanyDetailsComponent = /** @class */ (function () {
         this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_3__["Company"](0, "", "", "");
         this.companyToGet = this._companySpa.companyToGet;
     }
+    // Gets the logged-in company details from the company service (which fires AJAX request to the server)
     MyCompanyDetailsComponent.prototype.ngOnInit = function () {
         this._companySpa.ajaxGetMyCompanyDetails();
     };
@@ -435,7 +452,9 @@ var MyCompanyDetailsComponent = /** @class */ (function () {
             selector: 'app-my-company-details',
             template: __webpack_require__(/*! ./my-company-details.component.html */ "./src/app/components/my-company-details/my-company-details.component.html"),
             styles: [__webpack_require__(/*! ./my-company-details.component.css */ "./src/app/components/my-company-details/my-company-details.component.css")]
-        }),
+        })
+        // This component shows the details (id, name, password & email) of the logged-in company 
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
     ], MyCompanyDetailsComponent);
     return MyCompanyDetailsComponent;
@@ -463,7 +482,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align: mi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> My Coupons Table </span>\r\n</h3>\r\n<br>\r\n\r\n\r\n<!-- Coupons table filter buttons  -->\r\n<div class=\"form-group\" id=\"centerh\">\r\n    <label> Please choose which coupons to show on table: </label>\r\n</div>\r\n<div id=\"centerh\">\r\n    <button class=\"btn btn-success\" (click)=\"getAllCoupons()\"> Show All Coupons </button> &nbsp;\r\n    <button class=\"btn btn-success\" (click)=\"showEndDateInputForm()\"> By End Date </button> &nbsp;\r\n    <button class=\"btn btn-success\" (click)=\"showTopPriceInputForm()\"> By Top Price </button> &nbsp;\r\n    <button class=\"btn btn-success\" (click)=\"showTypeInputForm()\"> By Type </button>\r\n</div>\r\n<br>\r\n\r\n<!-- Coupons by *end date* input form filter -->\r\n<div *ngIf=\"showEndDateInputFormBool\" id=\"getby\" class=\"form-group\">\r\n    <label>\r\n        <b> Please select coupons end date: </b>\r\n    </label>\r\n    <input type=\"date\" [(ngModel)]=\"endDateFilter\" class=\"form-control\">\r\n    <br>\r\n    <br>\r\n    <button class=\"btn btn-primary\" (click)=\"getMyCouponsByEndDate()\"> Show Coupons Table! </button>\r\n</div>\r\n\r\n<!-- Coupons by *top price* input form filter -->\r\n<div *ngIf=\"showTopPriceInputFormBool\" id=\"getby\" class=\"form-group\">\r\n    <label>\r\n        <b> Please select coupons top price: </b>\r\n    </label>\r\n    <input type=\"number\" [(ngModel)]=\"topPriceFilter\" class=\"form-control\" id=\"centerh\">\r\n    <br>\r\n    <br>\r\n    <button class=\"btn btn-primary\" (click)=\"getMyCouponsByTopPrice()\"> Show Coupons Table! </button>\r\n</div>\r\n\r\n<!-- Coupons by *type* input form filter -->\r\n<div *ngIf=\"showTypeInputFormBool\" id=\"getby\" class=\"form-group\">\r\n    <label> Please select coupons type: </label>\r\n    <select [(ngModel)]=\"typeFilter\" class=\"form-control\">\r\n        <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n        <option value=\"FOOD\"> Food </option>\r\n        <option value=\"ELECTRICITY\"> Electricity</option>\r\n        <option value=\"HOBBY\"> Hobby </option>\r\n        <option value=\"VACATION\"> Vacation </option>\r\n    </select>\r\n    <br>\r\n    <br>\r\n    <button class=\"btn btn-primary\" (click)=\"getMyCouponsByType()\"> Show Coupons Table! </button>\r\n</div>\r\n\r\n<br>\r\n\r\n<!-- Get table of coupons -->\r\n<table *ngIf=\"showCouponsTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Title </th>\r\n        <th> Start Date </th>\r\n        <th> End Date </th>\r\n        <th> Amount </th>\r\n        <th> Type </th>\r\n        <th> Details </th>\r\n        <th> Price (NIS) </th>\r\n        <th> Image </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n\r\n    </tr>\r\n    <!-- Get coupons data into table -->\r\n    <tr *ngFor=\"let c of couponsList; let i = index\">\r\n\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.title}} </td>\r\n        <td> {{c.startDate}} </td>\r\n        <td> {{c.endDate}} </td>\r\n        <td> {{c.amount}} </td>\r\n        <td> {{c.couponType}} </td>\r\n        <td> {{c.message}} </td>\r\n        <td> {{c.price}} </td>\r\n        <td>\r\n            <img [src]=c.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removeCoupon(i)\">\r\n            </button>\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-warning glyphicon glyphicon-pencil\" (click)=\"showUpdateCoupon(i)\">\r\n            </button>\r\n        </td>\r\n\r\n    </tr>\r\n</table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n            <!-- Create coupon -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Coupon &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-folder-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new coupon details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Title: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.title\" class=\"form-control\" placeholder=\"Please enter coupon details\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Start Date: </label>\r\n                    <input id=\"centerh\" type=\"date\" [(ngModel)]=\"newCoupon.startDate\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> End Date: </label>\r\n                    <input type=\"date\" id=\"centerh\" [(ngModel)]=\"newCoupon.endDate\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Amount: </label>\r\n                    <input type=\"number\" id=\"centerh\" [(ngModel)]=\"newCoupon.amount\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Type: </label>\r\n                    <select [(ngModel)]=\"newCoupon.couponType\" class=\"form-control\">\r\n                        <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n                        <option value=\"FOOD\"> Food </option>\r\n                        <option value=\"ELECTRICITY\"> Electricity</option>\r\n                        <option value=\"HOBBY\"> Hobby </option>\r\n                        <option value=\"VACATION\"> Vacation </option>\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Details: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.message\" class=\"form-control\" id=\"detailstxt\" placeholder=\"Please enter coupon details\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Price: </label>\r\n                    <input type=\"number\" id=\"centerh\" [(ngModel)]=\"newCoupon.price\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Image URL: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.image\" class=\"form-control\" placeholder=\"Please enter image URL\">\r\n                </div>\r\n                <br>\r\n\r\n                <div id=\"centerh\">\r\n                    <button class=\"btn btn-primary\" (click)=\"createCoupon()\">\r\n                        <b> Creat New Coupon! </b>\r\n                    </button>\r\n                </div>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- form: Get single coupon -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\">&nbsp; Get Coupon &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Coupon By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByTitle()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Coupon By Title </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert coupon id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"couponToGet.id\" size=\"25px\" name=\"idtxt\" placeholder=\"Enter coupon id\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" id=\"centerh\" (click)=\"getCouponById()\">\r\n                    <b> Get Coupon! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByTitleBool\">\r\n                <span>\r\n                    <b> Please insert coupon title: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" size=\"20\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"couponToGet.title\" name=\"titletxt\" placeholder=\"Enter coupon title\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"getCouponByTitle()\">\r\n                    <b> Get Coupon! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n\r\n            <!-- Small table of selected coupon -->\r\n            <div id=\"smtable\">\r\n                <br>\r\n                <table *ngIf=\"_companySpa.showSmallTable\" border=\"1\" id=\"smtableb\" class=\"table table-striped table-bordered\">\r\n                    <tr>\r\n                        <th>\r\n                            <small> ID </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Title </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Start Date </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> End Date </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Amount </small>\r\n                        </th>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <small> {{couponToGet.id}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.title}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.startDate}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.endDate}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.amount}} </small>\r\n                        </td>\r\n                    </tr>\r\n                    <br>\r\n                    <tr>\r\n                        <th>\r\n                            <small> Type </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Details </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Price </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Image </small>\r\n                        </th>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <small> {{couponToGet.couponType}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.message}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.price}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <img [src]=couponToGet.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"back\">\r\n                <br>\r\n                <br>\r\n                <button class=\"btn\" (click)=\"backToGetButtons()\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!--  form: Update coupon (Company can update only its coupon's price & end date)  -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Coupon &nbsp;\r\n                    <span style=\"vertical-align: middle\" class=\"far fa-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the coupon \"{{updatedCoupon.title}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> End Date: </label>\r\n                <input id=\"centerh\" type=\"date\" [(ngModel)]=\"updatedCoupon.endDate\" class=\"form-control\">\r\n            </div>\r\n\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Price: </label>\r\n                <input id=\"centerh\" type=\"number\" [(ngModel)]=\"updatedCoupon.price\" class=\"form-control\">\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <button class=\"btn btn-primary\" (click)=\"updateCoupon()\">\r\n                <b> Update Coupon! </b>\r\n            </button>\r\n\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\n    This component displays the coupons belong to the logged-in company (with display filters),\r\n    and enables the company to create new coupon, update Existing coupon & show details of requested coupon (by its id/title) \r\n-->\r\n\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> My Coupons Table </span>\r\n</h3>\r\n<br>\r\n\r\n\r\n<!-- Coupons table filter buttons  -->\r\n    <div class=\"form-group\" id=\"centerh\">\r\n        <label> Please choose which coupons to show on table: </label>\r\n    </div>\r\n    <div id=\"centerh\">\r\n        <button class=\"btn btn-success\" (click)=\"getAllCoupons()\"> Show All Coupons </button> &nbsp;\r\n        <button class=\"btn btn-success\" (click)=\"showEndDateInputForm()\"> By End Date </button> &nbsp;\r\n        <button class=\"btn btn-success\" (click)=\"showTopPriceInputForm()\"> By Top Price </button> &nbsp;\r\n        <button class=\"btn btn-success\" (click)=\"showTypeInputForm()\"> By Type </button>\r\n    </div>\r\n    <br>\r\n\r\n<!-- Coupons by *end date* input form filter -->\r\n    <div *ngIf=\"showEndDateInputFormBool\" id=\"getby\" class=\"form-group\">\r\n        <label>\r\n            <b> Please select coupons end date: </b>\r\n        </label>\r\n        <input type=\"date\" [(ngModel)]=\"endDateFilter\" class=\"form-control\">\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"getMyCouponsByEndDate()\"> Show Coupons Table! </button>\r\n    </div>\r\n\r\n<!-- Coupons by *top price* input form filter -->\r\n    <div *ngIf=\"showTopPriceInputFormBool\" id=\"getby\" class=\"form-group\">\r\n        <label>\r\n            <b> Please select coupons top price: </b>\r\n        </label>\r\n        <input type=\"number\" [(ngModel)]=\"topPriceFilter\" class=\"form-control\" id=\"centerh\">\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"getMyCouponsByTopPrice()\"> Show Coupons Table! </button>\r\n    </div>\r\n\r\n<!-- Coupons by *type* input form filter -->\r\n    <div *ngIf=\"showTypeInputFormBool\" id=\"getby\" class=\"form-group\">\r\n        <label> Please select coupons type: </label>\r\n        <select [(ngModel)]=\"typeFilter\" class=\"form-control\">\r\n            <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n            <option value=\"FOOD\"> Food </option>\r\n            <option value=\"ELECTRICITY\"> Electricity</option>\r\n            <option value=\"HOBBY\"> Hobby </option>\r\n            <option value=\"VACATION\"> Vacation </option>\r\n        </select>\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"getMyCouponsByType()\"> Show Coupons Table! </button>\r\n    </div>\r\n<br>\r\n\r\n<!-- Get table of coupons -->\r\n  <table *ngIf=\"showCouponsTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Title </th>\r\n        <th> Start Date </th>\r\n        <th> End Date </th>\r\n        <th> Amount </th>\r\n        <th> Type </th>\r\n        <th> Details </th>\r\n        <th> Price (NIS) </th>\r\n        <th> Image </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n\r\n    </tr>\r\n<!-- Get coupons data into table -->\r\n    <tr *ngFor=\"let c of couponsList; let i = index\">\r\n\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.title}} </td>\r\n        <td> {{c.startDate}} </td>\r\n        <td> {{c.endDate}} </td>\r\n        <td> {{c.amount}} </td>\r\n        <td> {{c.couponType}} </td>\r\n        <td> {{c.message}} </td>\r\n        <td> {{c.price}} </td>\r\n        <td>\r\n            <img [src]=c.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removeCoupon(i)\">\r\n            </button>\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-warning glyphicon glyphicon-pencil\" (click)=\"showUpdateCoupon(i)\">\r\n            </button>\r\n        </td>\r\n\r\n    </tr>\r\n  </table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n        \r\n        <!-- Create coupon -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Coupon &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-folder-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new coupon details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Title: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.title\" class=\"form-control\" placeholder=\"Please enter coupon details\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Start Date: </label>\r\n                    <input id=\"centerh\" type=\"date\" [(ngModel)]=\"newCoupon.startDate\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> End Date: </label>\r\n                    <input type=\"date\" id=\"centerh\" [(ngModel)]=\"newCoupon.endDate\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Amount: </label>\r\n                    <input type=\"number\" id=\"centerh\" [(ngModel)]=\"newCoupon.amount\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Type: </label>\r\n                    <select [(ngModel)]=\"newCoupon.couponType\" class=\"form-control\">\r\n                        <option value=\"\" disabled=\"disabled\" selected=\"selected\"> Please select Type </option>\r\n                        <option value=\"FOOD\"> Food </option>\r\n                        <option value=\"ELECTRICITY\"> Electricity</option>\r\n                        <option value=\"HOBBY\"> Hobby </option>\r\n                        <option value=\"VACATION\"> Vacation </option>\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Details: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.message\" class=\"form-control\" id=\"detailstxt\" placeholder=\"Please enter coupon details\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Price: </label>\r\n                    <input type=\"number\" id=\"centerh\" [(ngModel)]=\"newCoupon.price\" class=\"form-control\">\r\n                </div>\r\n\r\n                <div class=\"form-group\" id=\"left\">\r\n                    <label> Image URL: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCoupon.image\" class=\"form-control\" placeholder=\"Please enter image URL\">\r\n                </div>\r\n                <br>\r\n\r\n                <div id=\"centerh\">\r\n                    <button class=\"btn btn-primary\" (click)=\"createCoupon()\">\r\n                        <b> Creat New Coupon! </b>\r\n                    </button>\r\n                </div>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n        </div>\r\n\r\n    <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n    <!-- form: Get single coupon -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\">&nbsp; Get Coupon &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Coupon By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByTitle()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Coupon By Title </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert coupon id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"couponToGet.id\" size=\"25px\" name=\"idtxt\" placeholder=\"Enter coupon id\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" id=\"centerh\" (click)=\"getCouponById()\">\r\n                    <b> Get Coupon! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByTitleBool\">\r\n                <span>\r\n                    <b> Please insert coupon title: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" size=\"20\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"couponToGet.title\" name=\"titletxt\" placeholder=\"Enter coupon title\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"getCouponByTitle()\">\r\n                    <b> Get Coupon! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n\r\n        <!-- Small table of selected coupon -->\r\n            <div id=\"smtable\">\r\n                <br>\r\n                <table *ngIf=\"_companySpa.showSmallTable\" border=\"1\" id=\"smtableb\" class=\"table table-striped table-bordered\">\r\n                    <tr>\r\n                        <th>\r\n                            <small> ID </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Title </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Start Date </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> End Date </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Amount </small>\r\n                        </th>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <small> {{couponToGet.id}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.title}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.startDate}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.endDate}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.amount}} </small>\r\n                        </td>\r\n                    </tr>\r\n                    <br>\r\n                    <tr>\r\n                        <th>\r\n                            <small> Type </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Details </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Price </small>\r\n                        </th>\r\n                        <th>\r\n                            <small> Image </small>\r\n                        </th>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <small> {{couponToGet.couponType}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.message}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <small> {{couponToGet.price}} </small>\r\n                        </td>\r\n                        <td>\r\n                            <img [src]=couponToGet.image class=\"img-rounded\" width=\"80\" height=\"50\">\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <br>\r\n            <br>\r\n        <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"back\">\r\n                <br>\r\n                <br>\r\n                <button class=\"btn\" (click)=\"backToGetButtons()\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n    <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n    <!--  form: Update coupon (Company can update only its coupon's price & end date)  -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Coupon &nbsp;\r\n                    <span style=\"vertical-align: middle\" class=\"far fa-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the coupon \"{{updatedCoupon.title}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> End Date: </label>\r\n                <input id=\"centerh\" type=\"date\" [(ngModel)]=\"updatedCoupon.endDate\" class=\"form-control\">\r\n            </div>\r\n\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Price: </label>\r\n                <input id=\"centerh\" type=\"number\" [(ngModel)]=\"updatedCoupon.price\" class=\"form-control\">\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <button class=\"btn btn-primary\" (click)=\"updateCoupon()\">\r\n                <b> Update Coupon! </b>\r\n            </button>\r\n\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -521,32 +540,38 @@ var MyCouponsComponent = /** @class */ (function () {
         this.showTypeInputFormBool = false;
         this.showCouponsTable = true;
     };
+    // This method shows the input form that gets coupons by end date
     MyCouponsComponent.prototype.showEndDateInputForm = function () {
         this.showCouponsTable = false;
         this.showEndDateInputFormBool = true;
         this.showTopPriceInputFormBool = false;
         this.showTypeInputFormBool = false;
     };
+    // This method shows the input form that gets coupons by top price
     MyCouponsComponent.prototype.showTopPriceInputForm = function () {
         this.showCouponsTable = false;
         this.showEndDateInputFormBool = false;
         this.showTopPriceInputFormBool = true;
         this.showTypeInputFormBool = false;
     };
+    // This method shows the input form that gets coupons by type
     MyCouponsComponent.prototype.showTypeInputForm = function () {
         this.showCouponsTable = false;
         this.showEndDateInputFormBool = false;
         this.showTopPriceInputFormBool = false;
         this.showTypeInputFormBool = true;
     };
+    // Invokes method in the company service in order to get coupons by end date
     MyCouponsComponent.prototype.getMyCouponsByEndDate = function () {
         this._companySpa.ajaxGetMyCouponsByEndDate(this.endDateFilter);
         this.showCouponsTable = true;
     };
+    // Invokes method in the company service in order to get coupons by top price
     MyCouponsComponent.prototype.getMyCouponsByTopPrice = function () {
         this._companySpa.ajaxGetMyCouponsByTopPrice(this.topPriceFilter);
         this.showCouponsTable = true;
     };
+    // Invokes method in the company service in order to get coupons by type
     MyCouponsComponent.prototype.getMyCouponsByType = function () {
         this._companySpa.ajaxGetMyCouponsByType(this.typeFilter);
         this.showCouponsTable = true;
@@ -633,6 +658,7 @@ var MyCouponsComponent = /** @class */ (function () {
     // ****************************************************
     // ************* methods for ngIf tags: ***************
     // ****************************************************
+    // This method shows the input form that updates coupon
     MyCouponsComponent.prototype.showUpdateCoupon = function (i) {
         this.showUpdateBool = true;
         this.updatedCoupon.id = this.couponsList[i].id; // Gets the data from the relevant line in the getAllCoupons Table
@@ -645,16 +671,19 @@ var MyCouponsComponent = /** @class */ (function () {
         this.updatedCoupon.price = 0; // resets the displayed price when pressing the showUpdate button, so the user can insert its input
         this.updatedCoupon.image = this.couponsList[i].image;
     };
+    // This method shows the input form that gets coupon by its id
     MyCouponsComponent.prototype.showGetInputById = function () {
         this.showGetButtons = false;
         this.showGetInputByIdBool = true;
         this.showGetDetails = true;
     };
+    // This method shows the input form that gets coupon by its title
     MyCouponsComponent.prototype.showGetInputByTitle = function () {
         this.showGetButtons = false;
         this.showGetInputByTitleBool = true;
         this.showGetDetails = true;
     };
+    // This method shows the buttons that gets coupon by its id/title
     MyCouponsComponent.prototype.backToGetButtons = function () {
         this._companySpa.showSmallTable = false;
         this.showGetInputByTitleBool = false;
@@ -667,7 +696,12 @@ var MyCouponsComponent = /** @class */ (function () {
             selector: 'app-my-coupons',
             template: __webpack_require__(/*! ./my-coupons.component.html */ "./src/app/components/my-coupons/my-coupons.component.html"),
             styles: [__webpack_require__(/*! ./my-coupons.component.css */ "./src/app/components/my-coupons/my-coupons.component.css")]
-        }),
+        })
+        /*
+        This component displays the coupons belong to the logged-in company (with display filters),
+        and enables the company to create new coupon, update Existing coupon & show details of requested coupon (by its id/title)
+        */
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_3__["CompanySpaService"]])
     ], MyCouponsComponent);
     return MyCouponsComponent;
@@ -703,6 +737,7 @@ __webpack_require__.r(__webpack_exports__);
 var CompanySpaService = /** @class */ (function () {
     function CompanySpaService(_http) {
         this._http = _http;
+        this.baseURL = "http://localhost:8080/";
         this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_2__["Company"](0, "", "", "");
         this.couponsList = new Array();
         this.couponToGet = new _common_Coupon__WEBPACK_IMPORTED_MODULE_3__["Coupon"](0, "", null, null, 0, "", "", 0, "");
@@ -715,7 +750,7 @@ var CompanySpaService = /** @class */ (function () {
     }
     CompanySpaService.prototype.ajaxCreateCoupon = function (c) {
         var _this = this;
-        this._http.post("http://localhost:8080/company/createcoupon", c)
+        this._http.post(this.baseURL + "company/createcoupon", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
@@ -724,7 +759,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxRemoveCoupon = function (c) {
         var _this = this;
-        this._http.delete("http://localhost:8080/company/removecoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_4__["RequestOptions"]({ body: c }))
+        this._http.delete(this.baseURL + "company/removecoupon", new _angular_http__WEBPACK_IMPORTED_MODULE_4__["RequestOptions"]({ body: c }))
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
@@ -733,7 +768,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxUpdateCoupon = function (c) {
         var _this = this;
-        this._http.put("http://localhost:8080/company/updatecoupon", c)
+        this._http.put(this.baseURL + "company/updatecoupon", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
@@ -742,7 +777,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetCouponById = function (myCouponId) {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycouponbyid/" + myCouponId).subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycouponbyid/" + myCouponId).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCoupon = resp.json();
             _this.couponToGet.setId(tempCoupon.id);
@@ -761,7 +796,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetCouponByTitle = function (myCouponTitle) {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycouponbytitle/" + myCouponTitle).subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycouponbytitle/" + myCouponTitle).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCoupon = resp.json();
             _this.couponToGet.setId(tempCoupon.id);
@@ -780,7 +815,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetAllCoupons = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getallmycoupons").subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getallmycoupons").subscribe(function (resp) {
             while (_this.couponsList.length > 0)
                 _this.couponsList.pop();
             var tempList = resp.json();
@@ -794,7 +829,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByType = function (couponType) {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycouponsbytype/" + couponType).subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycouponsbytype/" + couponType).subscribe(function (resp) {
             while (_this.couponsList.length > 0)
                 _this.couponsList.pop();
             var tempList = resp.json();
@@ -808,7 +843,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByTopPrice = function (couponTopPrice) {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycouponsbytopprice/" + couponTopPrice).subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycouponsbytopprice/" + couponTopPrice).subscribe(function (resp) {
             while (_this.couponsList.length > 0)
                 _this.couponsList.pop();
             var tempList = resp.json();
@@ -822,7 +857,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByEndDate = function (endDate) {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycouponsbyenddate/" + endDate).subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycouponsbyenddate/" + endDate).subscribe(function (resp) {
             while (_this.couponsList.length > 0)
                 _this.couponsList.pop();
             var tempList = resp.json();
@@ -836,7 +871,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxGetMyCompanyDetails = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/company/getmycompanydetails/").subscribe(function (resp) {
+        this._http.get(this.baseURL + "company/getmycompanydetails/").subscribe(function (resp) {
             var tempCompany = resp.json();
             _this.companyToGet.setId(tempCompany.id);
             _this.companyToGet.setName(tempCompany.name);
@@ -848,7 +883,7 @@ var CompanySpaService = /** @class */ (function () {
     };
     CompanySpaService.prototype.ajaxLogOut = function (request, response) {
         var _this = this;
-        this._http.post("http://localhost:8080/company/logout/", request, response).subscribe(function (resp) {
+        this._http.post(this.baseURL + "company/logout/", request, response).subscribe(function (resp) {
             _this.swalWithBootstrapButtons({
                 title: 'You have successfully logged out',
                 type: 'info',
@@ -860,7 +895,12 @@ var CompanySpaService = /** @class */ (function () {
     CompanySpaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
-        }),
+        })
+        // This class is the service of the company SPA. 
+        // It conatains methods that fires AJAX requests to the server,
+        // in order to create, update and show coupons, show the logged-in company details,
+        // and logging out of the system. These methods also handles the server success/error responses.
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"]])
     ], CompanySpaService);
     return CompanySpaService;

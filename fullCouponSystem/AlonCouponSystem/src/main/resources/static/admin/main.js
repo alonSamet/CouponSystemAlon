@@ -41,7 +41,7 @@ module.exports = "#logout {\r\n    padding-top: 8px;\r\n    padding-right: 25px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/companies\"> Companies\r\n                    <span class=\"fas fa-chart-line\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/customers\"> Customers\r\n                    <span class='fas fa-users'></span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b>Logout &nbsp; </b>\r\n                    <span class=\"fas fa-sign-out-alt fa-lg\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n        <div class=\"panel-heading\">\r\n            <span style=\"font-size: 18px\">\r\n                <strong>Contact us:&nbsp; </strong>\r\n            </span>\r\n            <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n            <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n            <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n        </div>\r\n        <div class=\"panel-body\">\r\n            Powered by\r\n            <strong>\r\n                <i> Alon Samet </i>\r\n                <br>\r\n            </strong>\r\n            <h6> © All Rights Reserved </h6>\r\n        </div>\r\n        <br>\r\n    </div>"
+module.exports = "\r\n<!-- \r\n    This component generates the nav bar that allows the access to the other admin SPA components: \r\n    Home, Companies, Customers, About & Logout. In addition, it generates the footer of the system, \r\n    which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.\r\n-->\r\n\r\n<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n\r\n            <li>\r\n                <a routerLink=\"/\"> Home\r\n                    <span class=\"fa fa-home\"></span> &nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/companies\"> Companies\r\n                    <span class=\"fas fa-chart-line\"></span>&nbsp; </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/customers\"> Customers\r\n                    <span class='fas fa-users'></span>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a routerLink=\"/about\"> About\r\n                    <span class=\"fa fa-info-circle\"></span>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n        <ul id=\"logout\" class=\"nav navbar-nav navbar-right\">\r\n            <li>\r\n                <button (click)=\"logout()\" class=\"btn btn-danger\">\r\n                    <b>Logout &nbsp; </b>\r\n                    <span class=\"fas fa-sign-out-alt fa-lg\"></span>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<div id=\"footer\" class=\"panel panel-info\">\r\n        <div class=\"panel-heading\">\r\n            <span style=\"font-size: 18px\">\r\n                <strong>Contact us:&nbsp; </strong>\r\n            </span>\r\n            <a class=\"btn fab fa-facebook fa-2x\" href=\"https://www.facebook.com/tamarcovich\"></a>\r\n            <a class=\"btn fab fa-linkedin fa-2x\" href=\"https://www.linkedin.com/in/alon-samet/\"></a>\r\n            <a class=\"btn fas fa-envelope fa-2x\" href=\"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=alonkale@gmail.com&shva=1\"></a>\r\n        </div>\r\n        <div class=\"panel-body\">\r\n            Powered by\r\n            <strong>\r\n                <i> Alon Samet </i>\r\n                <br>\r\n            </strong>\r\n            <h6> © All Rights Reserved </h6>\r\n        </div>\r\n        <br>\r\n    </div>"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ var AppComponent = /** @class */ (function () {
         this._adminSpa = _adminSpa;
     }
     AppComponent.prototype.logout = function () {
-        // Moving to login page
+        // Sends the user to the login page
         window.location.href = 'http://localhost:8080/';
         // Invalidates the user session
         this._adminSpa.ajaxLogOut(this.request, this.response);
@@ -83,7 +83,11 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        }),
+        })
+        // This component generates the nav bar that allows the access to the other admin SPA components: 
+        // Home, Companies, Customers, About & Logout. In addition, it generates the footer of the system, 
+        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        ,
         __metadata("design:paramtypes", [_services_admin_spa_service__WEBPACK_IMPORTED_MODULE_1__["AdminSpaService"]])
     ], AppComponent);
     return AppComponent;
@@ -189,6 +193,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Company", function() { return Company; });
+// This class generates the company object, which has id, name, password & email
 var Company = /** @class */ (function () {
     function Company(id, name, password, email) {
         this.id = id;
@@ -225,6 +230,7 @@ var Company = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Customer", function() { return Customer; });
+// This class generates the customer object, which has id, name & password
 var Customer = /** @class */ (function () {
     function Customer(id, name, password) {
         this.id = id;
@@ -265,7 +271,7 @@ module.exports = "#container {\r\n    padding-bottom: 120px; \r\n    width: 90%\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../admin/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../admin/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br> \r\n\r\n<!--  \r\n    This component displays details about the coupon system project (left image) and the project author (right image) \r\n-->\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../admin/assets/‏‏project.PNG\" id=\"leftimg\">\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"col-md-5\">\r\n            <p>\r\n                <img src=\"../../../admin/assets/alon.PNG\" id=\"rightimg\">\r\n            </p>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -300,7 +306,9 @@ var AboutComponent = /** @class */ (function () {
             selector: 'app-about',
             template: __webpack_require__(/*! ./about.component.html */ "./src/app/components/about/about.component.html"),
             styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/components/about/about.component.css")]
-        }),
+        })
+        // This component displays details about the coupon system project and the project author (Alon Samet)
+        ,
         __metadata("design:paramtypes", [])
     ], AboutComponent);
     return AboutComponent;
@@ -328,7 +336,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align: mi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> All Companies Table </span>\r\n</h3>\r\n<br>\r\n\r\n<table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Name </th>\r\n        <th> Password </th>\r\n        <th> Email </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n    </tr>\r\n    <!-- Get all companies data into table -->\r\n    <tr *ngFor=\"let c of companiesList; let i = index\">\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.name}} </td>\r\n        <td *ngIf=\"showDataOnTable\"> {{c.password}} </td>\r\n        <td *ngIf=\"showDataOnTable\"> {{c.email}} </td>\r\n        <!-- Delete button column -->\r\n        <td>\r\n            <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removeCompany(i)\"> </button>\r\n        </td>\r\n        <!-- \"Edit\" button column -->\r\n        <td>\r\n            <button class=\"btn btn-warning far fa-edit\" (click)=\"showUpdateCompany(i)\"> </button>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n            <!-- Create company -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Company &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-folder-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new company details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Name: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCompany.name\" class=\"form-control\" placeholder=\"Please enter company name\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label id=\"left\"> Password: </label>\r\n                    <input type=\"password\" [(ngModel)]=\"newCompany.password\" class=\"form-control\" placeholder=\"Please enter company password\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label id=\"left\"> Email: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCompany.email\" class=\"form-control\" placeholder=\"Please enter company email\">\r\n                </div>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"createCompany()\">\r\n                    <b> Create New Company </b>\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Get company -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\">&nbsp; Get Company &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span>&nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Company By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByName()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Company By Name </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert company id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"companyToGet.id\" size=\"25px\" placeholder=\"Enter company id\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" id=\"centerh\" (click)=\"getCompanyById()\">\r\n                    <b> Get Company! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByNameBool\">\r\n                <span>\r\n                    <b> Please insert company name: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" size=\"20\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"companyToGet.name\" size=\"25px\" placeholder=\"Enter company name\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"getCompanyByName()\">\r\n                    <b> Get Company! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n            <!-- Small table of selected company -->\r\n            <table *ngIf=\"_adminSpa.showSmallTable\" id=\"smtable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n                <tr>\r\n                    <th> <small> ID </small>  </th>\r\n                    <th> <small> Name </small>  </th>\r\n                    <th> <small> Password </small>  </th>\r\n                    <th> <small> Email</small>  </th>\r\n                </tr>\r\n                <tr>\r\n                    <td> <small> {{companyToGet.id}} </small>  </td>\r\n                    <td> <small> {{companyToGet.name}} </small>  </td>\r\n                    <td> <small> {{companyToGet.password}} </small>  </td>\r\n                    <td> <small> {{companyToGet.email}} </small>  </td>\r\n                </tr>\r\n            </table>\r\n            <br>\r\n\r\n            <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"centerh\">\r\n                <button class=\"btn\" (click)=\"backToGetButtons()\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Update company -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Company &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the company \"{{updatedCompany.name}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Password: </label>\r\n                <input type=\"password\" [(ngModel)]=\"updatedCompany.password\" class=\"form-control\" placeholder=\"Please enter updated company password\">\r\n            </div>\r\n\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Email: </label>\r\n                <input type=\"text\" [(ngModel)]=\"updatedCompany.email\" class=\"form-control\" placeholder=\"Please enter updated company email\">\r\n            </div>\r\n            <br>\r\n            <button class=\"btn btn-primary\" (click)=\"updateCompany()\">\r\n                <b> Update Company </b>\r\n            </button>\r\n\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\n    This component displays the companies in the system and enables the admin to create \r\n    new company, update Existing company & show details of requested company (by its id/name) \r\n-->\r\n\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> All Companies Table </span>\r\n</h3>\r\n<br>\r\n\r\n<table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Name </th>\r\n        <th> Password </th>\r\n        <th> Email </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n    </tr>\r\n    <!-- Get all companies data into table -->\r\n    <tr *ngFor=\"let c of companiesList; let i = index\">\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.name}} </td>\r\n        <td *ngIf=\"showDataOnTable\"> {{c.password}} </td>\r\n        <td *ngIf=\"showDataOnTable\"> {{c.email}} </td>\r\n        <!-- Delete button column -->\r\n        <td>\r\n            <button class=\"btn btn-danger glyphicon glyphicon-trash\" (click)=\"removeCompany(i)\"> </button>\r\n        </td>\r\n        <!-- \"Edit\" button column -->\r\n        <td>\r\n            <button class=\"btn btn-warning far fa-edit\" (click)=\"showUpdateCompany(i)\"> </button>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n            <!-- Create company -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Company &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-folder-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new company details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Name: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCompany.name\" class=\"form-control\" placeholder=\"Please enter company name\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label id=\"left\"> Password: </label>\r\n                    <input type=\"password\" [(ngModel)]=\"newCompany.password\" class=\"form-control\" placeholder=\"Please enter company password\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label id=\"left\"> Email: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCompany.email\" class=\"form-control\" placeholder=\"Please enter company email\">\r\n                </div>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"createCompany()\">\r\n                    <b> Create New Company </b>\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Get company -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\">&nbsp; Get Company &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span>&nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Company By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByName()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Company By Name </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert company id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"companyToGet.id\" size=\"25px\" placeholder=\"Enter company id\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" id=\"centerh\" (click)=\"getCompanyById()\">\r\n                    <b> Get Company! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByNameBool\">\r\n                <span>\r\n                    <b> Please insert company name: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" size=\"20\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"companyToGet.name\" size=\"25px\" placeholder=\"Enter company name\">\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"getCompanyByName()\">\r\n                    <b> Get Company! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n            <!-- Small table of selected company -->\r\n            <table *ngIf=\"_adminSpa.showSmallTable\" id=\"smtable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n                <tr>\r\n                    <th>\r\n                        <small> ID </small>\r\n                    </th>\r\n                    <th>\r\n                        <small> Name </small>\r\n                    </th>\r\n                    <th>\r\n                        <small> Password </small>\r\n                    </th>\r\n                    <th>\r\n                        <small> Email</small>\r\n                    </th>\r\n                </tr>\r\n                <tr>\r\n                    <td>\r\n                        <small> {{companyToGet.id}} </small>\r\n                    </td>\r\n                    <td>\r\n                        <small> {{companyToGet.name}} </small>\r\n                    </td>\r\n                    <td>\r\n                        <small> {{companyToGet.password}} </small>\r\n                    </td>\r\n                    <td>\r\n                        <small> {{companyToGet.email}} </small>\r\n                    </td>\r\n                </tr>\r\n            </table>\r\n            <br>\r\n\r\n            <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"centerh\">\r\n                <button class=\"btn\" (click)=\"backToGetButtons()\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Update company -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Company &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the company \"{{updatedCompany.name}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Password: </label>\r\n                <input type=\"password\" [(ngModel)]=\"updatedCompany.password\" class=\"form-control\" placeholder=\"Please enter updated company password\">\r\n            </div>\r\n\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Email: </label>\r\n                <input type=\"text\" [(ngModel)]=\"updatedCompany.email\" class=\"form-control\" placeholder=\"Please enter updated company email\">\r\n            </div>\r\n            <br>\r\n            <button class=\"btn btn-primary\" (click)=\"updateCompany()\">\r\n                <b> Update Company </b>\r\n            </button>\r\n\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -400,7 +408,7 @@ var CompaniesComponent = /** @class */ (function () {
             reverseButtons: true
         }).then(function (result) {
             if (result.value) {
-                // call ajax method in service
+                // call ajax method in the admin service
                 _this._adminSpa.ajaxCreateCompany(_this.newCompany);
                 swalWithBootstrapButtons('The new company "' + _this.newCompany.name + '" was created !');
             }
@@ -425,7 +433,7 @@ var CompaniesComponent = /** @class */ (function () {
             reverseButtons: true
         }).then(function (result) {
             if (result.value) {
-                // call ajax method in service
+                // call ajax method in the admin service
                 _this._adminSpa.ajaxRemoveCompany(_this.companiesList[index]);
                 swalWithBootstrapButtons('The company "' + _this.companiesList[index].name + '"  was deleted!');
             }
@@ -449,7 +457,7 @@ var CompaniesComponent = /** @class */ (function () {
             reverseButtons: true
         }).then(function (result) {
             if (result.value) {
-                // call ajax method in service
+                // call ajax method in the admin service
                 _this._adminSpa.ajaxUpdateCompany(_this.updatedCompany);
                 swalWithBootstrapButtons('The company "' + _this.updatedCompany.name + '" Was Updated!');
             }
@@ -496,7 +504,12 @@ var CompaniesComponent = /** @class */ (function () {
             selector: 'app-companies',
             template: __webpack_require__(/*! ./companies.component.html */ "./src/app/components/companies/companies.component.html"),
             styles: [__webpack_require__(/*! ./companies.component.css */ "./src/app/components/companies/companies.component.css")]
-        }),
+        })
+        /*
+        This component displays all the companies in the system and enables the admin to create new company,
+        update Existing company & show details of requested company (by its id/name)
+        */
+        ,
         __metadata("design:paramtypes", [_services_admin_spa_service__WEBPACK_IMPORTED_MODULE_2__["AdminSpaService"]])
     ], CompaniesComponent);
     return CompaniesComponent;
@@ -524,7 +537,7 @@ module.exports = "th, td {\r\n    text-align: center; \r\n    vertical-align: mi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> All Customers Table</span>\r\n</h3>\r\n\r\n<br>\r\n<table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Name </th>\r\n        <th> Password </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n    </tr>\r\n    <!-- Get all customers data into table -->\r\n    <tr *ngFor=\"let c of customersList; let i = index\">\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.name}} </td>\r\n        <td> {{c.password}} </td>\r\n        <td>\r\n            <button class=\"btn btn-danger\" (click)=\"removeCustomer(i)\">\r\n                <span class=\"glyphicon glyphicon-trash\"> </span>\r\n            </button>\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-warning far fa-edit\" (click)=\"showUpdateCustomer(i)\"> </button>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n            <!-- Create customer -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-user-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new customer details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Name: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCustomer.name\" class=\"form-control\" placeholder=\"Please enter customer name\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Password: </label>\r\n                    <input type=\"password\" [(ngModel)]=\"newCustomer.password\" class=\"form-control\" placeholder=\"Please enter customer password\">\r\n                </div>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"createCustomer()\" style=\"margin-left: 5%\">\r\n                    <b> Creat New Customer </b>\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Get customer -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Get Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Customer By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByName()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Customer By Name </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert customer id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"customerToGet.id\"\r\n                    size=\"25px\" name=\"idtxt\" placeholder=\"Enter company id\">\r\n                <br>\r\n                <br>\r\n                <button (click)=\"getCustomerById()\" class=\"btn btn-primary\" id=\"centerh\">\r\n                    <b> Get Customer! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByNameBool\">\r\n                <span>\r\n                    <b> Please insert customer name: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"customerToGet.name\"\r\n                    size=\"25px\" name=\"nametxt\" placeholder=\"Enter company name\">\r\n                <br>\r\n                <br>\r\n                <button (click)=\"getCustomerByName()\" class=\"btn btn-primary\" id=\"centerh\">\r\n                    <b> Get Customer! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n            <!-- Small table of selected customer -->\r\n            <table *ngIf=\"_adminSpa.showSmallTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n                <tr>\r\n                    <th> ID </th>\r\n                    <th> Name </th>\r\n                    <th> Password </th>\r\n                </tr>\r\n                <tr>\r\n                    <td> {{customerToGet.id}} </td>\r\n                    <td> {{customerToGet.name}} </td>\r\n                    <td> {{customerToGet.password}} </td>\r\n                </tr>\r\n            </table>\r\n\r\n            <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"centerh\">\r\n                <br>\r\n                <button (click)=\"backToGetButtons()\" class=\"btn\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Update customer -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-user-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the customer \"{{updatedCustomer.name}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Password: </label>\r\n                <input type=\"password\" [(ngModel)]=\"updatedCustomer.password\" class=\"form-control\"  placeholder=\"Please enter updated customer password\">\r\n            </div>\r\n            <br>\r\n            <button class=\"btn btn-primary\" (click)=\"updateCustomer()\" style=\"margin-left:36px\">\r\n                <b> Update Customer </b>\r\n            </button>\r\n            <br>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\n    This component displays the customers in the system and enables the admin to create \r\n    new customer, update Existing customer & show details of requested customer (by its id/name) \r\n-->\r\n\r\n<h3 id=\"centerh\">\r\n    <span class=\"label label-success\"> All Customers Table</span>\r\n</h3>\r\n\r\n<br>\r\n<table border=\"1\" class=\"table table-striped table-bordered\">\r\n    <tr>\r\n        <th> ID </th>\r\n        <th> Name </th>\r\n        <th> Password </th>\r\n        <th> Delete </th>\r\n        <th> Edit </th>\r\n    </tr>\r\n    <!-- Get all customers data into table -->\r\n    <tr *ngFor=\"let c of customersList; let i = index\">\r\n        <td> {{c.id}} </td>\r\n        <td> {{c.name}} </td>\r\n        <td> {{c.password}} </td>\r\n        <td>\r\n            <button class=\"btn btn-danger\" (click)=\"removeCustomer(i)\">\r\n                <span class=\"glyphicon glyphicon-trash\"> </span>\r\n            </button>\r\n        </td>\r\n        <td>\r\n            <button class=\"btn btn-warning far fa-edit\" (click)=\"showUpdateCustomer(i)\"> </button>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<div class=\"container\" id=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\" id=\"create\">\r\n            <!-- Create customer -->\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Create New Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-user-plus\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n            <br>\r\n            <div id=\"centerh\">\r\n                <span>\r\n                    <b> Please insert new customer details: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <br>\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Name: </label>\r\n                    <input type=\"text\" [(ngModel)]=\"newCustomer.name\" class=\"form-control\" placeholder=\"Please enter customer name\">\r\n                </div>\r\n\r\n                <div id=\"left\" class=\"form-group\">\r\n                    <label> Password: </label>\r\n                    <input type=\"password\" [(ngModel)]=\"newCustomer.password\" class=\"form-control\" placeholder=\"Please enter customer password\">\r\n                </div>\r\n                <br>\r\n                <button class=\"btn btn-primary\" (click)=\"createCustomer()\" style=\"margin-left: 5%\">\r\n                    <b> Creat New Customer </b>\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Get customer -->\r\n        <div class=\"col-md-3\" id=\"get\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Get Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"far fa-folder-open\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <div *ngIf=\"showGetButtons\" class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\" id=\"centerh\">\r\n                <h4>\r\n                    <b> Please select one of the options:</b>\r\n                </h4>\r\n                <br>\r\n                <br>\r\n                <label class=\"btn btn-group active\">\r\n                    <div id=\"centerh\">\r\n                        <div (click)=\"showGetInputById()\">\r\n                            <input type=\"radio\">\r\n                            <h4>\r\n                                <b> Get Customer By ID </b>\r\n                            </h4>\r\n                        </div>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n\r\n                <label class=\"btn btn-group active\">\r\n                    <div (click)=\"showGetInputByName()\">\r\n                        <input type=\"radio\">\r\n                        <h4>\r\n                            <b> Get Customer By Name </b>\r\n                        </h4>\r\n                    </div>\r\n                </label>\r\n                <br>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByIdBool\">\r\n                <span>\r\n                    <b> Please insert customer id: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"number\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"customerToGet.id\"\r\n                    size=\"25px\" name=\"idtxt\" placeholder=\"Enter company id\">\r\n                <br>\r\n                <br>\r\n                <button (click)=\"getCustomerById()\" class=\"btn btn-primary\" id=\"centerh\">\r\n                    <b> Get Customer! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n\r\n            <div *ngIf=\"showGetInputByNameBool\">\r\n                <span>\r\n                    <b> Please insert customer name: </b>\r\n                </span>\r\n                <br>\r\n                <br>\r\n                <input type=\"text\" id=\"getinput\" class=\"form-control\" [(ngModel)]=\"customerToGet.name\"\r\n                    size=\"25px\" name=\"nametxt\" placeholder=\"Enter company name\">\r\n                <br>\r\n                <br>\r\n                <button (click)=\"getCustomerByName()\" class=\"btn btn-primary\" id=\"centerh\">\r\n                    <b> Get Customer! </b>\r\n                </button>\r\n                <br>\r\n                <br>\r\n            </div>\r\n            <br>\r\n\r\n            <!-- Small table of selected customer -->\r\n            <table *ngIf=\"_adminSpa.showSmallTable\" border=\"1\" class=\"table table-striped table-bordered\">\r\n                <tr>\r\n                    <th> ID </th>\r\n                    <th> Name </th>\r\n                    <th> Password </th>\r\n                </tr>\r\n                <tr>\r\n                    <td> {{customerToGet.id}} </td>\r\n                    <td> {{customerToGet.name}} </td>\r\n                    <td> {{customerToGet.password}} </td>\r\n                </tr>\r\n            </table>\r\n\r\n            <!-- Back button -->\r\n            <div *ngIf=\"showGetDetails\" id=\"centerh\">\r\n                <br>\r\n                <button (click)=\"backToGetButtons()\" class=\"btn\">\r\n                    <b> Back &nbsp;\r\n                        <span class=\"glyphicon glyphicon-arrow-left\"></span>\r\n                    </b>\r\n                </button>\r\n                <br>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <br>\r\n        </div>\r\n\r\n        <!-- Gap between columns -->\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n\r\n        <!-- Update customer -->\r\n        <div class=\"col-md-3\" *ngIf=\"showUpdateBool\" id=\"update\">\r\n            <br>\r\n            <br>\r\n            <h2>\r\n                <span class=\"label label-default\"> &nbsp; Update Customer &nbsp;\r\n                    <span id=\"centerv\" class=\"fas fa-user-edit\"></span> &nbsp;\r\n                </span>\r\n            </h2>\r\n            <br>\r\n            <br>\r\n\r\n            <h4>\r\n                <span class=\"label label-warning\"> Update details of the customer \"{{updatedCustomer.name}}\": </span>\r\n            </h4>\r\n            <br>\r\n            <div id=\"left\" class=\"form-group\">\r\n                <label> Password: </label>\r\n                <input type=\"password\" [(ngModel)]=\"updatedCustomer.password\" class=\"form-control\"  placeholder=\"Please enter updated customer password\">\r\n            </div>\r\n            <br>\r\n            <button class=\"btn btn-primary\" (click)=\"updateCustomer()\" style=\"margin-left:36px\">\r\n                <b> Update Customer </b>\r\n            </button>\r\n            <br>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -686,7 +699,12 @@ var CustomersComponent = /** @class */ (function () {
             selector: 'app-customers',
             template: __webpack_require__(/*! ./customers.component.html */ "./src/app/components/customers/customers.component.html"),
             styles: [__webpack_require__(/*! ./customers.component.css */ "./src/app/components/customers/customers.component.css")]
-        }),
+        })
+        /*
+        This component displays all the customers in the system and enables the admin to create new customer,
+        update Existing customer & show details of requested customer (by its id/name)
+        */
+        ,
         __metadata("design:paramtypes", [_services_admin_spa_service__WEBPACK_IMPORTED_MODULE_2__["AdminSpaService"]])
     ], CustomersComponent);
     return CustomersComponent;
@@ -714,7 +732,7 @@ module.exports = "#welcome {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n#shadow {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n<div class=\"container\">\r\n    <div class=\"row\" id=\"welcome\">\r\n        <h4 id=\"shadow\">\r\n            <b> Hi\r\n                <u>\r\n                    <i>Admin</i>\r\n                </u> , you are logged-in </b>\r\n        </h4>\r\n    </div>\r\n\r\n\r\n\r\n</div>\r\n"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--  \r\n    This component generates the landing page of the admin SPA. \r\n    It contains a basic welcome message and enables the admin to Access all other components\r\n-->\r\n\r\n<div class=\"container\">\r\n    <div class=\"row\" id=\"welcome\">\r\n        <h4 id=\"shadow\">\r\n            <b> Hi\r\n                <u>\r\n                    <i>Admin</i>\r\n                </u> , you are logged-in </b>\r\n        </h4>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -749,7 +767,12 @@ var HomeComponent = /** @class */ (function () {
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
-        }),
+        })
+        /*
+        This component generates the landing page of the admin SPA.
+        It contains a basic welcome message and enables the admin to Access all other components
+        */
+        ,
         __metadata("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
@@ -792,6 +815,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AdminSpaService = /** @class */ (function () {
     function AdminSpaService(_http) {
         this._http = _http;
+        this.baseURL = "http://localhost:8080/";
         this.companiesList = new Array();
         this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
         this.customersList = new Array();
@@ -809,7 +833,7 @@ var AdminSpaService = /** @class */ (function () {
     //***********************************
     AdminSpaService.prototype.ajaxCreateCompany = function (c) {
         var _this = this;
-        this._http.post("http://localhost:8080/admin/createcompany", c)
+        this._http.post(this.baseURL + "admin/createcompany", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
@@ -818,7 +842,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxRemoveCompany = function (c) {
         var _this = this;
-        this._http.delete("http://localhost:8080/admin/removecompany", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
+        this._http.delete(this.baseURL + "admin/removecompany", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
@@ -827,7 +851,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxUpdateCompany = function (c) {
         var _this = this;
-        this._http.put("http://localhost:8080/admin/updatecompany", c)
+        this._http.put(this.baseURL + "admin/updatecompany", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
@@ -836,7 +860,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetAllCompanies = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getallcompanies").subscribe(function (resp) {
+        this._http.get(this.baseURL + "admin/getallcompanies").subscribe(function (resp) {
             while (_this.companiesList.length > 0)
                 _this.companiesList.pop();
             var tempList = resp.json();
@@ -850,7 +874,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetCompanyById = function (companyId) {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getcompanybyid/" + companyId).subscribe(function (resp) {
+        this._http.get(this.baseURL + "admin/getcompanybyid/" + companyId).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCompany = resp.json();
             _this.companyToGet.setId(tempCompany.id);
@@ -864,7 +888,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetCompanyByName = function (companyName) {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getcompanybyname/" + companyName).subscribe(function (resp) {
+        this._http.get(this.baseURL + "admin/getcompanybyname/" + companyName).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCompany = resp.json();
             _this.companyToGet.setId(tempCompany.id);
@@ -881,7 +905,7 @@ var AdminSpaService = /** @class */ (function () {
     //***********************************
     AdminSpaService.prototype.ajaxCreateCustomer = function (c) {
         var _this = this;
-        this._http.post("http://localhost:8080/admin/createcustomer", c)
+        this._http.post(this.baseURL + "admin/createcustomer", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
@@ -890,7 +914,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxRemoveCustomer = function (c) {
         var _this = this;
-        this._http.delete("http://localhost:8080/admin/removecustomer", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
+        this._http.delete(this.baseURL + "admin/removecustomer", new _angular_http__WEBPACK_IMPORTED_MODULE_3__["RequestOptions"]({ body: c }))
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
@@ -899,7 +923,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxUpdateCustomer = function (c) {
         var _this = this;
-        this._http.put("http://localhost:8080/admin/updatecustomer", c)
+        this._http.put(this.baseURL + "admin/updatecustomer", c)
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
@@ -908,7 +932,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetAllCustomers = function () {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getallcustomers")
+        this._http.get(this.baseURL + "admin/getallcustomers")
             .subscribe(function (resp) {
             var tempList = resp.json();
             while (_this.customersList.length > 0) {
@@ -924,7 +948,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetCustomerById = function (customerId) {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getcustomerbyid/" + customerId).subscribe(function (resp) {
+        this._http.get(this.baseURL + "admin/getcustomerbyid/" + customerId).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCustomer = resp.json();
             _this.customerToGet.setId(tempCustomer.id);
@@ -937,7 +961,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxGetCustomerByName = function (customerName) {
         var _this = this;
-        this._http.get("http://localhost:8080/admin/getcustomerbyname/" + customerName).subscribe(function (resp) {
+        this._http.get(this.baseURL + "admin/getcustomerbyname/" + customerName).subscribe(function (resp) {
             _this.showSmallTable = true;
             var tempCustomer = resp.json();
             _this.customerToGet.setId(tempCustomer.id);
@@ -950,7 +974,7 @@ var AdminSpaService = /** @class */ (function () {
     };
     AdminSpaService.prototype.ajaxLogOut = function (request, response) {
         var _this = this;
-        this._http.post("http://localhost:8080/admin/logout/", request, response).subscribe(function (resp) {
+        this._http.post(this.baseURL + "admin/logout/", request, response).subscribe(function (resp) {
             _this.swalWithBootstrapButtons({
                 title: 'You have successfully logged out',
                 type: 'info',
@@ -962,7 +986,13 @@ var AdminSpaService = /** @class */ (function () {
     AdminSpaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
-        }),
+        })
+        // This class is the service of the admin SPA. 
+        // It conatains methods that fires AJAX requests to the server,
+        // in order to create, update and show companies/customers,
+        // and logging out of the system. These methods also handles the 
+        // server success/error responses.
+        ,
         __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_3__["Http"]])
     ], AdminSpaService);
     return AdminSpaService;
