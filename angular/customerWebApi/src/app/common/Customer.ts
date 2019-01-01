@@ -1,3 +1,6 @@
+
+// This class generates the customer object, which has id, name & password
+
 export class Customer {
 
     constructor(public id: number,

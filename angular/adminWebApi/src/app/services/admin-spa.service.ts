@@ -2,14 +2,21 @@ import { Injectable } from '@angular/core';
 import { Company } from '../common/./Company';
 import { Customer } from '../common/./Customer';
 import { Http, RequestOptions } from '@angular/http';
-
 import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 
+// This class is the service of the admin SPA. 
+// It conatains methods that fires AJAX requests to the server,
+// in order to create, update and show companies/customers,
+// and logging out of the system. These methods also handles the 
+// server success/error responses.
+
 export class AdminSpaService {
+
+  baseURL: string = "http://localhost:8080/";
 
   companiesList: Company[] = new Array<Company>();
   companyToGet: Company = new Company(0, "", "", "");
@@ -34,7 +41,7 @@ export class AdminSpaService {
 
 
   ajaxCreateCompany(c: Company) {
-    this._http.post("http://localhost:8080/admin/createcompany", c)
+    this._http.post(this.baseURL + "admin/createcompany", c)
       .subscribe(
         (resp) => {
           this.ajaxGetAllCompanies();
@@ -45,7 +52,7 @@ export class AdminSpaService {
       )
   }
   ajaxRemoveCompany(c: Company) {
-    this._http.delete("http://localhost:8080/admin/removecompany",
+    this._http.delete(this.baseURL + "admin/removecompany",
       new RequestOptions({ body: c }))
       .subscribe(
         (resp) => {
@@ -58,7 +65,7 @@ export class AdminSpaService {
   }
 
   ajaxUpdateCompany(c: Company) {
-    this._http.put("http://localhost:8080/admin/updatecompany", c)
+    this._http.put(this.baseURL + "admin/updatecompany", c)
       .subscribe(
         (resp) => {
           this.ajaxGetAllCompanies();
@@ -70,7 +77,7 @@ export class AdminSpaService {
   }
 
   ajaxGetAllCompanies() {
-    this._http.get("http://localhost:8080/admin/getallcompanies").subscribe(
+    this._http.get(this.baseURL + "admin/getallcompanies").subscribe(
       (resp) => {
         while (this.companiesList.length > 0)
           this.companiesList.pop();
@@ -86,7 +93,7 @@ export class AdminSpaService {
   }
 
   ajaxGetCompanyById(companyId: number) {
-    this._http.get("http://localhost:8080/admin/getcompanybyid/" + companyId).subscribe(
+    this._http.get(this.baseURL + "admin/getcompanybyid/" + companyId).subscribe(
       (resp) => {
         this.showSmallTable = true;
         let tempCompany = resp.json();
@@ -103,7 +110,7 @@ export class AdminSpaService {
   }
 
   ajaxGetCompanyByName(companyName: string) {
-    this._http.get("http://localhost:8080/admin/getcompanybyname/" + companyName).subscribe(
+    this._http.get(this.baseURL + "admin/getcompanybyname/" + companyName).subscribe(
       (resp) => {
         this.showSmallTable = true;
         let tempCompany = resp.json();
@@ -126,7 +133,7 @@ export class AdminSpaService {
   //***********************************
 
   ajaxCreateCustomer(c: Customer) {
-    this._http.post("http://localhost:8080/admin/createcustomer", c)
+    this._http.post(this.baseURL + "admin/createcustomer", c)
       .subscribe(
         (resp) => {
           this.ajaxGetAllCustomers();
@@ -138,7 +145,7 @@ export class AdminSpaService {
   }
 
   ajaxRemoveCustomer(c: Customer) {
-    this._http.delete("http://localhost:8080/admin/removecustomer",
+    this._http.delete(this.baseURL + "admin/removecustomer",
       new RequestOptions({ body: c }))
       .subscribe(
         (resp) => {
@@ -151,7 +158,7 @@ export class AdminSpaService {
   }
 
   ajaxUpdateCustomer(c: Customer) {
-    this._http.put("http://localhost:8080/admin/updatecustomer", c)
+    this._http.put(this.baseURL + "admin/updatecustomer", c)
       .subscribe(
         (resp) => {
           this.ajaxGetAllCustomers();
@@ -163,7 +170,7 @@ export class AdminSpaService {
   }
 
   ajaxGetAllCustomers() {
-    this._http.get("http://localhost:8080/admin/getallcustomers")
+    this._http.get(this.baseURL + "admin/getallcustomers")
       .subscribe(
         (resp) => {
           let tempList = resp.json();
@@ -181,7 +188,7 @@ export class AdminSpaService {
   }
 
   ajaxGetCustomerById(customerId: number) {
-    this._http.get("http://localhost:8080/admin/getcustomerbyid/" + customerId).subscribe(
+    this._http.get(this.baseURL + "admin/getcustomerbyid/" + customerId).subscribe(
       (resp) => {
         this.showSmallTable = true;
         let tempCustomer = resp.json();
@@ -197,7 +204,7 @@ export class AdminSpaService {
   }
 
   ajaxGetCustomerByName(customerName: string) {
-    this._http.get("http://localhost:8080/admin/getcustomerbyname/" + customerName).subscribe(
+    this._http.get(this.baseURL + "admin/getcustomerbyname/" + customerName).subscribe(
       (resp) => {
         this.showSmallTable = true;
         let tempCustomer = resp.json();
@@ -213,7 +220,7 @@ export class AdminSpaService {
   }
 
   ajaxLogOut(request, response) {
-    this._http.post("http://localhost:8080/admin/logout/", request, response).subscribe(
+    this._http.post(this.baseURL + "admin/logout/", request, response).subscribe(
       (resp) => {
         this.swalWithBootstrapButtons({
           title: 'You have successfully logged out',

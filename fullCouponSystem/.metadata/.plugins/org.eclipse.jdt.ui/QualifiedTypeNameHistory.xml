@@ -12,4 +12,5 @@
 <fullyQualifiedTypeName name="facades.ClientFacade"/>
 <fullyQualifiedTypeName name="webServices.accessFilters.FacadeHelper"/>
 <fullyQualifiedTypeName name="facades.AdminFacade"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 </qualifiedTypeNameHistroy>

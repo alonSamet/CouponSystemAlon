@@ -7,6 +7,9 @@ import { Customer } from '../../common/./Customer';
   templateUrl: './my-details.component.html',
   styleUrls: ['./my-details.component.css']
 })
+
+// This component shows the details (id, name & password) of the logged-in customer 
+
 export class MyDetailsComponent implements OnInit {
 
   customerToGet: Customer = new Customer(0, "", "");
@@ -15,6 +18,7 @@ export class MyDetailsComponent implements OnInit {
     this.customerToGet = this._customerSpa.customerToGet;
   }
 
+  // Gets the logged-in customer details from the customer service (which fires AJAX request to the server)
   ngOnInit() {
     this._customerSpa.ajaxGetMyDetails();
   }

@@ -1,3 +1,8 @@
+
+// This class generates the coupon object, which has id, title, 
+// star date, end (expiration) date, amount (of coupons left), 
+// coupon type, message (coupon details), price and an image of the coupon.
+
 export class Coupon {
 
     constructor(public id : number,

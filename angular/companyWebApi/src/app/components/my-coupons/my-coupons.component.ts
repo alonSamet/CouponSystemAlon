@@ -9,6 +9,13 @@ import swal from 'sweetalert2';
   templateUrl: './my-coupons.component.html',
   styleUrls: ['./my-coupons.component.css']
 })
+
+
+/* 
+This component displays the coupons belong to the logged-in company (with display filters),
+and enables the company to create new coupon, update Existing coupon & show details of requested coupon (by its id/title) 
+*/
+
 export class MyCouponsComponent implements OnInit {
 
   couponsList: Coupon[] = new Array<Coupon>();
@@ -48,37 +55,44 @@ export class MyCouponsComponent implements OnInit {
     this.showTypeInputFormBool = false;
     this.showCouponsTable = true;
   }
+
+  // This method shows the input form that gets coupons by end date
   showEndDateInputForm() {
     this.showCouponsTable = false;
     this.showEndDateInputFormBool = true;
     this.showTopPriceInputFormBool = false;
     this.showTypeInputFormBool = false;
   }
+
+  // This method shows the input form that gets coupons by top price
   showTopPriceInputForm() {
     this.showCouponsTable = false;
     this.showEndDateInputFormBool = false;
     this.showTopPriceInputFormBool = true;
     this.showTypeInputFormBool = false;
   }
+
+  // This method shows the input form that gets coupons by type
   showTypeInputForm() {
     this.showCouponsTable = false;
     this.showEndDateInputFormBool = false;
     this.showTopPriceInputFormBool = false;
     this.showTypeInputFormBool = true;
   }
-  // Invokes method in the service in order to get coupons by end date
+
+  // Invokes method in the company service in order to get coupons by end date
   getMyCouponsByEndDate() {
     this._companySpa.ajaxGetMyCouponsByEndDate(this.endDateFilter);
     this.showCouponsTable = true;
   }
 
-  // Invokes method in the service in order to get coupons by top price
+  // Invokes method in the company service in order to get coupons by top price
   getMyCouponsByTopPrice() {
     this._companySpa.ajaxGetMyCouponsByTopPrice(this.topPriceFilter);
     this.showCouponsTable = true;
   }
 
-  // Invokes method in the service in order to get coupons by type
+  // Invokes method in the company service in order to get coupons by type
   getMyCouponsByType() {
     this._companySpa.ajaxGetMyCouponsByType(this.typeFilter);
     this.showCouponsTable = true;
@@ -133,7 +147,7 @@ export class MyCouponsComponent implements OnInit {
     })
   }
 
-  updateCoupon() { //Company can update only its coupon's price & end date
+  updateCoupon() {  //Company can update only its coupon's price & end date
     // sweet alert
     const swalWithBootstrapButtons = swal.mixin({
       confirmButtonClass: 'btn btn-success',
@@ -168,6 +182,8 @@ export class MyCouponsComponent implements OnInit {
   // ************* methods for ngIf tags: ***************
   // ****************************************************
 
+  
+// This method shows the input form that updates coupon
   showUpdateCoupon(i) { // Company can update only its coupon's price & end date
     this.showUpdateBool = true;
     this.updatedCoupon.id = this.couponsList[i].id; // Gets the data from the relevant line in the getAllCoupons Table
@@ -181,18 +197,21 @@ export class MyCouponsComponent implements OnInit {
     this.updatedCoupon.image = this.couponsList[i].image;
   }
 
+// This method shows the input form that gets coupon by its id
   showGetInputById() {
     this.showGetButtons = false;
     this.showGetInputByIdBool = true;
     this.showGetDetails = true;
   }
 
+// This method shows the input form that gets coupon by its title
   showGetInputByTitle() {
     this.showGetButtons = false;
     this.showGetInputByTitleBool = true;
     this.showGetDetails = true;
   }
 
+// This method shows the buttons that gets coupon by its id/title
   backToGetButtons() {
     this._companySpa.showSmallTable = false;
     this.showGetInputByTitleBool = false;

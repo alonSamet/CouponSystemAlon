@@ -7,8 +7,12 @@ import { CustomerSpaService } from '../../services/customer-spa.service'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
 
+// This component generates the landing page of the customer SPA. 
+// It contains a basic welcome message with the logged-in customer name,
+// and enables the customer to Access all other components
+
+export class HomeComponent implements OnInit {
 
   customerToGet: Customer = new Customer(0,"","");
 

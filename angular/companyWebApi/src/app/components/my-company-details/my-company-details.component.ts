@@ -7,6 +7,9 @@ import { Company } from '../../common/./Company';
   templateUrl: './my-company-details.component.html',
   styleUrls: ['./my-company-details.component.css']
 })
+
+// This component shows the details (id, name, password & email) of the logged-in company 
+
 export class MyCompanyDetailsComponent implements OnInit {
 
   companyToGet: Company = new Company(0, "", "", "");
@@ -15,6 +18,7 @@ export class MyCompanyDetailsComponent implements OnInit {
     this.companyToGet = this._companySpa.companyToGet;
    }
 
+// Gets the logged-in company details from the company service (which fires AJAX request to the server)
   ngOnInit() {
     this._companySpa.ajaxGetMyCompanyDetails();
   }

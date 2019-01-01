@@ -9,7 +9,14 @@ import swal from 'sweetalert2';
   providedIn: 'root'
 })
 
+// This class is the service of the company SPA. 
+// It conatains methods that fires AJAX requests to the server,
+// in order to create, update and show coupons, show the logged-in company details,
+// and logging out of the system. These methods also handles the server success/error responses.
+
 export class CompanySpaService {
+
+  baseURL: string = "http://localhost:8080/";
 
   companyToGet: Company = new Company(0,"","","");
   couponsList: Coupon[] = new Array<Coupon>();
@@ -27,7 +34,7 @@ export class CompanySpaService {
   constructor(private _http: Http) { }
 
 ajaxCreateCoupon(c : Coupon) {
-  this._http.post("http://localhost:8080/company/createcoupon", c)
+  this._http.post(this.baseURL + "company/createcoupon", c)
     .subscribe(
       (resp) => {
         this.ajaxGetAllCoupons();
@@ -39,7 +46,7 @@ ajaxCreateCoupon(c : Coupon) {
 }
 
 ajaxRemoveCoupon(c: Coupon) {
-  this._http.delete("http://localhost:8080/company/removecoupon",
+  this._http.delete(this.baseURL + "company/removecoupon",
     new RequestOptions({ body: c }))
     .subscribe(
       (resp) => {
@@ -52,7 +59,7 @@ ajaxRemoveCoupon(c: Coupon) {
 }
 
 ajaxUpdateCoupon(c: Coupon) {
-  this._http.put("http://localhost:8080/company/updatecoupon", c)
+  this._http.put(this.baseURL + "company/updatecoupon", c)
     .subscribe(
       (resp) => {
         this.ajaxGetAllCoupons();
@@ -64,7 +71,7 @@ ajaxUpdateCoupon(c: Coupon) {
 }
 
 ajaxGetCouponById(myCouponId: number) {
-  this._http.get("http://localhost:8080/company/getmycouponbyid/" + myCouponId).subscribe(
+  this._http.get(this.baseURL + "company/getmycouponbyid/" + myCouponId).subscribe(
     (resp) => {
       this.showSmallTable = true;
       let tempCoupon = resp.json();
@@ -86,7 +93,7 @@ ajaxGetCouponById(myCouponId: number) {
 }
 
 ajaxGetCouponByTitle(myCouponTitle: string) {
-  this._http.get("http://localhost:8080/company/getmycouponbytitle/" + myCouponTitle).subscribe(
+  this._http.get(this.baseURL + "company/getmycouponbytitle/" + myCouponTitle).subscribe(
     (resp) => {
       this.showSmallTable = true;
       let tempCoupon = resp.json();
@@ -108,7 +115,7 @@ ajaxGetCouponByTitle(myCouponTitle: string) {
 }
 
 ajaxGetAllCoupons() {
-  this._http.get("http://localhost:8080/company/getallmycoupons").subscribe(
+  this._http.get(this.baseURL + "company/getallmycoupons").subscribe(
     (resp) => {
       while (this.couponsList.length > 0)
         this.couponsList.pop();
@@ -124,7 +131,7 @@ ajaxGetAllCoupons() {
 }
 
 ajaxGetMyCouponsByType(couponType : string) {
-  this._http.get("http://localhost:8080/company/getmycouponsbytype/" + couponType).subscribe(
+  this._http.get(this.baseURL + "company/getmycouponsbytype/" + couponType).subscribe(
     (resp) => {
       while (this.couponsList.length > 0)
         this.couponsList.pop();
@@ -140,7 +147,7 @@ ajaxGetMyCouponsByType(couponType : string) {
 }
 
 ajaxGetMyCouponsByTopPrice(couponTopPrice : number) {
-  this._http.get("http://localhost:8080/company/getmycouponsbytopprice/" + couponTopPrice).subscribe(
+  this._http.get(this.baseURL + "company/getmycouponsbytopprice/" + couponTopPrice).subscribe(
     (resp) => {
       while (this.couponsList.length > 0)
         this.couponsList.pop();
@@ -156,7 +163,7 @@ ajaxGetMyCouponsByTopPrice(couponTopPrice : number) {
 }
 
 ajaxGetMyCouponsByEndDate(endDate : Date) {
-  this._http.get("http://localhost:8080/company/getmycouponsbyenddate/" + endDate).subscribe(
+  this._http.get(this.baseURL + "company/getmycouponsbyenddate/" + endDate).subscribe(
     (resp) => {
       while (this.couponsList.length > 0)
         this.couponsList.pop();
@@ -172,7 +179,7 @@ ajaxGetMyCouponsByEndDate(endDate : Date) {
 }
 
 ajaxGetMyCompanyDetails() {
-  this._http.get("http://localhost:8080/company/getmycompanydetails/").subscribe(
+  this._http.get(this.baseURL + "company/getmycompanydetails/").subscribe(
     (resp) => {
       let tempCompany = resp.json();
       this.companyToGet.setId(tempCompany.id);
@@ -187,7 +194,7 @@ ajaxGetMyCompanyDetails() {
 }
 
 ajaxLogOut(request, response) {
-  this._http.post("http://localhost:8080/company/logout/", request, response).subscribe(
+  this._http.post(this.baseURL + "company/logout/", request, response).subscribe(
     (resp) => {
       this.swalWithBootstrapButtons({
         title: 'You have successfully logged out',

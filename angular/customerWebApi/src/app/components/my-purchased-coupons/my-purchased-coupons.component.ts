@@ -8,6 +8,13 @@ import swal from 'sweetalert2';
   templateUrl: './my-purchased-coupons.component.html',
   styleUrls: ['./my-purchased-coupons.component.css']
 })
+
+/* 
+This component displays all the coupons that were purchased by the logged-in customer, 
+allows the customer to remove coupons from its cart and allow the customer to go to 
+the "all coupons" page in order to purchase more coupons.
+*/
+
 export class MyPurchasedCouponsComponent implements OnInit {
 
   purchasedCouponsList: Coupon[] = new Array<Coupon>();
@@ -59,13 +66,14 @@ export class MyPurchasedCouponsComponent implements OnInit {
     })
   }
 
-
+// This method shows the input form that gets purchased coupons by top price
   showTopPriceInputForm() {
     this.showCouponsTable = false;
     this.showTopPriceInputFormBool = true;
     this.showTypeInputFormBool = false;
   }
 
+// This method shows the input form that gets purchased coupons by type
   showTypeInputForm() {
     this.showCouponsTable = false;
     this.showTopPriceInputFormBool = false;
@@ -76,6 +84,7 @@ export class MyPurchasedCouponsComponent implements OnInit {
     this._customerSpa.ajaxGetAllPurchasedCouponsByTopPrice(this.topPriceFilter);
     this.showCouponsTable = true;
   }
+
   getAllPurchasedCouponsByType() {
     this._customerSpa.ajaxGetAllPurchasedCouponsByType(this.typeFilter);
     this.showCouponsTable = true;

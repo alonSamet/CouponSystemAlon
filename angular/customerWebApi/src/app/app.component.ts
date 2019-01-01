@@ -6,6 +6,11 @@ import {CustomerSpaService } from './services/customer-spa.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+// This component generates the nav bar that allows the access to the other customer SPA components: 
+// Home, all Coupons, my Purchased Coupons, My Details, About & Logout. In addition, it generates the footer of the system, 
+// which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+
 export class AppComponent {
   title = 'customerWebApi';
   

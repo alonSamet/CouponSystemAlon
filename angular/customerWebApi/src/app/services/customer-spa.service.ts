@@ -9,7 +9,14 @@ import swal from 'sweetalert2';
   providedIn: 'root'
 })
 
+// This class is the service of the customer SPA. 
+// It conatains methods that fires AJAX requests to the server,
+// in order to purchase coupons, remove coupons and show (purchased/all) coupons, show the logged-in customer details,
+// and logging out of the system. These methods also handles the server success/error responses.
+
 export class CustomerSpaService {
+
+  baseURL: string = "http://localhost:8080/";
 
   customerToGet: Customer = new Customer(0, "", "");
   allCouponsList: Coupon[] = new Array<Coupon>();
@@ -28,7 +35,7 @@ export class CustomerSpaService {
   constructor(private _http: Http) { }
 
   ajaxPurchaseCoupon(c: Coupon) {
-    this._http.post("http://localhost:8080/customer/purchasecoupon", c)
+    this._http.post(this.baseURL + "customer/purchasecoupon", c)
       .subscribe(
         (resp) => {
           this.ajaxGetAllCoupons();
@@ -40,7 +47,7 @@ export class CustomerSpaService {
   }
 
   ajaxRemovePurchasedCoupon(c: Coupon) {
-    this._http.delete("http://localhost:8080/customer/removepurchasedcoupon",
+    this._http.delete(this.baseURL + "customer/removepurchasedcoupon",
       new RequestOptions({ body: c }))
       .subscribe(
         (resp) => {
@@ -53,7 +60,7 @@ export class CustomerSpaService {
   }
 
   ajaxGetAllCoupons() {
-    this._http.get("http://localhost:8080/customer/getallcoupons").subscribe(
+    this._http.get(this.baseURL + "customer/getallcoupons").subscribe(
       (resp) => {
         while (this.allCouponsList.length > 0)
           this.allCouponsList.pop();
@@ -69,7 +76,7 @@ export class CustomerSpaService {
   }
 
   ajaxGetAllPurchasedCoupons() {
-    this._http.get("http://localhost:8080/customer/getallpurchasedcoupons").subscribe(
+    this._http.get(this.baseURL + "customer/getallpurchasedcoupons").subscribe(
       (resp) => {
         while (this.purchasedCouponsList.length > 0)
           this.purchasedCouponsList.pop();
@@ -89,7 +96,7 @@ export class CustomerSpaService {
   }
 
   ajaxGetAllPurchasedCouponsByType(couponType: string) {
-    this._http.get("http://localhost:8080/customer/getallpurchasedcouponsbytype/" + couponType).subscribe(
+    this._http.get(this.baseURL + "customer/getallpurchasedcouponsbytype/" + couponType).subscribe(
       (resp) => {
         while (this.purchasedCouponsList.length > 0)
           this.purchasedCouponsList.pop();
@@ -108,7 +115,7 @@ export class CustomerSpaService {
   }
 
   ajaxGetAllPurchasedCouponsByTopPrice(couponTopPrice: number) {
-    this._http.get("http://localhost:8080/customer/getallpurchasedcouponsbytopprice/" + couponTopPrice).subscribe(
+    this._http.get(this.baseURL + "customer/getallpurchasedcouponsbytopprice/" + couponTopPrice).subscribe(
       (resp) => {
         while (this.purchasedCouponsList.length > 0)
           this.purchasedCouponsList.pop();
@@ -127,7 +134,7 @@ export class CustomerSpaService {
   }
 
   ajaxGetMyDetails() {
-    this._http.get("http://localhost:8080/customer/getmydetails/").subscribe(
+    this._http.get(this.baseURL + "customer/getmydetails/").subscribe(
       (resp) => {
         let tempCustomer = resp.json();
         this.customerToGet.setId(tempCustomer.id);
@@ -141,7 +148,7 @@ export class CustomerSpaService {
   }
 
   ajaxLogOut(request, response) {
-    this._http.post("http://localhost:8080/customer/logout/", request, response).subscribe(
+    this._http.post(this.baseURL + "customer/logout/", request, response).subscribe(
       (resp) => {
         this.swalWithBootstrapButtons({
           title: 'You have successfully logged out',

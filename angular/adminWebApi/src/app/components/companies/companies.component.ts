@@ -8,6 +8,12 @@ import swal from 'sweetalert2';
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css']
 })
+ 
+/* 
+This component displays all the companies in the system and enables the admin to create new company, 
+update Existing company & show details of requested company (by its id/name) 
+*/
+
 export class CompaniesComponent implements OnInit {
 
   companiesList: Company[];
@@ -52,7 +58,7 @@ export class CompaniesComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        // call ajax method in service
+        // call ajax method in the admin service
         this._adminSpa.ajaxCreateCompany(this.newCompany);
         swalWithBootstrapButtons('The new company "' + this.newCompany.name + '" was created !')
       } else if (
@@ -78,7 +84,7 @@ export class CompaniesComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        // call ajax method in service
+        // call ajax method in the admin service
         this._adminSpa.ajaxRemoveCompany(this.companiesList[index]);
         swalWithBootstrapButtons('The company "' + this.companiesList[index].name + '"  was deleted!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
@@ -101,7 +107,7 @@ export class CompaniesComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        // call ajax method in service
+        // call ajax method in the admin service
         this._adminSpa.ajaxUpdateCompany(this.updatedCompany);
         swalWithBootstrapButtons('The company "' + this.updatedCompany.name + '" Was Updated!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }

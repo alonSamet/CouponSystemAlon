@@ -7,6 +7,10 @@ import { CompanySpaService } from './services/company-spa.service'
   styleUrls: ['./app.component.css']
 })
 
+// This component generates the nav bar that allows the access to the other company SPA components: 
+// Home, My Company Coupons, My Company Details, About & Logout. In addition, it generates the footer of the system, 
+// which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+
 export class AppComponent {
   title = 'companyWebApi';
 

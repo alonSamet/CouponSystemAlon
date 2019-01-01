@@ -8,6 +8,12 @@ import swal from 'sweetalert2';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
+
+/*
+This component displays all the customers in the system and enables the admin to create new customer, 
+update Existing customer & show details of requested customer (by its id/name) 
+*/
+
 export class CustomersComponent implements OnInit {
 
   customersList : Customer[];

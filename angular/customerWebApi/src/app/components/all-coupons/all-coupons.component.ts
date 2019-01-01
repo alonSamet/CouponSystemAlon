@@ -9,6 +9,12 @@ import swal from 'sweetalert2';
   templateUrl: './all-coupons.component.html',
   styleUrls: ['./all-coupons.component.css']
 })
+
+/* 
+This component displays all coupons that can be purchased by the logged-in customer, 
+and allows the customer to purchase them.
+*/
+
 export class AllCouponsComponent implements OnInit {
 
   allCouponsList: Coupon[] = new Array<Coupon>();
@@ -17,6 +23,7 @@ export class AllCouponsComponent implements OnInit {
     this.allCouponsList = this._customerSpa.allCouponsList;
   }
 
+  // This method displays all coupons that can be purchased by the logged-in customer
   ngOnInit() {
     this._customerSpa.ajaxGetAllCoupons();
   }
@@ -37,7 +44,7 @@ export class AllCouponsComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        // call ajax method in service
+        // call ajax method in the customer service
         this._customerSpa.ajaxPurchaseCoupon(this.allCouponsList[index]);
         swalWithBootstrapButtons({
           title: 'The coupon "' + this.allCouponsList[index].title + '" was successfully purchased!',

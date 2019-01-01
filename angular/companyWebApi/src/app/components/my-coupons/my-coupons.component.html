@@ -1,6 +1,12 @@
 <br>
 <br>
 <br>
+
+<!--  
+    This component displays the coupons belong to the logged-in company (with display filters),
+    and enables the company to create new coupon, update Existing coupon & show details of requested coupon (by its id/title) 
+-->
+
 <h3 id="centerh">
     <span class="label label-success"> My Coupons Table </span>
 </h3>
@@ -8,58 +14,57 @@
 
 
 <!-- Coupons table filter buttons  -->
-<div class="form-group" id="centerh">
-    <label> Please choose which coupons to show on table: </label>
-</div>
-<div id="centerh">
-    <button class="btn btn-success" (click)="getAllCoupons()"> Show All Coupons </button> &nbsp;
-    <button class="btn btn-success" (click)="showEndDateInputForm()"> By End Date </button> &nbsp;
-    <button class="btn btn-success" (click)="showTopPriceInputForm()"> By Top Price </button> &nbsp;
-    <button class="btn btn-success" (click)="showTypeInputForm()"> By Type </button>
-</div>
-<br>
+    <div class="form-group" id="centerh">
+        <label> Please choose which coupons to show on table: </label>
+    </div>
+    <div id="centerh">
+        <button class="btn btn-success" (click)="getAllCoupons()"> Show All Coupons </button> &nbsp;
+        <button class="btn btn-success" (click)="showEndDateInputForm()"> By End Date </button> &nbsp;
+        <button class="btn btn-success" (click)="showTopPriceInputForm()"> By Top Price </button> &nbsp;
+        <button class="btn btn-success" (click)="showTypeInputForm()"> By Type </button>
+    </div>
+    <br>
 
 <!-- Coupons by *end date* input form filter -->
-<div *ngIf="showEndDateInputFormBool" id="getby" class="form-group">
-    <label>
-        <b> Please select coupons end date: </b>
-    </label>
-    <input type="date" [(ngModel)]="endDateFilter" class="form-control">
-    <br>
-    <br>
-    <button class="btn btn-primary" (click)="getMyCouponsByEndDate()"> Show Coupons Table! </button>
-</div>
+    <div *ngIf="showEndDateInputFormBool" id="getby" class="form-group">
+        <label>
+            <b> Please select coupons end date: </b>
+        </label>
+        <input type="date" [(ngModel)]="endDateFilter" class="form-control">
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="getMyCouponsByEndDate()"> Show Coupons Table! </button>
+    </div>
 
 <!-- Coupons by *top price* input form filter -->
-<div *ngIf="showTopPriceInputFormBool" id="getby" class="form-group">
-    <label>
-        <b> Please select coupons top price: </b>
-    </label>
-    <input type="number" [(ngModel)]="topPriceFilter" class="form-control" id="centerh">
-    <br>
-    <br>
-    <button class="btn btn-primary" (click)="getMyCouponsByTopPrice()"> Show Coupons Table! </button>
-</div>
+    <div *ngIf="showTopPriceInputFormBool" id="getby" class="form-group">
+        <label>
+            <b> Please select coupons top price: </b>
+        </label>
+        <input type="number" [(ngModel)]="topPriceFilter" class="form-control" id="centerh">
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="getMyCouponsByTopPrice()"> Show Coupons Table! </button>
+    </div>
 
 <!-- Coupons by *type* input form filter -->
-<div *ngIf="showTypeInputFormBool" id="getby" class="form-group">
-    <label> Please select coupons type: </label>
-    <select [(ngModel)]="typeFilter" class="form-control">
-        <option value="" disabled="disabled" selected="selected"> Please select Type </option>
-        <option value="FOOD"> Food </option>
-        <option value="ELECTRICITY"> Electricity</option>
-        <option value="HOBBY"> Hobby </option>
-        <option value="VACATION"> Vacation </option>
-    </select>
-    <br>
-    <br>
-    <button class="btn btn-primary" (click)="getMyCouponsByType()"> Show Coupons Table! </button>
-</div>
-
+    <div *ngIf="showTypeInputFormBool" id="getby" class="form-group">
+        <label> Please select coupons type: </label>
+        <select [(ngModel)]="typeFilter" class="form-control">
+            <option value="" disabled="disabled" selected="selected"> Please select Type </option>
+            <option value="FOOD"> Food </option>
+            <option value="ELECTRICITY"> Electricity</option>
+            <option value="HOBBY"> Hobby </option>
+            <option value="VACATION"> Vacation </option>
+        </select>
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="getMyCouponsByType()"> Show Coupons Table! </button>
+    </div>
 <br>
 
 <!-- Get table of coupons -->
-<table *ngIf="showCouponsTable" border="1" class="table table-striped table-bordered">
+  <table *ngIf="showCouponsTable" border="1" class="table table-striped table-bordered">
     <tr>
         <th> ID </th>
         <th> Title </th>
@@ -74,7 +79,7 @@
         <th> Edit </th>
 
     </tr>
-    <!-- Get coupons data into table -->
+<!-- Get coupons data into table -->
     <tr *ngFor="let c of couponsList; let i = index">
 
         <td> {{c.id}} </td>
@@ -98,7 +103,7 @@
         </td>
 
     </tr>
-</table>
+  </table>
 
 <br>
 <br>
@@ -107,7 +112,8 @@
 <div class="container" id="container">
     <div class="row">
         <div class="col-md-3" id="create">
-            <!-- Create coupon -->
+        
+        <!-- Create coupon -->
             <br>
             <br>
             <h2>
@@ -184,11 +190,11 @@
             </div>
         </div>
 
-        <!-- Gap between columns -->
+    <!-- Gap between columns -->
         <div class="col-md-1">
         </div>
 
-        <!-- form: Get single coupon -->
+    <!-- form: Get single coupon -->
         <div class="col-md-3" id="get">
             <br>
             <br>
@@ -269,7 +275,7 @@
             <br>
 
 
-            <!-- Small table of selected coupon -->
+        <!-- Small table of selected coupon -->
             <div id="smtable">
                 <br>
                 <table *ngIf="_companySpa.showSmallTable" border="1" id="smtableb" class="table table-striped table-bordered">
@@ -340,7 +346,7 @@
             </div>
             <br>
             <br>
-            <!-- Back button -->
+        <!-- Back button -->
             <div *ngIf="showGetDetails" id="back">
                 <br>
                 <br>
@@ -356,11 +362,11 @@
             <br>
         </div>
 
-        <!-- Gap between columns -->
+    <!-- Gap between columns -->
         <div class="col-md-1">
         </div>
 
-        <!--  form: Update coupon (Company can update only its coupon's price & end date)  -->
+    <!--  form: Update coupon (Company can update only its coupon's price & end date)  -->
         <div class="col-md-3" *ngIf="showUpdateBool" id="update">
             <br>
             <br>

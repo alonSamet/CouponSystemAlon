@@ -1,3 +1,6 @@
+
+// This class generates the company object, which has id, name, password & email
+
 export class Company {
     
     constructor   ( public id : number,
