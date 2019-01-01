@@ -1,5 +1,6 @@
 package webServices;
 
+import java.io.IOException;
 import java.text.ParseException;
 
 import javax.servlet.http.HttpSession;
@@ -35,9 +36,9 @@ import facades.CompanyFacade;
 public class CompanyWebService {
 
 	// Get the company facade from the session
-	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException {
+	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) req.getSession().getAttribute("facade");
-		return cf;
+			return cf;
 	}
 
 	/**
@@ -48,10 +49,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon creation success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/createcoupon", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> createCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
-			throws CouponSystemException {
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			cf.createCoupon(coupon);
@@ -71,10 +73,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon removal success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/removecoupon", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> removeCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
-			throws CouponSystemException {
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			cf.removeCoupon(coupon);
@@ -94,10 +97,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon update success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/updatecoupon", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> updateCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
-			throws CouponSystemException {
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			cf.updateCoupon(coupon);
@@ -117,10 +121,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon object details (in json format) or
 	 *         an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycouponbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponById(@PathVariable("id") long id, HttpServletRequest req)
-			throws CouponSystemException {
+			throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCouponById(id));
@@ -138,10 +143,11 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with coupon object details (in json format) or
 	 *         an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycouponbytitle/{title}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponByTitle(@PathVariable("title") String title,
-			HttpServletRequest req) throws CouponSystemException {
+			HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCouponByTitle(title));
@@ -159,9 +165,10 @@ public class CompanyWebService {
 	 *         logged-in company (in json format) or an error string massage (in
 	 *         case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getallmycoupons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req) throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllCouponsOfLoggedInCompany());
@@ -179,10 +186,11 @@ public class CompanyWebService {
 	 *         format) of the requested coupon type, or an error string massage (in
 	 *         case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycouponsbytype/{type}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByType(@PathVariable("type") CouponType type,
-			HttpServletRequest req) throws CouponSystemException {
+			HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			// CouponType type = null;
@@ -202,10 +210,11 @@ public class CompanyWebService {
 	 *         format) with price below/equal the requested top price, or an error
 	 *         string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycouponsbytopprice/{topprice}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByTopPrice(@PathVariable("topprice") Double topPrice,
-			HttpServletRequest req) throws CouponSystemException {
+			HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsByTopPrice(topPrice));
@@ -223,11 +232,12 @@ public class CompanyWebService {
 	 *         format) with with expiration date that is earlier than the requested
 	 *         one, or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycouponsbyenddate/{enddate}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByEndDate(
 			@PathVariable("enddate") @DateTimeFormat(pattern = "yyyy-MM-dd") java.util.Date endDate,
-			HttpServletRequest req) throws CouponSystemException, ParseException {
+			HttpServletRequest req) throws CouponSystemException, ParseException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsByEndDate(endDate));
@@ -243,9 +253,10 @@ public class CompanyWebService {
 	 * @return {@link ResponseEntity} with the logged-in company object details (in
 	 *         json format), or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/getmycompanydetails", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getMyCompanyDetails(HttpServletRequest req) throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getMyCompanyDetails(HttpServletRequest req) throws CouponSystemException, IOException {
 		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCompany());

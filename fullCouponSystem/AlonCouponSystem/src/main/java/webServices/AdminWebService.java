@@ -1,5 +1,8 @@
 package webServices;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -32,18 +35,10 @@ import facades.ClientFacade;
 public class AdminWebService {
 
 	// Get the admin facade from the session
-	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException {
+	private ClientFacade getFacade(HttpServletRequest req) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) req.getSession().getAttribute("facade");
 		return af;
 	}
-	
-//	private <????> getFacade(HttpServletRequest req) throws CouponSystemException {
-//		AdminFacade af = (AdminFacade) req.getSession().getAttribute("facade");
-//		if (af == null || !(af instanceof AdminFacade)) {
-//			return "redirect:http://localhost:8080";
-//		} else {
-//			return af;
-//	}
 
 	// *************************************************************
 	// ********** AdminFacade methods related to company: **********
@@ -57,10 +52,10 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with company creation success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/createcompany", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> createCompany(@RequestBody Company company, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> createCompany(@RequestBody Company company, HttpServletRequest req) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.createCompany(company);
@@ -80,10 +75,10 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with company removal success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/removecompany", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> removeCompany(@RequestBody Company company, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> removeCompany(@RequestBody Company company, HttpServletRequest req) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.removeCompany(company);
@@ -103,10 +98,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with company update success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/updatecompany", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> updateCompany(@RequestBody Company company, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> updateCompany(@RequestBody Company company, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.updateCompany(company);
@@ -126,10 +122,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with company object details (in json format)
 	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getcompanybyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getCompanyById(@PathVariable("id") long id, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getCompanyById(@PathVariable("id") long id, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getCompanyById(id));
@@ -146,10 +143,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with company object details (in json format)
 	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getcompanybyname/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getCompanyByName(@PathVariable("name") String name, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getCompanyByName(@PathVariable("name") String name, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getCompanyByName(name));
@@ -165,9 +163,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with all company objects details (in json
 	 *         format) or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getallcompanies", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllCompanies(HttpServletRequest req) throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getAllCompanies(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getAllCompanies());
@@ -188,10 +188,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with customer creation success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/createcustomer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> createCustomer(@RequestBody Customer customer, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> createCustomer(@RequestBody Customer customer, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.createCustomer(customer);
@@ -211,10 +212,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with customer removal success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/removecustomer", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> removeCustomer(@RequestBody Customer customer, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> removeCustomer(@RequestBody Customer customer, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.removeCustomer(customer);
@@ -234,10 +236,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with customer update success/error string
 	 *         massage
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/updatecustomer", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> updateCustomer(@RequestBody Customer customer, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<String> updateCustomer(@RequestBody Customer customer, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			af.updateCustomer(customer);
@@ -257,10 +260,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with customer object details (in json format)
 	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getcustomerbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("id") long id, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("id") long id, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getCustomerById(id));
@@ -277,10 +281,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with customer object details (in json format)
 	 *         or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getcustomerbyname/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("name") String name, HttpServletRequest req)
-			throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getCustomer(@PathVariable("name") String name, HttpServletRequest req,
+			HttpServletResponse resp) throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getCustomerByName(name));
@@ -296,9 +301,11 @@ public class AdminWebService {
 	 * @return {@link ResponseEntity} with all customer objects details (in json
 	 *         format) or an error string massage (in case of a failure)
 	 * @throws CouponSystemException
+	 * @throws IOException
 	 */
 	@RequestMapping(value = "/admin/getallcustomers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<?> getAllCustomers(HttpServletRequest req) throws CouponSystemException {
+	public @ResponseBody ResponseEntity<?> getAllCustomers(HttpServletRequest req)
+			throws CouponSystemException, IOException {
 		AdminFacade af = (AdminFacade) this.getFacade(req);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(af.getAllCustomers());

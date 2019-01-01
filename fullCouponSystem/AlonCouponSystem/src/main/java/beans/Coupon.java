@@ -26,12 +26,16 @@ public class Coupon implements Serializable {
 	private double price;
 	private String image;
 
+	/*
+	 * Empty coupon CTOR
+	 */
 	public Coupon() {
 	}
 
-	String str = "aaa";
-	String up = str.toUpperCase();
-
+	/**
+	 * This CTOR sets the coupon class fields - including the id field - to those
+	 * sent when an instance of the object is created
+	 */
 	public Coupon(long id, String title, Date startDate, Date endDate, int amount, CouponType couponType,
 			String message, double price, String image) {
 		super();
@@ -46,6 +50,11 @@ public class Coupon implements Serializable {
 		this.image = image;
 	}
 
+	/**
+	 * This CTOR sets the coupon class fields - not including the id field, that is
+	 * been automatically generated in the db - to those sent when an instance of
+	 * the object is created
+	 */
 	public Coupon(String title, Date startDate, Date endDate, int amount, CouponType couponType, String message,
 			double price, String image) {
 		super();
@@ -59,85 +68,159 @@ public class Coupon implements Serializable {
 		this.image = image;
 	}
 
-	// toString;
+	/**
+	 * @return id of the coupon
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * Updates new id for the coupon. After a new coupon is created, an id is
+	 * automatically generatad in the db, and the coupon id is been updated by this
+	 * method
+	 * 
+	 * @param id
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return title of the coupon
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * Updates new title for the coupon
+	 * 
+	 * @param title title of the coupon
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return start date of the coupon (the date the coupon was created)
+	 */
+	public java.util.Date getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * Updates new start date for the coupon
+	 * 
+	 * @param startDate start date of the coupon (the date the coupon was created)
+	 */
+	public void setStartDate(java.util.Date startDate) {
+		this.startDate = startDate;
+	}
+
+	/**
+	 * @return end date (the expiration date) for the coupon 
+	 */
+	public java.util.Date getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * Updates new end date for the coupon
+	 * 
+	 * @param endDate end date of the coupon (the expiration date of the coupon)
+	 */
+	public void setEndDate(java.util.Date endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return amount of the coupons left in the company balance
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+	/**
+	 * Updates new amount for the coupon
+	 * 
+	 * @param amount amount of the coupons left in the company balance
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the type of the coupon (as Enum)
+	 */
+	public CouponType getCouponType() {
+		return couponType;
+	}
+
+	/**
+	 * Updates new coupon type
+	 * 
+	 * @param CouponType (Enum) the type of the coupon
+	 */
+	public void setCouponType(CouponType couponType) {
+		this.couponType = couponType;
+	}
+
+	/**
+	 * @return details about the coupon
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * Updates new message (details) of the coupon
+	 * 
+	 * @param message details about the coupon
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	/**
+	 * @return price of the coupon
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * Updates new price for the coupon
+	 * 
+	 * @param price price of the coupon
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	/**
+	 * @return an image of the coupon
+	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * Updates new image of the coupon
+	 * 
+	 * @param image an image of the coupon
+	 */
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	/**
+	 * Generates a string representation of the coupon object with all its fields
+	 */
 	@Override
 	public String toString() {
 		return "Coupon [id=" + id + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", amount=" + amount + ", couponType=" + couponType + ", message=" + message + ", price=" + price
 				+ ", image=" + image + "]";
 	}
-
-	// getters and setters;
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public java.util.Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(java.util.Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public java.util.Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(java.util.Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
-	public CouponType getCouponType() {
-		return couponType;
-	}
-
-	public void setCouponType(CouponType couponType) {
-		this.couponType = couponType;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 }
