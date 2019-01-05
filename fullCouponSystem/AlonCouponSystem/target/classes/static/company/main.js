@@ -64,11 +64,11 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent(_companySpa) {
         this._companySpa = _companySpa;
-        this.title = 'companyWebApi';
+        this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
         // Moving to login page
-        window.location.href = 'http://localhost:8080/';
+        window.location.href = this.baseURL;
         // Invalidates the user session
         this._companySpa.ajaxLogOut(this.request, this.response);
     };
@@ -754,7 +754,12 @@ var CompanySpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxRemoveCoupon = function (c) {
@@ -763,7 +768,12 @@ var CompanySpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxUpdateCoupon = function (c) {
@@ -772,7 +782,12 @@ var CompanySpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetCouponById = function (myCouponId) {
@@ -790,8 +805,13 @@ var CompanySpaService = /** @class */ (function () {
             _this.couponToGet.setPrice(tempCoupon.price);
             _this.couponToGet.setImage(tempCoupon.image);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetCouponByTitle = function (myCouponTitle) {
@@ -809,8 +829,13 @@ var CompanySpaService = /** @class */ (function () {
             _this.couponToGet.setPrice(tempCoupon.price);
             _this.couponToGet.setImage(tempCoupon.image);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetAllCoupons = function () {
@@ -824,7 +849,12 @@ var CompanySpaService = /** @class */ (function () {
                 _this.couponsList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByType = function (couponType) {
@@ -838,7 +868,12 @@ var CompanySpaService = /** @class */ (function () {
                 _this.couponsList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByTopPrice = function (couponTopPrice) {
@@ -852,7 +887,12 @@ var CompanySpaService = /** @class */ (function () {
                 _this.couponsList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetMyCouponsByEndDate = function (endDate) {
@@ -866,7 +906,12 @@ var CompanySpaService = /** @class */ (function () {
                 _this.couponsList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxGetMyCompanyDetails = function () {
@@ -878,7 +923,12 @@ var CompanySpaService = /** @class */ (function () {
             _this.companyToGet.setPassword(tempCompany.password);
             _this.companyToGet.setEmail(tempCompany.email);
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService.prototype.ajaxLogOut = function (request, response) {
@@ -889,7 +939,12 @@ var CompanySpaService = /** @class */ (function () {
                 type: 'info',
             });
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CompanySpaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

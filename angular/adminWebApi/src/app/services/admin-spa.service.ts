@@ -47,7 +47,11 @@ export class AdminSpaService {
           this.ajaxGetAllCompanies();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -59,7 +63,11 @@ export class AdminSpaService {
           this.ajaxGetAllCompanies();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -71,7 +79,11 @@ export class AdminSpaService {
           this.ajaxGetAllCompanies();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -87,7 +99,11 @@ export class AdminSpaService {
         }
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -103,8 +119,12 @@ export class AdminSpaService {
         this.companyToGet.setEmail(tempCompany.email);
       },
       (err) => {
-        this.showSmallTable = false;
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.showSmallTable = false;
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -120,8 +140,12 @@ export class AdminSpaService {
         this.companyToGet.setEmail(tempCompany.email);
       },
       (err) => {
-        this.showSmallTable = false;
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.showSmallTable = false;
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -139,7 +163,11 @@ export class AdminSpaService {
           this.ajaxGetAllCustomers();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -152,7 +180,11 @@ export class AdminSpaService {
           this.ajaxGetAllCustomers();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -164,7 +196,11 @@ export class AdminSpaService {
           this.ajaxGetAllCustomers();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -182,7 +218,11 @@ export class AdminSpaService {
           }
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -197,8 +237,12 @@ export class AdminSpaService {
         this.customerToGet.setPassword(tempCustomer.password);
       },
       (err) => {
-        this.showSmallTable = false;
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.showSmallTable = false;
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -213,8 +257,12 @@ export class AdminSpaService {
         this.customerToGet.setPassword(tempCustomer.password);
       },
       (err) => {
-        this.showSmallTable = false;
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.showSmallTable = false;
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -228,7 +276,11 @@ export class AdminSpaService {
         })
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }

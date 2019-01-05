@@ -13,6 +13,7 @@ import { AdminSpaService } from './services/admin-spa.service'
 
 export class AppComponent{
 
+  baseURL: string = "http://localhost:8080/";
   request: Request;
   response: Response;
 
@@ -22,7 +23,7 @@ export class AppComponent{
   logout() {
 
     // Sends the user to the login page
-    window.location.href = 'http://localhost:8080/';
+    window.location.href = this.baseURL;
 
     // Invalidates the user session
     this._adminSpa.ajaxLogOut(this.request, this.response);

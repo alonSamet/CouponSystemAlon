@@ -12,7 +12,9 @@ import {CustomerSpaService } from './services/customer-spa.service'
 // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
 
 export class AppComponent {
-  title = 'customerWebApi';
+  
+  baseURL: string = "http://localhost:8080/";
+
   
   request: Request;
   response: Response;
@@ -22,7 +24,7 @@ export class AppComponent {
 
   logout() {
     // Moving to login page
-    window.location.href = 'http://localhost:8080/';
+    window.location.href = this.baseURL;
     // Invalidates the user session
     this._customerSpa.ajaxLogOut(this.request, this.response);
   }

@@ -71,10 +71,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AppComponent = /** @class */ (function () {
     function AppComponent(_adminSpa) {
         this._adminSpa = _adminSpa;
+        this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
         // Sends the user to the login page
-        window.location.href = 'http://localhost:8080/';
+        window.location.href = this.baseURL;
         // Invalidates the user session
         this._adminSpa.ajaxLogOut(this.request, this.response);
     };
@@ -837,7 +838,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxRemoveCompany = function (c) {
@@ -846,7 +852,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxUpdateCompany = function (c) {
@@ -855,7 +866,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCompanies();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetAllCompanies = function () {
@@ -869,7 +885,12 @@ var AdminSpaService = /** @class */ (function () {
                 _this.companiesList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetCompanyById = function (companyId) {
@@ -882,8 +903,13 @@ var AdminSpaService = /** @class */ (function () {
             _this.companyToGet.setPassword(tempCompany.password);
             _this.companyToGet.setEmail(tempCompany.email);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetCompanyByName = function (companyName) {
@@ -896,8 +922,13 @@ var AdminSpaService = /** @class */ (function () {
             _this.companyToGet.setPassword(tempCompany.password);
             _this.companyToGet.setEmail(tempCompany.email);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     //***********************************
@@ -909,7 +940,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxRemoveCustomer = function (c) {
@@ -918,7 +954,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxUpdateCustomer = function (c) {
@@ -927,7 +968,12 @@ var AdminSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCustomers();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetAllCustomers = function () {
@@ -943,7 +989,12 @@ var AdminSpaService = /** @class */ (function () {
                 _this.customersList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetCustomerById = function (customerId) {
@@ -955,8 +1006,13 @@ var AdminSpaService = /** @class */ (function () {
             _this.customerToGet.setName(tempCustomer.name);
             _this.customerToGet.setPassword(tempCustomer.password);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxGetCustomerByName = function (customerName) {
@@ -968,8 +1024,13 @@ var AdminSpaService = /** @class */ (function () {
             _this.customerToGet.setName(tempCustomer.name);
             _this.customerToGet.setPassword(tempCustomer.password);
         }, function (err) {
-            _this.showSmallTable = false;
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.showSmallTable = false;
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService.prototype.ajaxLogOut = function (request, response) {
@@ -980,7 +1041,12 @@ var AdminSpaService = /** @class */ (function () {
                 type: 'info',
             });
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     AdminSpaService = __decorate([

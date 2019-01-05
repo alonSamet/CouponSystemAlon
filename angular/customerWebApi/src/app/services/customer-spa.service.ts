@@ -41,7 +41,11 @@ export class CustomerSpaService {
           this.ajaxGetAllCoupons();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -54,7 +58,11 @@ export class CustomerSpaService {
           this.ajaxGetAllPurchasedCoupons();
         },
         (err) => {
-          this.swalWithBootstrapButtons(err._body)
+          if (err.status == 403) {
+            window.location.href = this.baseURL;
+          } else {
+            this.swalWithBootstrapButtons(err._body)
+          }
         }
       )
   }
@@ -70,7 +78,11 @@ export class CustomerSpaService {
         }
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -84,13 +96,16 @@ export class CustomerSpaService {
         for (let item of tempList) {
           this.purchasedCouponsList.push(item);
         }
-        if (this.purchasedCouponsList.length==0){
+        if (this.purchasedCouponsList.length == 0) {
           this.swalWithBootstrapButtons('You do not have any purchased coupons')
         }
       },
       (err) => {
-
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -104,12 +119,16 @@ export class CustomerSpaService {
         for (let item of tempList) {
           this.purchasedCouponsList.push(item);
         }
-        if (this.purchasedCouponsList.length==0){
+        if (this.purchasedCouponsList.length == 0) {
           this.swalWithBootstrapButtons('You do not have purchased coupons of this type')
         }
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -123,12 +142,16 @@ export class CustomerSpaService {
         for (let item of tempList) {
           this.purchasedCouponsList.push(item);
         }
-        if (this.purchasedCouponsList.length==0){
+        if (this.purchasedCouponsList.length == 0) {
           this.swalWithBootstrapButtons('You do not have purchased coupons below this price')
         }
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -142,7 +165,11 @@ export class CustomerSpaService {
         this.customerToGet.setPassword(tempCustomer.password);
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }
@@ -156,7 +183,11 @@ export class CustomerSpaService {
         })
       },
       (err) => {
-        this.swalWithBootstrapButtons(err._body)
+        if (err.status == 403) {
+          window.location.href = this.baseURL;
+        } else {
+          this.swalWithBootstrapButtons(err._body)
+        }
       }
     )
   }

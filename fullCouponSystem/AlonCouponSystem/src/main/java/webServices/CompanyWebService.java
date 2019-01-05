@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import beans.Coupon;
 import beans.CouponType;
 import exceptions.CouponSystemException;
+import facades.AdminFacade;
 import facades.ClientFacade;
 import facades.CompanyFacade;
+import facades.CustomerFacade;
 
 /**
  * The company web service handles the HTTP requests sent from the company web
@@ -51,8 +53,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/createcoupon", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> createCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			cf.createCoupon(coupon);
 			return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.TEXT_MARKDOWN)
 					.body("The coupon \"" + coupon.getTitle() + "\" was created");
@@ -75,8 +82,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/removecoupon", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> removeCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			cf.removeCoupon(coupon);
 			return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_MARKDOWN)
 					.body("The coupon \"" + coupon.getTitle() + "\" was removed");
@@ -99,8 +111,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/updatecoupon", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> updateCoupon(@RequestBody Coupon coupon, HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			cf.updateCoupon(coupon);
 			return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_MARKDOWN)
 					.body("The coupon \"" + coupon.getTitle() + "\" was updated");
@@ -123,8 +140,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getmycouponbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponById(@PathVariable("id") long id, HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCouponById(id));
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).contentType(MediaType.TEXT_PLAIN)
@@ -145,8 +167,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getmycouponbytitle/{title}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponByTitle(@PathVariable("title") String title,
 			HttpServletRequest req) throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCouponByTitle(title));
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).contentType(MediaType.TEXT_PLAIN)
@@ -167,8 +194,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getallmycoupons", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getAllMyCoupons(HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getAllCouponsOfLoggedInCompany());
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
@@ -189,8 +221,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getmycouponsbytype/{type}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByType(@PathVariable("type") CouponType type,
 			HttpServletRequest req) throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			// CouponType type = null;
 			// type = CouponType.valueOf(t.toUpperCase());
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsByType(type));
@@ -213,8 +250,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getmycouponsbytopprice/{topprice}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCouponsByTopPrice(@PathVariable("topprice") Double topPrice,
 			HttpServletRequest req) throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsByTopPrice(topPrice));
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
@@ -236,8 +278,13 @@ public class CompanyWebService {
 	public @ResponseBody ResponseEntity<?> getMyCouponsByEndDate(
 			@PathVariable("enddate") @DateTimeFormat(pattern = "yyyy-MM-dd") java.util.Date endDate,
 			HttpServletRequest req) throws CouponSystemException, ParseException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getCouponsByEndDate(endDate));
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
@@ -256,8 +303,13 @@ public class CompanyWebService {
 	@RequestMapping(value = "/company/getmycompanydetails", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<?> getMyCompanyDetails(HttpServletRequest req)
 			throws CouponSystemException, IOException {
-		CompanyFacade cf = (CompanyFacade) this.getFacade(req);
 		try {
+			ClientFacade clif = this.getFacade(req);
+			if (clif == null || clif instanceof AdminFacade || clif instanceof CustomerFacade) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.TEXT_MARKDOWN)
+						.body("Your session has been expired! Please login again");
+			}
+			CompanyFacade cf = (CompanyFacade) clif;
 			return ResponseEntity.status(HttpStatus.OK).body(cf.getMyCompany());
 		} catch (CouponSystemException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());

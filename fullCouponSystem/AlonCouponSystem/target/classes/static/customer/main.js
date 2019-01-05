@@ -71,11 +71,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AppComponent = /** @class */ (function () {
     function AppComponent(_customerSpa) {
         this._customerSpa = _customerSpa;
-        this.title = 'customerWebApi';
+        this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
         // Moving to login page
-        window.location.href = 'http://localhost:8080/';
+        window.location.href = this.baseURL;
         // Invalidates the user session
         this._customerSpa.ajaxLogOut(this.request, this.response);
     };
@@ -366,7 +366,7 @@ module.exports = "\r\n#shadow {\r\n    text-shadow: 1px 1px;\r\n}\r\n\r\n#center
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n  This component displays all coupons that can be purchased by the logged-in customer, \r\n  and allows the customer to purchase them.\r\n-->\r\n\r\n<div class=\"container\">\r\n\r\n  <div class=\"row\">\r\n    <h3 id=\"centerh\">\r\n      <span class=\"label label-success\"> All Coupons </span>\r\n    </h3>\r\n  </div>\r\n  <br>\r\n\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <br>\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Show all coupons that can be purchased by the logged-in customer -->\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let c of allCouponsList; let i = index\" class=\"col-md-3\">\r\n      <div class=\"thumbnail\">\r\n        <img [src]=c.image class=\"img-rounded\" width=\"480\" height=\"280\" id=\"img\">\r\n        <div class=\"caption\">\r\n          <h3 id=\"centerh\">\r\n            <b>{{c.title}} </b>\r\n          </h3>\r\n          <hr style=\"border: 1px solid rgb(5, 5, 5);\">\r\n          <p id=\"centerh\"> {{c.message}} </p>\r\n          <hr style=\"border: 1px solid rgb(0, 0, 0);\">\r\n          <ul>\r\n            <li>\r\n              <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS\r\n            </li>\r\n            <li>\r\n              <b> Coupon Type: </b> &nbsp; {{c.couponType}}\r\n            </li>\r\n            <li>\r\n              <b> Start Date: </b> &nbsp; {{c.startDate}}\r\n            </li>\r\n            <li>\r\n              <b> End Date: </b> &nbsp; {{c.endDate}}\r\n            </li>\r\n            <li>\r\n              <b> Amount: </b> &nbsp; {{c.amount}}\r\n            </li>\r\n            <li>\r\n              <b> Coupon ID: </b> &nbsp; {{c.id}}\r\n            </li>\r\n          </ul>\r\n          <br>\r\n          <p id=\"centerh\">\r\n            <button class=\"btn-lg btn btn-warning\" (click)=\"purchaseCoupon(i)\"> Purchase it!\r\n              <span class=\"glyphicon glyphicon-shopping-cart\"></span>\r\n            </button>\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <br>\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>"
+module.exports = "<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<!--\r\n  This component displays all coupons that can be purchased by the logged-in customer, \r\n  and allows the customer to purchase them.\r\n-->\r\n\r\n<div class=\"container\">\r\n\r\n  <div class=\"row\">\r\n    <h3 id=\"centerh\">\r\n      <span class=\"label label-success\"> All Coupons </span>\r\n    </h3>\r\n  </div>\r\n  <br>\r\n\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <br>\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <!-- Show all coupons that can be purchased by the logged-in customer -->\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let c of allCouponsList; let i = index\" class=\"col-md-3\">\r\n      <div class=\"thumbnail\">\r\n        <img [src]=c.image class=\"img-rounded\" width=\"480\" height=\"280\" id=\"img\">\r\n        <div class=\"caption\">\r\n          <h3 id=\"centerh\">\r\n            <b>{{c.title}} </b>\r\n          </h3>\r\n          <hr style=\"border: 1px solid rgb(5, 5, 5);\">\r\n          <p id=\"centerh\"> {{c.message}} </p>\r\n          <hr style=\"border: 1px solid rgb(0, 0, 0);\">\r\n          <ul>\r\n            <li>\r\n              <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS\r\n            </li>\r\n            <li>\r\n              <b> Coupon Type: </b> &nbsp; {{c.couponType}}\r\n            </li>\r\n            <li>\r\n              <b> Start Date: </b> &nbsp; {{c.startDate}}\r\n            </li>\r\n            <li>\r\n              <b> End Date: </b> &nbsp; {{c.endDate}}\r\n            </li>\r\n            <li>\r\n              <b> Amount: </b> &nbsp; {{c.amount}}\r\n            </li>\r\n            <li>\r\n              <b> Coupon ID: </b> &nbsp; {{c.id}}\r\n            </li>\r\n          </ul>\r\n          <br>\r\n          <p id=\"centerh\">\r\n            <button class=\"btn-lg btn btn-warning\" (click)=\"purchaseCoupon(i)\"> Purchase it!\r\n              <span class=\"glyphicon glyphicon-shopping-cart\"></span>\r\n            </button>\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n\r\n  <!-- Go to purchased coupons page -->\r\n  <div class=\"row\">\r\n    <div id=\"button\">\r\n      <div id=\"centerh\">\r\n        <button class=\"btn-lg btn btn-warning\" routerLink=\"/mypurchasedcoupons\">\r\n          Go to my purchased coupons list\r\n          <span class=\"warning\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -800,7 +800,12 @@ var CustomerSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllCoupons();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxRemovePurchasedCoupon = function (c) {
@@ -809,7 +814,12 @@ var CustomerSpaService = /** @class */ (function () {
             .subscribe(function (resp) {
             _this.ajaxGetAllPurchasedCoupons();
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxGetAllCoupons = function () {
@@ -823,7 +833,12 @@ var CustomerSpaService = /** @class */ (function () {
                 _this.allCouponsList.push(item);
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCoupons = function () {
@@ -840,7 +855,12 @@ var CustomerSpaService = /** @class */ (function () {
                 _this.swalWithBootstrapButtons('You do not have any purchased coupons');
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCouponsByType = function (couponType) {
@@ -857,7 +877,12 @@ var CustomerSpaService = /** @class */ (function () {
                 _this.swalWithBootstrapButtons('You do not have purchased coupons of this type');
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxGetAllPurchasedCouponsByTopPrice = function (couponTopPrice) {
@@ -874,7 +899,12 @@ var CustomerSpaService = /** @class */ (function () {
                 _this.swalWithBootstrapButtons('You do not have purchased coupons below this price');
             }
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxGetMyDetails = function () {
@@ -885,7 +915,12 @@ var CustomerSpaService = /** @class */ (function () {
             _this.customerToGet.setName(tempCustomer.name);
             _this.customerToGet.setPassword(tempCustomer.password);
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService.prototype.ajaxLogOut = function (request, response) {
@@ -896,7 +931,12 @@ var CustomerSpaService = /** @class */ (function () {
                 type: 'info',
             });
         }, function (err) {
-            _this.swalWithBootstrapButtons(err._body);
+            if (err.status == 403) {
+                window.location.href = _this.baseURL;
+            }
+            else {
+                _this.swalWithBootstrapButtons(err._body);
+            }
         });
     };
     CustomerSpaService = __decorate([
