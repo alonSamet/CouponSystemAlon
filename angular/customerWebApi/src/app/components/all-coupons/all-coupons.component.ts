@@ -17,6 +17,12 @@ and allows the customer to purchase them.
 
 export class AllCouponsComponent implements OnInit {
 
+  swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: true,
+  })
+
   allCouponsList: Coupon[] = new Array<Coupon>();
 
   constructor(private _customerSpa: CustomerSpaService, private router: Router) {
@@ -30,12 +36,8 @@ export class AllCouponsComponent implements OnInit {
 
   purchaseCoupon(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+
+    this.swalWithBootstrapButtons({
       title: 'Purchase the Coupon "' + this.allCouponsList[index].title + '"?',
       type: 'question',
       showCancelButton: true,
@@ -46,7 +48,7 @@ export class AllCouponsComponent implements OnInit {
       if (result.value) {
         // call ajax method in the customer service
         this._customerSpa.ajaxPurchaseCoupon(this.allCouponsList[index]);
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
           title: 'The coupon "' + this.allCouponsList[index].title + '" was successfully purchased!',
           type: 'success',
           showCancelButton: true,

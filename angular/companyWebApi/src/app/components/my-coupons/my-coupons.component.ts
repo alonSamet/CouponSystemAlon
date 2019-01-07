@@ -18,6 +18,12 @@ and enables the company to create new coupon, update Existing coupon & show deta
 
 export class MyCouponsComponent implements OnInit {
 
+  swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: true,
+  })
+
   couponsList: Coupon[] = new Array<Coupon>();
   newCoupon: Coupon = new Coupon(0, "", null, null, 0, "", "", 0, "");
   updatedCoupon: Coupon = new Coupon(0, "", null, null, 0, "", "", 0, "");
@@ -100,12 +106,7 @@ export class MyCouponsComponent implements OnInit {
 
   createCoupon(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Create New Coupon?',
       type: 'question',
       showCancelButton: true,
@@ -116,7 +117,7 @@ export class MyCouponsComponent implements OnInit {
       if (result.value) {
         // call ajax method in service
         this._companySpa.ajaxCreateCoupon(this.newCoupon);
-        swalWithBootstrapButtons('The new coupon "' + this.newCoupon.title + '" was created !')
+        this.swalWithBootstrapButtons('The new coupon "' + this.newCoupon.title + '" was created !')
       } else if (
         result.dismiss === swal.DismissReason.cancel
       ) { }
@@ -125,12 +126,7 @@ export class MyCouponsComponent implements OnInit {
 
   removeCoupon(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Are you sure you want to delete the coupon "' + this.couponsList[index].title + '" ?',
       text: "You won't be able to revert this !",
       type: 'warning',
@@ -142,19 +138,14 @@ export class MyCouponsComponent implements OnInit {
       if (result.value) {
         // call ajax method in service
         this._companySpa.ajaxRemoveCoupon(this.couponsList[index]);
-        swalWithBootstrapButtons('The coupon "' + this.couponsList[index].title + '"  was deleted!')
+        this.swalWithBootstrapButtons('The coupon "' + this.couponsList[index].title + '"  was deleted!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
     })
   }
 
   updateCoupon() {  //Company can update only its coupon's price & end date
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Update details of the coupon "' + this.updatedCoupon.title + '" ?',
       type: 'question',
       showCancelButton: true,
@@ -165,7 +156,7 @@ export class MyCouponsComponent implements OnInit {
       if (result.value) {
         // call ajax method in service
         this._companySpa.ajaxUpdateCoupon(this.updatedCoupon);
-        swalWithBootstrapButtons('The coupon "' + this.updatedCoupon.title + '" Was Updated!')
+        this.swalWithBootstrapButtons('The coupon "' + this.updatedCoupon.title + '" Was Updated!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
     })
   }
@@ -182,8 +173,8 @@ export class MyCouponsComponent implements OnInit {
   // ************* methods for ngIf tags: ***************
   // ****************************************************
 
-  
-// This method shows the input form that updates coupon
+
+  // This method shows the input form that updates coupon
   showUpdateCoupon(i) { // Company can update only its coupon's price & end date
     this.showUpdateBool = true;
     this.updatedCoupon.id = this.couponsList[i].id; // Gets the data from the relevant line in the getAllCoupons Table
@@ -197,21 +188,21 @@ export class MyCouponsComponent implements OnInit {
     this.updatedCoupon.image = this.couponsList[i].image;
   }
 
-// This method shows the input form that gets coupon by its id
+  // This method shows the input form that gets coupon by its id
   showGetInputById() {
     this.showGetButtons = false;
     this.showGetInputByIdBool = true;
     this.showGetDetails = true;
   }
 
-// This method shows the input form that gets coupon by its title
+  // This method shows the input form that gets coupon by its title
   showGetInputByTitle() {
     this.showGetButtons = false;
     this.showGetInputByTitleBool = true;
     this.showGetDetails = true;
   }
 
-// This method shows the buttons that gets coupon by its id/title
+  // This method shows the buttons that gets coupon by its id/title
   backToGetButtons() {
     this._companySpa.showSmallTable = false;
     this.showGetInputByTitleBool = false;

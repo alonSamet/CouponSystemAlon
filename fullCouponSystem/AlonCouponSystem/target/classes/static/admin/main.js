@@ -57,6 +57,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_admin_spa_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/admin-spa.service */ "./src/app/services/admin-spa.service.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,16 +70,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = /** @class */ (function () {
     function AppComponent(_adminSpa) {
         this._adminSpa = _adminSpa;
         this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
-        // Sends the user to the login page
-        window.location.href = this.baseURL;
-        // Invalidates the user session
-        this._adminSpa.ajaxLogOut(this.request, this.response);
+        var _this = this;
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
+        // sweet alert
+        swalWithBootstrapButtons({
+            // sweet alert validation message      
+            title: 'Are you sure you want to log out of the system?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, log out',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then(function (result) {
+            if (result.value) {
+                // Invalidates the user session
+                _this._adminSpa.ajaxLogOut(_this.request);
+                // Sends the user to the login page
+                window.location.href = _this.baseURL;
+            }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.DismissReason.cancel) { }
+        });
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -85,9 +108,11 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         })
-        // This component generates the nav bar that allows the access to the other admin SPA components: 
-        // Home, Companies, Customers, About & Logout. In addition, it generates the footer of the system, 
-        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        /*
+        This component generates the nav bar that allows the access to the other admin SPA components:
+        Home, Companies, Customers, About & Logout. In addition, it generates the footer of the system,
+        which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        */
         ,
         __metadata("design:paramtypes", [_services_admin_spa_service__WEBPACK_IMPORTED_MODULE_1__["AdminSpaService"]])
     ], AppComponent);
@@ -372,6 +397,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CompaniesComponent = /** @class */ (function () {
     function CompaniesComponent(_adminSpa) {
         this._adminSpa = _adminSpa;
+        // sweet alert field
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
         this.newCompany = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
         this.updatedCompany = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
         this.companyToGet = new _common_Company__WEBPACK_IMPORTED_MODULE_1__["Company"](0, "", "", "");
@@ -393,14 +424,9 @@ var CompaniesComponent = /** @class */ (function () {
         this._adminSpa.ajaxGetAllCompanies();
     };
     CompaniesComponent.prototype.createCompany = function (index) {
-        var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        var _this = this;
+        this.swalWithBootstrapButtons({
             title: 'Create New Company?',
             type: 'question',
             showCancelButton: true,
@@ -411,7 +437,7 @@ var CompaniesComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in the admin service
                 _this._adminSpa.ajaxCreateCompany(_this.newCompany);
-                swalWithBootstrapButtons('The new company "' + _this.newCompany.name + '" was created !');
+                _this.swalWithBootstrapButtons('The new company "' + _this.newCompany.name + '" was created !');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -419,12 +445,7 @@ var CompaniesComponent = /** @class */ (function () {
     CompaniesComponent.prototype.removeCompany = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Are you sure you want to delete the company "' + this.companiesList[index].name + '" ?',
             text: "You won't be able to revert this !",
             type: 'warning',
@@ -436,7 +457,7 @@ var CompaniesComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in the admin service
                 _this._adminSpa.ajaxRemoveCompany(_this.companiesList[index]);
-                swalWithBootstrapButtons('The company "' + _this.companiesList[index].name + '"  was deleted!');
+                _this.swalWithBootstrapButtons('The company "' + _this.companiesList[index].name + '"  was deleted!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -444,12 +465,7 @@ var CompaniesComponent = /** @class */ (function () {
     CompaniesComponent.prototype.updateCompany = function () {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Update details of the company "' + this.updatedCompany.name + '" ?',
             type: 'question',
             showCancelButton: true,
@@ -460,7 +476,7 @@ var CompaniesComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in the admin service
                 _this._adminSpa.ajaxUpdateCompany(_this.updatedCompany);
-                swalWithBootstrapButtons('The company "' + _this.updatedCompany.name + '" Was Updated!');
+                _this.swalWithBootstrapButtons('The company "' + _this.updatedCompany.name + '" Was Updated!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -573,6 +589,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CustomersComponent = /** @class */ (function () {
     function CustomersComponent(_adminSpa) {
         this._adminSpa = _adminSpa;
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
         this.newCustomer = new _common_Customer__WEBPACK_IMPORTED_MODULE_1__["Customer"](0, "", "");
         this.updatedCustomer = new _common_Customer__WEBPACK_IMPORTED_MODULE_1__["Customer"](0, "", "");
         this.customerToGet = new _common_Customer__WEBPACK_IMPORTED_MODULE_1__["Customer"](0, "", "");
@@ -593,12 +614,7 @@ var CustomersComponent = /** @class */ (function () {
     CustomersComponent.prototype.createCustomer = function () {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Create New Customer?',
             type: 'question',
             showCancelButton: true,
@@ -609,7 +625,7 @@ var CustomersComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._adminSpa.ajaxCreateCustomer(_this.newCustomer);
-                swalWithBootstrapButtons('The new customer "' + _this.newCustomer.name + '" was created !');
+                _this.swalWithBootstrapButtons('The new customer "' + _this.newCustomer.name + '" was created !');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -617,12 +633,7 @@ var CustomersComponent = /** @class */ (function () {
     CustomersComponent.prototype.removeCustomer = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Are you sure you want to delete the customer "' + this.customersList[index].name + '" ?',
             text: "You won't be able to revert this !",
             type: 'warning',
@@ -634,7 +645,7 @@ var CustomersComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._adminSpa.ajaxRemoveCustomer(_this.customersList[index]);
-                swalWithBootstrapButtons('The customer "' + _this.customersList[index].name + '"  was deleted!');
+                _this.swalWithBootstrapButtons('The customer "' + _this.customersList[index].name + '"  was deleted!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -642,12 +653,7 @@ var CustomersComponent = /** @class */ (function () {
     CustomersComponent.prototype.updateCustomer = function () {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Update details of the customer "' + this.updatedCustomer.name + '" ?',
             type: 'question',
             showCancelButton: true,
@@ -658,7 +664,7 @@ var CustomersComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._adminSpa.ajaxUpdateCustomer(_this.updatedCustomer);
-                swalWithBootstrapButtons('The customer "' + _this.updatedCustomer.name + '" Was Updated!');
+                _this.swalWithBootstrapButtons('The customer "' + _this.updatedCustomer.name + '" Was Updated!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
         });
@@ -1033,14 +1039,9 @@ var AdminSpaService = /** @class */ (function () {
             }
         });
     };
-    AdminSpaService.prototype.ajaxLogOut = function (request, response) {
+    AdminSpaService.prototype.ajaxLogOut = function (request) {
         var _this = this;
-        this._http.post(this.baseURL + "admin/logout/", request, response).subscribe(function (resp) {
-            _this.swalWithBootstrapButtons({
-                title: 'You have successfully logged out',
-                type: 'info',
-            });
-        }, function (err) {
+        this._http.post(this.baseURL + "admin/logout/", request).subscribe(function (resp) { }, function (err) {
             if (err.status == 403) {
                 window.location.href = _this.baseURL;
             }

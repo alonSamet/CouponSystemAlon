@@ -57,6 +57,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/customer-spa.service */ "./src/app/services/customer-spa.service.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,16 +70,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = /** @class */ (function () {
     function AppComponent(_customerSpa) {
         this._customerSpa = _customerSpa;
         this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
-        // Moving to login page
-        window.location.href = this.baseURL;
-        // Invalidates the user session
-        this._customerSpa.ajaxLogOut(this.request, this.response);
+        var _this = this;
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
+        // sweet alert:
+        swalWithBootstrapButtons({
+            // sweet alert validation message:  
+            title: 'Are you sure you want to log out of the system?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, log out',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then(function (result) {
+            if (result.value) {
+                // Invalidates the user session:
+                _this._customerSpa.ajaxLogOut(_this.request);
+                // Sends the user to the login page:
+                window.location.href = _this.baseURL;
+            }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.DismissReason.cancel) { }
+        });
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -85,9 +108,11 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         })
-        // This component generates the nav bar that allows the access to the other customer SPA components: 
-        // Home, all Coupons, my Purchased Coupons, My Details, About & Logout. In addition, it generates the footer of the system, 
-        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        /*
+        This component generates the nav bar that allows the access to the other customer SPA components:
+        Home, all Coupons, my Purchased Coupons, My Details, About & Logout. In addition, it generates the footer of the system,
+        which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        */
         ,
         __metadata("design:paramtypes", [_services_customer_spa_service__WEBPACK_IMPORTED_MODULE_1__["CustomerSpaService"]])
     ], AppComponent);
@@ -402,6 +427,11 @@ var AllCouponsComponent = /** @class */ (function () {
     function AllCouponsComponent(_customerSpa, router) {
         this._customerSpa = _customerSpa;
         this.router = router;
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
         this.allCouponsList = new Array();
         this.allCouponsList = this._customerSpa.allCouponsList;
     }
@@ -410,14 +440,9 @@ var AllCouponsComponent = /** @class */ (function () {
         this._customerSpa.ajaxGetAllCoupons();
     };
     AllCouponsComponent.prototype.purchaseCoupon = function (index) {
-        var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        var _this = this;
+        this.swalWithBootstrapButtons({
             title: 'Purchase the Coupon "' + this.allCouponsList[index].title + '"?',
             type: 'question',
             showCancelButton: true,
@@ -428,7 +453,7 @@ var AllCouponsComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in the customer service
                 _this._customerSpa.ajaxPurchaseCoupon(_this.allCouponsList[index]);
-                swalWithBootstrapButtons({
+                _this.swalWithBootstrapButtons({
                     title: 'The coupon "' + _this.allCouponsList[index].title + '" was successfully purchased!',
                     type: 'success',
                     showCancelButton: true,
@@ -665,6 +690,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var MyPurchasedCouponsComponent = /** @class */ (function () {
     function MyPurchasedCouponsComponent(_customerSpa) {
         this._customerSpa = _customerSpa;
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
         this.purchasedCouponsList = new Array();
         this.topPriceFilter = 0;
         //ngIf boolean variables:
@@ -686,12 +716,7 @@ var MyPurchasedCouponsComponent = /** @class */ (function () {
     MyPurchasedCouponsComponent.prototype.removePurchasedCoupon = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Are you sure you want to remove the coupon "' + this.purchasedCouponsList[index].title + '" from your purchased coupons list?',
             text: "You won't be able to revert this !",
             type: 'warning',
@@ -703,7 +728,7 @@ var MyPurchasedCouponsComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._customerSpa.ajaxRemovePurchasedCoupon(_this.purchasedCouponsList[index]);
-                swalWithBootstrapButtons('The coupon "' + _this.purchasedCouponsList[index].title + '"  was deleted!');
+                _this.swalWithBootstrapButtons('The coupon "' + _this.purchasedCouponsList[index].title + '"  was deleted!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.DismissReason.cancel) { }
         });
@@ -923,14 +948,9 @@ var CustomerSpaService = /** @class */ (function () {
             }
         });
     };
-    CustomerSpaService.prototype.ajaxLogOut = function (request, response) {
+    CustomerSpaService.prototype.ajaxLogOut = function (request) {
         var _this = this;
-        this._http.post(this.baseURL + "customer/logout/", request, response).subscribe(function (resp) {
-            _this.swalWithBootstrapButtons({
-                title: 'You have successfully logged out',
-                type: 'info',
-            });
-        }, function (err) {
+        this._http.post(this.baseURL + "customer/logout/", request).subscribe(function (resp) { }, function (err) {
             if (err.status == 403) {
                 window.location.href = _this.baseURL;
             }

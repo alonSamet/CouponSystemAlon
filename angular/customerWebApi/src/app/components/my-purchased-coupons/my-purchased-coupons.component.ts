@@ -17,6 +17,12 @@ the "all coupons" page in order to purchase more coupons.
 
 export class MyPurchasedCouponsComponent implements OnInit {
 
+  swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: true,
+  })
+
   purchasedCouponsList: Coupon[] = new Array<Coupon>();
   topPriceFilter: number = 0;
   typeFilter: string;
@@ -44,12 +50,7 @@ export class MyPurchasedCouponsComponent implements OnInit {
 
   removePurchasedCoupon(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Are you sure you want to remove the coupon "' + this.purchasedCouponsList[index].title + '" from your purchased coupons list?',
       text: "You won't be able to revert this !",
       type: 'warning',
@@ -61,19 +62,19 @@ export class MyPurchasedCouponsComponent implements OnInit {
       if (result.value) {
         // call ajax method in service
         this._customerSpa.ajaxRemovePurchasedCoupon(this.purchasedCouponsList[index]);
-        swalWithBootstrapButtons('The coupon "' + this.purchasedCouponsList[index].title + '"  was deleted!')
+        this.swalWithBootstrapButtons('The coupon "' + this.purchasedCouponsList[index].title + '"  was deleted!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
     })
   }
 
-// This method shows the input form that gets purchased coupons by top price
+  // This method shows the input form that gets purchased coupons by top price
   showTopPriceInputForm() {
     this.showCouponsTable = false;
     this.showTopPriceInputFormBool = true;
     this.showTypeInputFormBool = false;
   }
 
-// This method shows the input form that gets purchased coupons by type
+  // This method shows the input form that gets purchased coupons by type
   showTypeInputForm() {
     this.showCouponsTable = false;
     this.showTopPriceInputFormBool = false;

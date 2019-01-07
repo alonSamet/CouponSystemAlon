@@ -23,7 +23,6 @@ export class CompanySpaService {
   couponToGet: Coupon = new Coupon(0, "", null, null, 0, "", "", 0, "");
   showSmallTable = false;
   request: Request;
-  response: Response;
 
   swalWithBootstrapButtons = swal.mixin({
     confirmButtonClass: 'btn btn-success',
@@ -233,14 +232,9 @@ export class CompanySpaService {
     )
   }
 
-  ajaxLogOut(request, response) {
-    this._http.post(this.baseURL + "company/logout/", request, response).subscribe(
-      (resp) => {
-        this.swalWithBootstrapButtons({
-          title: 'You have successfully logged out',
-          type: 'info',
-        })
-      },
+  ajaxLogOut(request) {
+    this._http.post(this.baseURL + "company/logout/", request).subscribe(
+      (resp) => {},
       (err) => {
         if (err.status == 403) {
           window.location.href = this.baseURL;

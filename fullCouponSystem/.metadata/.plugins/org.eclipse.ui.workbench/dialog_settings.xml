@@ -35,6 +35,7 @@
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\USER\Dropbox\JAVA course\project\part B\csB 05.01.2019 - after adding session time out option .zip"/>
 			<item value="C:\Users\USER\Dropbox\JAVA course\project\part B\csB 02.01.2018 - final version for delivery .zip"/>
 			<item value="C:\Users\USER\Dropbox\JAVA course\project\part B\csB 01.01.2018 - final .zip"/>
 			<item value="C:\Users\USER\Dropbox\JAVA course\project\part B\csB 27.12.18.zip"/>

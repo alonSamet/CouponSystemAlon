@@ -8,13 +8,19 @@ import swal from 'sweetalert2';
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css']
 })
- 
+
 /* 
 This component displays all the companies in the system and enables the admin to create new company, 
 update Existing company & show details of requested company (by its id/name) 
 */
 
 export class CompaniesComponent implements OnInit {
+  // sweet alert field
+  swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: true,
+  })
 
   companiesList: Company[];
   newCompany: Company = new Company(0, "", "", "");
@@ -44,12 +50,8 @@ export class CompaniesComponent implements OnInit {
 
   createCompany(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+
+    this.swalWithBootstrapButtons({
       title: 'Create New Company?',
       type: 'question',
       showCancelButton: true,
@@ -60,7 +62,7 @@ export class CompaniesComponent implements OnInit {
       if (result.value) {
         // call ajax method in the admin service
         this._adminSpa.ajaxCreateCompany(this.newCompany);
-        swalWithBootstrapButtons('The new company "' + this.newCompany.name + '" was created !')
+        this.swalWithBootstrapButtons('The new company "' + this.newCompany.name + '" was created !')
       } else if (
         result.dismiss === swal.DismissReason.cancel
       ) { }
@@ -69,12 +71,7 @@ export class CompaniesComponent implements OnInit {
 
   removeCompany(index: number) {
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Are you sure you want to delete the company "' + this.companiesList[index].name + '" ?',
       text: "You won't be able to revert this !",
       type: 'warning',
@@ -86,19 +83,14 @@ export class CompaniesComponent implements OnInit {
       if (result.value) {
         // call ajax method in the admin service
         this._adminSpa.ajaxRemoveCompany(this.companiesList[index]);
-        swalWithBootstrapButtons('The company "' + this.companiesList[index].name + '"  was deleted!')
+        this.swalWithBootstrapButtons('The company "' + this.companiesList[index].name + '"  was deleted!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
     })
   }
 
   updateCompany() { // admin cannot update company name
     // sweet alert
-    const swalWithBootstrapButtons = swal.mixin({
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true,
-    })
-    swalWithBootstrapButtons({
+    this.swalWithBootstrapButtons({
       title: 'Update details of the company "' + this.updatedCompany.name + '" ?',
       type: 'question',
       showCancelButton: true,
@@ -109,7 +101,7 @@ export class CompaniesComponent implements OnInit {
       if (result.value) {
         // call ajax method in the admin service
         this._adminSpa.ajaxUpdateCompany(this.updatedCompany);
-        swalWithBootstrapButtons('The company "' + this.updatedCompany.name + '" Was Updated!')
+        this.swalWithBootstrapButtons('The company "' + this.updatedCompany.name + '" Was Updated!')
       } else if (result.dismiss === swal.DismissReason.cancel) { }
     })
     this.showDataOnTable = true;

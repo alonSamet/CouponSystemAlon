@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="facades.CustomerFacade"/>
 <fullyQualifiedTypeName name="exceptions.CouponSystemException"/>
 <fullyQualifiedTypeName name="beans.Company"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -9,8 +8,10 @@
 <fullyQualifiedTypeName name="beans.Customer"/>
 <fullyQualifiedTypeName name="beans.Coupon"/>
 <fullyQualifiedTypeName name="beans.CouponType"/>
-<fullyQualifiedTypeName name="facades.ClientFacade"/>
 <fullyQualifiedTypeName name="webServices.accessFilters.FacadeHelper"/>
 <fullyQualifiedTypeName name="facades.AdminFacade"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="facades.CompanyFacade"/>
+<fullyQualifiedTypeName name="facades.CustomerFacade"/>
+<fullyQualifiedTypeName name="facades.ClientFacade"/>
 </qualifiedTypeNameHistroy>

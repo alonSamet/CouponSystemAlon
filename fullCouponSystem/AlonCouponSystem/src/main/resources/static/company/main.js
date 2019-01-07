@@ -58,6 +58,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/company-spa.service */ "./src/app/services/company-spa.service.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -67,10 +70,30 @@ var AppComponent = /** @class */ (function () {
         this.baseURL = "http://localhost:8080/";
     }
     AppComponent.prototype.logout = function () {
-        // Moving to login page
-        window.location.href = this.baseURL;
-        // Invalidates the user session
-        this._companySpa.ajaxLogOut(this.request, this.response);
+        var _this = this;
+        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
+        // sweet alert:
+        swalWithBootstrapButtons({
+            // sweet alert validation message:     
+            title: 'Are you sure you want to log out of the system?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, log out',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then(function (result) {
+            if (result.value) {
+                // Invalidates the user session:
+                _this._companySpa.ajaxLogOut(_this.request);
+                // Sends the user to the login page:
+                window.location.href = _this.baseURL;
+            }
+            else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.DismissReason.cancel) { }
+        });
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -78,9 +101,11 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         })
-        // This component generates the nav bar that allows the access to the other company SPA components: 
-        // Home, My Company Coupons, My Company Details, About & Logout. In addition, it generates the footer of the system, 
-        // which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        /*
+        This component generates the nav bar that allows the access to the other company SPA components:
+        Home, My Company Coupons, My Company Details, About & Logout. In addition, it generates the footer of the system,
+        which contains various ways (Gmail, LinkedIn & Facebook) to contact the system author.
+        */
         ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_company_spa_service__WEBPACK_IMPORTED_MODULE_2__["CompanySpaService"]])
     ], AppComponent);
@@ -510,6 +535,11 @@ __webpack_require__.r(__webpack_exports__);
 var MyCouponsComponent = /** @class */ (function () {
     function MyCouponsComponent(_companySpa) {
         this._companySpa = _companySpa;
+        this.swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: true,
+        });
         this.couponsList = new Array();
         this.newCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
         this.updatedCoupon = new _common_Coupon__WEBPACK_IMPORTED_MODULE_2__["Coupon"](0, "", null, null, 0, "", "", 0, "");
@@ -579,12 +609,7 @@ var MyCouponsComponent = /** @class */ (function () {
     MyCouponsComponent.prototype.createCoupon = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Create New Coupon?',
             type: 'question',
             showCancelButton: true,
@@ -595,7 +620,7 @@ var MyCouponsComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._companySpa.ajaxCreateCoupon(_this.newCoupon);
-                swalWithBootstrapButtons('The new coupon "' + _this.newCoupon.title + '" was created !');
+                _this.swalWithBootstrapButtons('The new coupon "' + _this.newCoupon.title + '" was created !');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
@@ -603,12 +628,7 @@ var MyCouponsComponent = /** @class */ (function () {
     MyCouponsComponent.prototype.removeCoupon = function (index) {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Are you sure you want to delete the coupon "' + this.couponsList[index].title + '" ?',
             text: "You won't be able to revert this !",
             type: 'warning',
@@ -620,7 +640,7 @@ var MyCouponsComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._companySpa.ajaxRemoveCoupon(_this.couponsList[index]);
-                swalWithBootstrapButtons('The coupon "' + _this.couponsList[index].title + '"  was deleted!');
+                _this.swalWithBootstrapButtons('The coupon "' + _this.couponsList[index].title + '"  was deleted!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
@@ -628,12 +648,7 @@ var MyCouponsComponent = /** @class */ (function () {
     MyCouponsComponent.prototype.updateCoupon = function () {
         var _this = this;
         // sweet alert
-        var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true,
-        });
-        swalWithBootstrapButtons({
+        this.swalWithBootstrapButtons({
             title: 'Update details of the coupon "' + this.updatedCoupon.title + '" ?',
             type: 'question',
             showCancelButton: true,
@@ -644,7 +659,7 @@ var MyCouponsComponent = /** @class */ (function () {
             if (result.value) {
                 // call ajax method in service
                 _this._companySpa.ajaxUpdateCoupon(_this.updatedCoupon);
-                swalWithBootstrapButtons('The coupon "' + _this.updatedCoupon.title + '" Was Updated!');
+                _this.swalWithBootstrapButtons('The coupon "' + _this.updatedCoupon.title + '" Was Updated!');
             }
             else if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.DismissReason.cancel) { }
         });
@@ -931,14 +946,9 @@ var CompanySpaService = /** @class */ (function () {
             }
         });
     };
-    CompanySpaService.prototype.ajaxLogOut = function (request, response) {
+    CompanySpaService.prototype.ajaxLogOut = function (request) {
         var _this = this;
-        this._http.post(this.baseURL + "company/logout/", request, response).subscribe(function (resp) {
-            _this.swalWithBootstrapButtons({
-                title: 'You have successfully logged out',
-                type: 'info',
-            });
-        }, function (err) {
+        this._http.post(this.baseURL + "company/logout/", request).subscribe(function (resp) { }, function (err) {
             if (err.status == 403) {
                 window.location.href = _this.baseURL;
             }
