@@ -8,10 +8,10 @@ import facades.CompanyFacade;
 import facades.CustomerFacade;
 
 /**
- * The CouponSystem class is a singleton that allows access to the rest of the
- * system (by loging in and returning facade to the user), shuts down the system
- * (closes all connections) and activates the cleaner thread (that remove all
- * the expired coupons).
+ * The CouponSystem class is a singleton that: 
+ * 1) allows access to the rest of the system (by logging in and returning facade to the user)
+ * 2) shuts down the system (closes all connections)
+ * 3) activates the cleaner thread (that remove all the expired coupons).
  */
 public class CouponSystem {
 
@@ -70,7 +70,6 @@ public class CouponSystem {
 				return customerFacade;
 			}
 		}
-
 		return null;
 	}
 

@@ -1,8 +1,8 @@
 //******* disabled! *******
-
+//
 //package cleanerTask;
-
-
+//
+//
 //
 //import java.util.Date;
 //import beans.Coupon;
@@ -13,10 +13,8 @@
 //
 ///**
 // * This task is stating inside a thread in the coupon system singleton. it
-// * will run ones a day and rest for 24 hours . It can be changed by the
-// * setQuit method (The singleton does this).
-// * 
-// *
+// * will run ones a day and rest for 24 hours. It can be changed by the coupon 
+// * system singleton (via the setQuit method).
 // */
 //public class TheCleanerTask implements Runnable {
 //
@@ -41,7 +39,7 @@
 //	public void run() {
 //		while (!quit) {
 //			try {
-//				for (Coupon c : couponDb.getCouponsOfAllCompanies()) {
+//				for (Coupon c : couponDb.getAllCoupons()) {
 //					if (c.getEndDate().before(new Date(System.currentTimeMillis()))) {
 //						customerDb.removeFromCustomerCouponTable(c.getId());
 //						companyDb.removeFromCompanyCouponTable(c.getId());

@@ -8,85 +8,86 @@
   and allows the customer to purchase them.
 -->
 
-<div class="container">
+<div class="row">
+  <h3 id="centerh">
+    <span class="label label-success"> All Coupons </span>
+  </h3>
+</div>
+<br>
 
-  <div class="row">
-    <h3 id="centerh">
-      <span class="label label-success"> All Coupons </span>
-    </h3>
-  </div>
+
+<!-- Go to purchased coupons page -->
+<div class="row">
   <br>
-
-
-  <!-- Go to purchased coupons page -->
-  <div class="row">
-    <br>
-    <div id="button">
-      <div id="centerh">
-        <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
-          Go to my purchased coupons list
-          <span class="warning"></span>
-        </button>
-      </div>
+  <div id="button">
+    <div id="centerh">
+      <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
+        Go to my purchased coupons list
+        <span class="warning"></span>
+      </button>
     </div>
   </div>
+</div>
 
-
-  <!-- Show all coupons that can be purchased by the logged-in customer -->
-  <div class="row">
-    <div *ngFor="let c of allCouponsList; let i = index" class="col-md-3">
-      <div class="thumbnail">
-        <img [src]=c.image class="img-rounded" width="480" height="280" id="img">
-        <div class="caption">
-          <h3 id="centerh">
-            <b>{{c.title}} </b>
-          </h3>
-          <hr style="border: 1px solid rgb(5, 5, 5);">
-          <p id="centerh"> {{c.message}} </p>
-          <hr style="border: 1px solid rgb(0, 0, 0);">
-          <ul>
-            <li>
-              <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS
-            </li>
-            <li>
-              <b> Coupon Type: </b> &nbsp; {{c.couponType}}
-            </li>
-            <li>
-              <b> Start Date: </b> &nbsp; {{c.startDate}}
-            </li>
-            <li>
-              <b> End Date: </b> &nbsp; {{c.endDate}}
-            </li>
-            <li>
-              <b> Amount: </b> &nbsp; {{c.amount}}
-            </li>
-            <li>
-              <b> Coupon ID: </b> &nbsp; {{c.id}}
-            </li>
-          </ul>
+<!-- Show all coupons that can be purchased by the logged-in customer -->
+<div class="row">
+  <div *ngFor="let c of allCouponsList; let i = index" class="col-md-3">
+    <div class="thumbnail">
+      <img [src]=c.image class="img-rounded" id="img">
+      <div class="caption">
+        <h3 id="centerh">
+          <b>{{c.title}} </b>
+        </h3>
+        <hr style="border: 1px solid rgb(5, 5, 5);">
+        <p id="centerh"> {{c.message}} </p>
+        <hr style="border: 1px solid rgb(0, 0, 0);">
+        <ul>
+          <li>
+            <b> Price: </b> &nbsp; {{c.price}}&nbsp;NIS
+          </li>
+          <li>
+            <b> Coupon Type: </b> &nbsp; {{c.couponType}}
+          </li>
+          <li>
+            <b> Start Date: </b> &nbsp; {{c.startDate}}
+          </li>
+          <li>
+            <b> End Date: </b> &nbsp; {{c.endDate}}
+          </li>
+          <li>
+            <b> Amount: </b> &nbsp; {{c.amount}}
+          </li>
+          <li>
+            <b> Coupon ID: </b> &nbsp; {{c.id}}
+          </li>
+        </ul>
+        <br>
+        <br>
+        <p id="centerh">
+          <button class="btn-lg btn btn-warning" (click)="purchaseCoupon(i)"> Purchase it!
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+          </button>
           <br>
-          <p id="centerh">
-            <button class="btn-lg btn btn-warning" (click)="purchaseCoupon(i)"> Purchase it!
-              <span class="glyphicon glyphicon-shopping-cart"></span>
-            </button>
-          </p>
-        </div>
+          <br>
+        </p>
       </div>
     </div>
   </div>
+</div>
+<br>
+<br>
 
-  <br>
 
-  <!-- Go to purchased coupons page -->
-  <div class="row">
-    <div id="button">
-      <div id="centerh">
-        <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
-          Go to my purchased coupons list
-          <span class="warning"></span>
-        </button>
-      </div>
+<br>
+
+<!-- Go to purchased coupons page -->
+<div class="row">
+  <div id="button">
+    <div id="centerh">
+      <button class="btn-lg btn btn-warning" routerLink="/mypurchasedcoupons">
+        Go to my purchased coupons list
+        <span class="warning"></span>
+      </button>
     </div>
   </div>
-
 </div>
